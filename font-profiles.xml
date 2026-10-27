@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<font-profiles>
+
+  <profile name="font_World_Name">
+    <image width='152' height='30'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(255,200,50)' yOffset='0' xOffset='0' direction='center' 
+          shrinkToFit='true'/>
+    <group composite='SRC_ATOP' overlay='1'>
+      <gradient colorBottom='rgba(185,137,69,1)' colorTop='rgba(255,255,255,0.0)' 
+                offsetTop='0.0' offsetBottom='0.3' composite='SRC' overlay='1'/>
+      <texture name='texture-1.png' overlay='0.5' composite='MULTIPLY' />
+    </group>  
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <hsb-adjust saturation='0.25' brightness='0.15'/>
+    <blur strength='0.3'/> 
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>  
+  
+  <profile name="font_Hero_Name">
+    <image width='152' height='60'/>
+    <font name='MORPHEUS.TTF' size='28' color='rgb(255,200,50)' yOffset='0' xOffset='0' direction='center' 
+          shrinkToFit='true' paddingX='6'/>
+    <group composite='SRC_ATOP' overlay='1'>
+      <gradient colorBottom='rgba(185,137,69,1)' colorTop='rgba(255,255,255,0.0)' 
+                offsetTop='0.0' offsetBottom='0.3' composite='SRC' overlay='1'/>
+      <texture name='texture-1.png' overlay='0.5' composite='MULTIPLY' />
+    </group>  
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <hsb-adjust saturation='0.25' brightness='0.15'/>
+    <blur strength='0.3'/> 
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+  
+  <profile name="font_Hero_Title">
+    <image width='152' height='40'/>
+    <font name='MORPHEUS.TTF' size='15' color='rgb(255,255,255)' yOffset='0' xOffset='0' direction='right' shrinkToFit='true'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='4' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+
+  <profile name="font_Hero_Class">
+    <image width='139' height='50'/>
+    <font name='MORPHEUS.TTF' size='13' color='rgb(255,200,50)' yOffset='0' xOffset='0' direction='left' 
+          shrinkToFit='true'/>
+    <texture name='texture-1.png' overlay='0.2' composite='SRC_ATOP' />
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <gradient colorTop='rgba(185,137,69,1)' colorBottom='rgba(255,255,255,0.0)' 
+              offsetTop='0.0' offsetBottom='0.2' composite='SRC_ATOP' overlay='1'/>
+    <hsb-adjust saturation='0.5'/>
+    <contrast brightness='1.3'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+
+  <profile name="font_Hero_Race">
+    <image width='88' height='50'/>
+    <font name='MORPHEUS.TTF' size='13' color='rgb(255,200,50)' yOffset='0' xOffset='0' direction='left' 
+          shrinkToFit='true'/>
+    <texture name='texture-1.png' overlay='0.2' composite='SRC_ATOP' />
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <gradient colorTop='rgba(185,137,69,1)' colorBottom='rgba(255,255,255,0.0)' 
+              offsetTop='0.0' offsetBottom='0.2' composite='SRC_ATOP' overlay='1'/>
+    <hsb-adjust saturation='0.5'/>
+    <contrast brightness='1.3'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+
+
+  <profile name="font_Hero_Level">
+    <image width='50' height='22'/>
+    <font name='MORPHEUS.TTF' size='17' color='rgb(255,200,50)' yOffset='-8' xOffset='0' direction='right' 
+          shrinkToFit='true'/>
+    <texture name='texture-1.png' overlay='0.2' composite='SRC_ATOP' />
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <gradient colorTop='rgba(185,137,69,1)' colorBottom='rgba(255,255,255,0.0)' 
+              offsetTop='0.0' offsetBottom='0.2' composite='SRC_ATOP' overlay='1'/>
+    <hsb-adjust saturation='0.5'/>
+    <contrast brightness='1.1'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+
+  <profile name="font_Block_Headline">
+    <image width='152' height='60'/>
+    <font name='MORPHEUS.TTF' size='28' color='rgb(255,200,50)' yOffset='0' xOffset='0' direction='center'
+          shrinkToFit='true' paddingX='6'/>
+    <group composite='SRC_ATOP' overlay='1'>
+      <gradient colorBottom='rgba(185,137,69,1)' colorTop='rgba(255,255,255,0.0)'
+                offsetTop='0.0' offsetBottom='0.3' composite='SRC' overlay='1'/>
+      <texture name='texture-1.png' overlay='0.5' composite='MULTIPLY' />
+    </group>
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1'
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <hsb-adjust saturation='0.25' brightness='0.15'/>
+    <blur strength='0.3'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim x='false'/>
+  </profile>
+  
+  
+  <profile name="font_Table_Caption">
+    <image width='1000' height='30'/>
+    <font name='MORPHEUS.TTF' size='18' color='rgb(255,200,50)' yOffset='0'/>
+    <gradient colorTop='rgba(185,137,69,1)' colorBottom='rgba(255,255,255,0.0)' 
+              offsetTop='0.7' offsetBottom='0.1' composite='SRC_ATOP' overlay='1'/>
+    <texture name='texture-1.png' overlay='0.2' composite='SRC_ATOP' />
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <hsb-adjust saturation='0.25' brightness='0.15'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_Table_Head">
+    <image width='1000' height='30'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(255,255,255)' yOffset='0'/>
+    <texture name='texture-1.png' overlay='0.35' composite='SRC_ATOP' />
+    <relief angle='120' azimuth='3' elevation='0.2' intensity='1' 
+            bumbHeight='0.3' bumpSoftness='1' bumpShape='4' overlay='0.2' composite='SRC_ATOP' />
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='4' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='7' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_bbcode_h1 font_headline_h1">
+    <image width='600' height='40'/>
+    <font name='MORPHEUS.TTF' size='18' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-1">
+    <image width='600' height='40'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-1-selected">
+   <image width='600' height='40'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <contrast brightness='1.5'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <border color='#000000' pixel='1' intensity='1.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='1' dx='0' dy='0' intensity='5.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='3' dx='0' dy='0' intensity='5.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='2' dx='0' dy='0' intensity='5.0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-1-hovered">
+    <image width='600' height='40'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(219,255,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(2,2,255,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-2 font_menu-3 font_bbcode_h2 font_bbcode_h3">
+    <image width='600' height='90'/>
+    <font name='MORPHEUS.TTF' size='14' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-2-selected font_menu-3-selected">
+   <image width='600' height='90'/>
+    <font name='MORPHEUS.TTF' size='14' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <contrast brightness='1.5'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <border color='#000000' pixel='1' intensity='1.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='1' dx='0' dy='0' intensity='5.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='3' dx='0' dy='0' intensity='5.0'/>
+    <shadow color='rgb(255,50,50)' overlay='1' blur='2' dx='0' dy='0' intensity='5.0'/>
+    <trim/>
+  </profile>
+
+  <profile name="font_menu-2-hovered font_menu-3-hovered">
+    <image width='600' height='90'/>
+    <font name='MORPHEUS.TTF' size='14' color='rgb(219,255,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(2,2,255,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(2,2,255)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>
+  
+  <profile name="footer_link">
+    <image width='600' height='40'/>
+    <font name='MORPHEUS.TTF' size='16' color='rgb(255,219,50)' />
+    <relief angle='120' azimuth='0' elevation='0.15' intensity='2.5' 
+            bumbHeight='5.0' bumpSoftness='1.0' bumpShape='1' composite='SRC_OVER' overlay='0.6'/>
+    <gradient colorTop='rgba(255,255,255,0)' colorBottom='rgba(82,2,2,0.5)' 
+              offsetTop='0.5' offsetBottom='0.1' composite='SRC_ATOP'/>
+    <hsb-adjust saturation='0.2'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='1' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='3' dx='0' dy='0'/>
+    <shadow color='rgb(82,2,2)' overlay='1' blur='5' dx='0' dy='0'/>
+    <trim/>
+  </profile>    
+  
+</font-profiles>
+        
