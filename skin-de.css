@@ -3136,7 +3136,7 @@ table.ratetable > * > tr > th {
  ******************************************************************************/
 @media screen and (max-width: 960px) {
 
-    /* 1. Grund-Layout: Verhindert horizontales Wackeln & Überbreite */
+    /* 1. Grund-Layout */
     html, body {
         width: 100% !important;
         max-width: 100vw !important;
@@ -3145,16 +3145,15 @@ table.ratetable > * > tr > th {
         -webkit-text-size-adjust: 100%;
     }
 
-    /* Riesiges Desktop-Drachenlogo auf Mobilgeräten ausblenden */
     .logo > .border-right {
         display: none !important;
     }
     .logo {
-        height: 65px !important;
+        height: 60px !important;
         overflow: hidden !important;
     }
 
-    /* 3-Spalten-Tabelle auflösen: Hauptinhalt nimmt volle Breite ein */
+    /* 3-Spalten-Tabelle auflösen */
     #gadgettable, 
     #gadgettable > tbody, 
     #gadgettable > tbody > tr, 
@@ -3169,146 +3168,142 @@ table.ratetable > * > tr > th {
         margin: 0 !important;
     }
 
-    /* Platz am unteren Rand schaffen, damit die feste Buttonleiste nichts verdeckt */
     #gadgettable-center,
     .main_content .gadget_body {
-        padding-bottom: 80px !important;
+        padding-bottom: 85px !important;
     }
 
-    /* Tabellen auf Touchscreens horizontal scrollbar machen (verhindert Verzerrung) */
-    table.content_table,
-    table.ratetable {
-        max-width: 100% !important;
+    /* Menü-Inhalte im DOM immer aktiv halten, damit Shortcuts existieren */
+    .menu-1 > .menu-1-body,
+    .menu-2 > .menu-2-body {
         display: block !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
     }
 
     /* ------------------------------------------------------------------------
-     * 2. Linkes Menü (Drawer / Slide-in von links)
+     * 2. Linkes Menü (Slide-in von links)
      * ------------------------------------------------------------------------ */
     #gadgettable-left-td {
         position: fixed !important;
         top: 0 !important;
-        left: 0 !important;
-        width: 270px !important;
+        left: -280px !important; /* Versteckt links ohne 'transform' */
+        width: 275px !important;
         height: 100vh !important;
-        z-index: 10000 !important;
+        z-index: 10005 !important;
         background: #141210 url(images/page/block_bg_body.png) repeat-y !important;
         border-right: 3px ridge #f0a015 !important;
-        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.9) !important;
-        transform: translateX(-100%);
-        transition: transform 0.25s ease-in-out !important;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.95) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 10px !important;
+        transition: left 0.28s ease !important;
     }
 
-    /* Sichtbare Lasche / Button zum Aufklappen am linken Rand */
-    #gadgettable-left-td::after {
-        content: "☰ Menü";
-        position: fixed;
-        top: 70px;
-        left: 270px;
-        width: 62px;
-        height: 38px;
-        line-height: 38px;
-        text-align: center;
-        background: #2b1f14;
-        color: #ffcf00;
-        font-weight: bold;
-        font-size: 13px;
-        border: 2px groove #f0a015;
-        border-left: none;
-        border-radius: 0 8px 8px 0;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        cursor: pointer;
-        pointer-events: auto;
-    }
-
-    /* Öffnet das Menü bei Antippen / Fokus */
+    /* Wenn das Menü angetippt wird, fährt es heraus */
     #gadgettable-left-td:hover,
     #gadgettable-left-td:focus-within,
     #gadgettable-left-td:active {
-        transform: translateX(0) !important;
+        left: 0 !important;
+    }
+
+    /* Der Burger-Button [☰] ganz rechts in der unteren Steinleiste */
+    #gadgettable-left-td::after {
+        content: "☰";
+        position: fixed !important;
+        bottom: 7px !important;
+        right: 12px !important;
+        width: 44px !important;
+        height: 44px !important;
+        line-height: 42px !important;
+        text-align: center !important;
+        background: #2b1d14 url(images/button.jpg) center center no-repeat !important;
+        background-size: cover !important;
+        border: 2px groove #f0a015 !important;
+        border-radius: 5px !important;
+        font-size: 26px !important;
+        color: #ffd700 !important;
+        text-shadow: 1px 1px 3px #000 !important;
+        cursor: pointer !important;
+        z-index: 10000 !important;
+        display: block !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.8) !important;
     }
 
     /* ------------------------------------------------------------------------
-     * 3. Rechte Leiste / Held (Drawer / Slide-in von rechts)
+     * 3. Rechte Leiste (Held & Gruppe - Ausklappbar von rechts)
      * ------------------------------------------------------------------------ */
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
-        right: 0 !important;
-        width: 270px !important;
+        right: -285px !important;
+        width: 280px !important;
         height: 100vh !important;
-        z-index: 9999 !important;
+        z-index: 10002 !important;
         background: #141210 url(images/page/block_bg_body.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.9) !important;
-        transform: translateX(100%);
-        transition: transform 0.25s ease-in-out !important;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.95) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 10px !important;
+        transition: right 0.28s ease !important;
     }
 
-    /* Sichtbare Lasche am rechten Rand */
+    /* Lasche am rechten Bildschirmrand */
     #gadgettable-right-td::after {
         content: "👤 Held";
-        position: fixed;
-        top: 70px;
-        right: 270px;
-        width: 62px;
-        height: 38px;
-        line-height: 38px;
-        text-align: center;
-        background: #2b1f14;
-        color: #ffcf00;
-        font-weight: bold;
-        font-size: 13px;
-        border: 2px groove #f0a015;
-        border-right: none;
-        border-radius: 8px 0 0 8px;
-        box-shadow: -2px 2px 6px rgba(0,0,0,0.7);
-        cursor: pointer;
-        pointer-events: auto;
+        position: fixed !important;
+        top: 60px !important;
+        right: 0px !important;
+        width: 58px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        text-align: center !important;
+        background: #2b1d14 url(images/button.jpg) center center no-repeat !important;
+        background-size: cover !important;
+        color: #ffcf00 !important;
+        font-weight: bold !important;
+        font-size: 12px !important;
+        border: 2px groove #f0a015 !important;
+        border-right: none !important;
+        border-radius: 6px 0 0 6px !important;
+        box-shadow: -2px 2px 8px rgba(0,0,0,0.8) !important;
+        cursor: pointer !important;
+        z-index: 10003 !important;
+        display: block !important;
     }
 
     #gadgettable-right-td:hover,
     #gadgettable-right-td:focus-within,
     #gadgettable-right-td:active {
-        transform: translateX(0) !important;
+        right: 0 !important;
     }
 
     /* ------------------------------------------------------------------------
-     * 4. Feste Shortcut-Leiste unten (Bottom Action Bar aus dem PDF)
+     * 4. Untere Leiste: Hintergrund & Shortcuts
      * ------------------------------------------------------------------------ */
-    /* Stein-Hintergrundleiste */
     body::after {
         content: "";
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 56px;
-        background: #221d19 url(images/page/block_bg_body.png) repeat;
-        border-top: 3px ridge #f0a015;
-        box-shadow: 0 -4px 15px rgba(0,0,0,0.85);
-        z-index: 9990;
-        pointer-events: none;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 58px !important;
+        background: #1e1915 url(images/page/block_bg_body.png) repeat !important;
+        border-top: 3px ridge #f0a015 !important;
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.9) !important;
+        z-index: 9990 !important;
+        pointer-events: none !important;
     }
 
-    /* Gemeinsamer Stil für alle Shortcut-Buttons unten */
-    .menu a[href*="hero/attributes.php"],
-    .menu a[href*="hero/skills.php"],
-    .menu a[href*="hero/items.php"],
+    /* Basis-Stil für alle Shortcut-Buttons unten */
+    .menu a[href*="attributes.php"],
+    .menu a[href*="skills.php"],
+    .menu a[href*="items.php"],
     .menu a[href*="dungeon"],
     .menu a[href*="mail"] {
         position: fixed !important;
         bottom: 7px !important;
-        width: 42px !important;
-        height: 42px !important;
+        width: 44px !important;
+        height: 44px !important;
         z-index: 9995 !important;
         background: #2b1d14 url(images/button.jpg) center center no-repeat !important;
         background-size: cover !important;
@@ -3317,71 +3312,62 @@ table.ratetable > * > tr > th {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 0 !important; /* blendet langen Text aus */
+        font-size: 0 !important;
         text-decoration: none !important;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.7) !important;
-    }
-
-    .menu a[href*="hero/attributes.php"]:active,
-    .menu a[href*="hero/skills.php"]:active,
-    .menu a[href*="hero/items.php"]:active,
-    .menu a[href*="dungeon"]:active,
-    .menu a[href*="mail"]:active {
-        background-image: url(images/button_roll.jpg) !important;
-        border-color: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.8) !important;
     }
 
     /* Button 1: Eigenschaften [E] */
-    .menu a[href*="hero/attributes.php"] {
-        left: calc(50% - 130px) !important;
+    .menu a[href*="attributes.php"] {
+        left: 12px !important;
     }
-    .menu a[href*="hero/attributes.php"]::before {
+    .menu a[href*="attributes.php"]::before {
         content: "E";
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 900;
         color: #ffd700;
         text-shadow: 1px 1px 2px #000;
     }
 
     /* Button 2: Fertigkeiten [F] */
-    .menu a[href*="hero/skills.php"] {
-        left: calc(50% - 75px) !important;
+    .menu a[href*="skills.php"] {
+        left: 64px !important;
     }
-    .menu a[href*="hero/skills.php"]::before {
+    .menu a[href*="skills.php"]::before {
         content: "F";
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 900;
         color: #ffd700;
         text-shadow: 1px 1px 2px #000;
     }
 
     /* Button 3: Ausrüstung [A] */
-    .menu a[href*="hero/items.php"] {
-        left: calc(50% - 20px) !important;
+    .menu a[href*="items.php"] {
+        left: 116px !important;
     }
-    .menu a[href*="hero/items.php"]::before {
+    .menu a[href*="items.php"]::before {
         content: "A";
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 900;
         color: #ffd700;
         text-shadow: 1px 1px 2px #000;
     }
 
     /* Button 4: Dungeon [D] */
     .menu a[href*="dungeon"] {
-        left: calc(50% + 35px) !important;
+        left: 168px !important;
     }
     .menu a[href*="dungeon"]::before {
         content: "D";
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 900;
         color: #ffd700;
         text-shadow: 1px 1px 2px #000;
     }
 
-    /* Button 5: Post / Nachrichten [✉] */
+    /* Button 5: Post [✉] */
     .menu a[href*="mail"] {
-        left: calc(50% + 90px) !important;
+        left: 220px !important;
     }
     .menu a[href*="mail"]::before {
         content: "✉";
@@ -3390,31 +3376,14 @@ table.ratetable > * > tr > th {
         text-shadow: 1px 1px 2px #000;
     }
 
-    /* ------------------------------------------------------------------------
-     * 5. Mouseover-Infoboxen & Buttons für Touchscreens anpassen
-     * ------------------------------------------------------------------------ */
-    .tooltip, table.tooltip {
-        max-width: 90vw !important;
-        background-color: #1a1612 !important;
-        color: #ffffff !important;
-        border: 2px solid #f0a015 !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.9) !important;
-        font-size: 13px !important;
-        padding: 8px !important;
-        z-index: 99999 !important;
-    }
-
-    .tooltip > * {
-        color: #ffffff !important;
-    }
-
-    /* Steigerungsbuttons (+ und -) für Finger besser treffbar machen */
-    input.button, input.pagi_but, .button {
-        min-height: 34px !important;
-        min-width: 34px !important;
-        line-height: 30px !important;
-        font-size: 14px !important;
+    /* Klick-Effekt für die Buttons */
+    .menu a[href*="attributes.php"]:active,
+    .menu a[href*="skills.php"]:active,
+    .menu a[href*="items.php"]:active,
+    .menu a[href*="dungeon"]:active,
+    .menu a[href*="mail"]:active,
+    #gadgettable-left-td::after:active {
+        background-image: url(images/button_roll.jpg) !important;
+        border-color: #ffffff !important;
     }
 }
-
