@@ -3202,7 +3202,7 @@ html, body {
         width: 100% !important;
     }
 
-    /* Zeile 1: Hamburger (Links), Status (Mitte), Shortcuts (Rechts) */
+    /* Zeile 1: Worldlist (Links), Status (Mitte) Shortcuts (Rechts) */
     #gadgettable-top-gadgets > table > tbody > tr {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -3215,26 +3215,12 @@ html, body {
         position: relative !important;
     }
 
-    /* 1.1 Links: Hamburger-Button*/
-    td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
-        order: 1 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-        width: auto !important;
-        min-width: 0 !important;
-        overflow: visible !important;
-        flex-shrink: 0 !important;
-    }
-
-/* Der Hamburger-Kasten - WIRD ENTFERNT */
-    .gadget.worlds::before {
-        display: none !important;
-    }
-
-
     .world_list {
-        display: none !important;
+        font-size: 13px !important;
+        font-weight: bold !important;
+        color: #f1cf7a !important;
+        display: inline-flex !important;
+        align-items: center !important;
     }
 
     .world_list a {
@@ -3311,14 +3297,14 @@ html, body {
         height: 28px !important;
         background: #2b1f14 !important;
         border: 1px groove #c08010 !important;
-        border-radius: 3px !important;
+        border-radius: 1px !important;
         box-sizing: border-box !important;
         flex-shrink: 0 !important;
     }
 
     .gadget.buttons .gadget_icon img {
-        width: 18px !important;
-        height: 18px !important;
+        width: 25px !important;
+        height: 25px !important;
     }
 
 
@@ -3401,12 +3387,12 @@ html, body {
     /* Der goldene "HELD"-Button (dockt an der linken Außenkante des Drawers an) */
     #gadgettable-right-td::after {
         content: "HELD" !important;
-        position: absolute !important;       /* Nutzt das transformierte Koordinatensystem */
-        bottom: 96px !important;            /* Höhe über der Sub-Leiste */
-        left: -80px !important;             /* Ragt genau um die Buttonbreite nach links heraus */
-        width: 78px !important;
-        height: 34px !important;
-        line-height: 34px !important;
+        position: fixed;
+        top: 70px;
+        right: 270px;
+        width: 62px;
+        height: 38px;
+        line-height: 38px;
         text-align: center !important;
         background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
         color: #ffffff !important;
@@ -3429,8 +3415,29 @@ html, body {
         transform: translateX(0) !important;
     }
 
+    #gadgettable-right-td::after {
+        content: "👤 Held";
+        position: fixed;
+        top: 70px;
+        right: 270px;
+        width: 62px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        background: #2b1f14;
+        color: #ffcf00;
+        font-weight: bold;
+        font-size: 13px;
+        border: 2px groove #f0a015;
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        box-shadow: -2px 2px 6px rgba(0,0,0,0.7);
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
     /* ========================================================================
-     * 4. UNTEN-LEISTE MIT JUMPBOX (SUCHE LINKS) & 6 BUTTONS RECHTS
+     * 4. Navigationsmenü Unten
      * ======================================================================== */
 #gadgettable-left-td {
     position: fixed !important;
@@ -3470,7 +3477,7 @@ html, body {
         overflow: visible !important;
     }
 
-    /* --- 4.2 DIE 6 HAUPT-BUTTONS */
+    /* --- 4.2 DIE 7 HAUPT-BUTTONS */
     .menu-vertical .menu-0-body {
         display: flex !important;
         flex-direction: row !important;
@@ -3496,7 +3503,6 @@ html, body {
         display: none !important;            /* Standardmäßig versteckt */
     }
 
-    /* Nur die 7 relevanten Haupt-Buttons anzeigen */
     .menu-vertical .menu-1:nth-child(1),
     .menu-vertical .menu-1:nth-child(3),
     .menu-vertical .menu-1:nth-child(5),
@@ -3518,13 +3524,35 @@ html, body {
         text-align: center !important;
         color: #ffffff !important;
         font-family: Arial, Helvetica, sans-serif !important;
-        font-size: 9.5px !important;
-        font-weight: bold !important;
+        font-size: 10px !important;
         letter-spacing: 0.5px !important;
         text-shadow: 1px 1px 2px #000000 !important;
         background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
-        border: 1px solid #3d2b17 !important;
-        border-right: 1px solid #291d10 !important;
+        background-image: 
+            url("images/page/gadget-body-border-bottom-left.png"),
+            url("images/page/gadget-body-border-bottom-right.png"),
+            url("images/page/gadget-body-border-bottom.png"),
+            url("images/page/gadget-body-border-left.png"),
+            url("images/page/gadget-body-border-right.png"),
+            url("images/page/gadget-body-background.png") !important;
+
+        background-position: 
+            bottom left,
+            bottom right,
+            bottom left,
+            top left,
+            top right,
+            center center !important;
+
+        background-repeat: 
+            no-repeat,
+            no-repeat,
+            repeat-x,
+            repeat-y,
+            repeat-y,
+            repeat !important;
+
+        border: none !important;
     }
 
     .menu-vertical .menu-1 > .menu-1-caption:active,
