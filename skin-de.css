@@ -3145,7 +3145,7 @@ html, body {
     max-width: 100vw !important;
     height: auto !important;             /* ZWINGEND: Überschreibt das alte Desktop-height:100% */
     min-height: 100% !important;
-    overflow-x: hidden !important;
+    overflow-x: auto !important;
     overflow-y: auto !important;         /* ZWINGEND: Vertikales Scrollen erzwingen */
     -webkit-overflow-scrolling: touch !important;
     margin: 0 !important;
@@ -3153,6 +3153,7 @@ html, body {
     background-attachment: fixed !important;
     background-size: cover !important;
     -webkit-text-size-adjust: 100%;
+    touch-action: pan-x !important;
     touch-action: pan-y !important;      /* Erlaubt vertikales Wischen */
 }
 
@@ -3334,6 +3335,39 @@ td.gadget_table_cell.merged {
         display: none !important;
     }
 
+    /* --- 1.5 SUB-HEAD-LEISTE (DER AUSRUFER / TICKER) --- */
+td.gadget_table_cell[align="center"] {
+    position: absolute !important;       /* Löst den Ticker aus der Icon-Reihe */
+    bottom: 0 !important;               /* Klebt an der Unterkante der Kopfleiste */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    background: #000000 !important;
+    border-top: 1px solid #3d2b15 !important;
+    border-bottom: 1px solid #3d2b15 !important;
+    overflow: hidden !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+}
+
+    .gadget.ticker .gadget_inner,
+    .gadget.ticker .gadget_scroll {
+        height: 24px !important;
+        line-height: 24px !important;
+    }
+
+    .gadget.ticker .ticker_label {
+        font-size: 11px !important;
+        color: #ffaa00 !important;
+        font-style: italic !important;
+    }
+
+    .gadget.ticker .ticker_msg {
+        font-size: 11px !important;
+        color: #ffffff !important;
+    }
 
     /* ========================================================================
      * 2. MITTLERER TEIL (HAUPTINHALT)
