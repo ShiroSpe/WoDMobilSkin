@@ -3227,22 +3227,9 @@ html, body {
         flex-shrink: 0 !important;
     }
 
-    /* Der Hamburger-Kasten */
+/* Der Hamburger-Kasten - WIRD ENTFERNT */
     .gadget.worlds::before {
-        content: "" !important;
-        display: block !important;
-        flex-shrink: 0 !important;
-        width: 30px !important;
-        height: 30px !important;
-        background: url("images/icons/forum_sticky.gif") center center no-repeat,
-                    url("images/icons/next_hero_a.gif") center center no-repeat;
-        background-size: 26px 26px !important;
-        background-color: #2b1f14 !important;
-        border: 2px groove #f0a015 !important;
-        border-radius: 4px !important;
-        cursor: pointer !important;
-        vertical-align: middle !important;
-        margin-right: 4px !important;
+        display: none !important;
     }
 
 
@@ -3334,19 +3321,6 @@ html, body {
         height: 18px !important;
     }
 
-
-    div.gadget_icon.icon_forums_all,
-    div.gadget_icon.icon_hero_title,
-    div.gadget_icon.icon_quest,
-    div.gadget_icon.icon_help {
-        display: none !important;
-        visibility: hidden !important;
-        width: 0 !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-    }
 
     /* 1.5 Sub-Head: Ticker (Der Ausrufer) fest unten in der Kopfleiste */
     td.gadget_table_cell[align="center"] {
@@ -3513,12 +3487,23 @@ html, body {
     }
 
 
-    .menu-vertical .menu-1 {
-        flex: 1 1 16.66% !important;
-        max-width: 16.66% !important;
+.menu-vertical .menu-1 {
+        flex: 1 1 14.28% !important;
+        max-width: 14.28% !important;
         position: relative !important;
         margin: 0 !important;
         padding: 0 !important;
+        display: none !important;            /* Standardmäßig versteckt */
+    }
+
+    /* Nur die 7 relevanten Haupt-Buttons anzeigen */
+    .menu-vertical .menu-1:nth-child(1),
+    .menu-vertical .menu-1:nth-child(3),
+    .menu-vertical .menu-1:nth-child(5),
+    .menu-vertical .menu-1:nth-child(7),
+    .menu-vertical .menu-1:nth-child(9),
+    .menu-vertical .menu-1:nth-child(12),
+    .menu-vertical .menu-1:nth-child(14) {
         display: flex !important;
     }
 
@@ -3556,16 +3541,42 @@ html, body {
         display: none !important;
     }
 
-    /* Beschriftung der 6 Buttons */
+/* Beschriftung der 7 Haupt-Buttons */
     .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELLES"; }
     .menu-vertical .menu-1:nth-child(3) > .menu-1-caption::after { content: "HELD"; }
     .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "AUSRÜSTUNG"; }
     .menu-vertical .menu-1:nth-child(7) > .menu-1-caption::after { content: "KÄMPFE"; }
     .menu-vertical .menu-1:nth-child(9) > .menu-1-caption::after { content: "HANDEL"; }
     .menu-vertical .menu-1:nth-child(12) > .menu-1-caption::after { content: "FORUM"; }
+    .menu-vertical .menu-1:nth-child(14) > .menu-1-caption::after { content: "WEITERES"; }
 
-    .menu-vertical .menu-1:nth-child(n+13) {
-        display: none !important;
+    /* Wenn "WEITERES" aktiv/getippt ist: Blendet auch die Submenüs von Account, Empfehlen & Beenden mit ein */
+    .menu-vertical .menu-1:nth-child(14):hover ~ .menu-1 > .menu-1-body,
+    .menu-vertical .menu-1:nth-child(14):focus-within ~ .menu-1 > .menu-1-body,
+    .menu-vertical .menu-1:nth-child(14).open ~ .menu-1 > .menu-1-body,
+    .menu-vertical .menu-1:nth-child(14):hover ~ .menu-1:last-child,
+    .menu-vertical .menu-1:nth-child(14):focus-within ~ .menu-1:last-child {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 50px !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 42px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        pointer-events: auto !important;
+        z-index: 10001 !important;
+    }
+
+    /* Der "Beenden"-Button (Logout) als markanter roter Button in der Leiste */
+    .menu-vertical .menu-1:last-child > .menu-1-caption {
+        background: #5a1818 !important;
+        border-color: #aa3333 !important;
+        color: #ffcccc !important;
+    }
+    .menu-vertical .menu-1:last-child > .menu-1-caption::after {
+        content: "LOGOUT" !important;
     }
 
     /* ========================================================================
