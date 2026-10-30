@@ -3410,7 +3410,7 @@ html, body {
         content: "HELD" !important;
         position: fixed !important;
         bottom: 56px !important;              /* Sitzt exakt oberhalb der 50px-Navileiste + Rand */
-        right: 10px !important;               /* Unten rechts in der Ecke */
+        right: 300px !important;               /* Unten rechts in der Ecke */
         width: 75px !important;
         height: 36px !important;
         line-height: 36px !important;
