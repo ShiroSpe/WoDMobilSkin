@@ -3211,7 +3211,7 @@ html, body {
         padding: 2px 2px !important;
         padding-bottom: 26px !important;
         box-sizing: border-box !important;
-        min-height: 65px !important;
+        min-height: 68px !important;
         position: relative !important;
     }
 
@@ -3229,7 +3229,7 @@ html, body {
         display: inline-flex !important;
         align-items: center !important;
         font-family: Arial, sans-serif !important;
-        font-size: 20px !important;
+        font-size: 15px !important;
         font-weight: bold !important;
         color: #f1cf7a !important;
         white-space: nowrap !important;
@@ -3256,7 +3256,7 @@ html, body {
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
         display: inline-flex !important;
         align-items: center !important;
-        font-size: 20px !important;
+        font-size: 15px !important;
         font-weight: bold !important;
         color: #ffd700 !important;
     }
@@ -3271,7 +3271,7 @@ html, body {
     #clock {
         color: #ffffff !important;
         font-family: monospace !important;
-        font-size: 12px !important;
+        font-size: 15px !important;
         padding-left: 5px !important;
         border-left: 1px solid #44321d !important;
     }
@@ -3563,6 +3563,7 @@ html, body {
             repeat !important;
 
         border: none !important;
+      }
 
     .menu-vertical .menu-1 > .menu-1-caption:active,
     .menu-vertical .menu-1.open > .menu-1-caption,
@@ -3576,7 +3577,7 @@ html, body {
     .menu-between,
     .menu-1-separator {
         display: none !important;
-    }
+   }
 
 /* Beschriftung der 7 Haupt-Buttons */
     .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELLES"; }
