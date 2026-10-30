@@ -3211,7 +3211,7 @@ html, body {
         padding: 2px 2px !important;
         padding-bottom: 26px !important;
         box-sizing: border-box !important;
-        min-height: 68px !important;
+        min-height: 65px !important;
         position: relative !important;
     }
 
@@ -3229,7 +3229,7 @@ html, body {
         display: inline-flex !important;
         align-items: center !important;
         font-family: Arial, sans-serif !important;
-        font-size: 13px !important;
+        font-size: 20px !important;
         font-weight: bold !important;
         color: #f1cf7a !important;
         white-space: nowrap !important;
@@ -3256,7 +3256,7 @@ html, body {
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
         display: inline-flex !important;
         align-items: center !important;
-        font-size: 12px !important;
+        font-size: 20px !important;
         font-weight: bold !important;
         color: #ffd700 !important;
     }
@@ -3402,7 +3402,7 @@ html, body {
         content: "HELD" !important;
         position: fixed;
         top: 70px;
-        right: 70px;
+        right: 270px;
         width: 62px;
         height: 38px;
         line-height: 38px;
