@@ -3522,12 +3522,12 @@ html, body {
 /* 9 Schichten: 4 Ecken, 4 Kanten und Hintergrund-Mitte */
         background-image: 
             /* 1. Die 4 Ecken (liegen ganz oben) */
-            url("new/gadget-body-border-top-left.png"),
-            url("new/gadget-body-border-top-right.png"),
+            url("new/gadget-body-border-top-left2.png"),
+            url("new/gadget-body-border-top-right2.png"),
             url("images/page/gadget-body-border-bottom-left.png"),
             url("images/page/gadget-body-border-bottom-right.png"),
             /* 2. Die 4 Kanten */
-            url("new/gadget-body-border-top.png"),
+            url("new/gadget-body-border-top2.png"),
             url("images/page/gadget-body-border-bottom.png"),
             url("images/page/gadget-body-border-left.png"),
             url("images/page/gadget-body-border-right.png"),
