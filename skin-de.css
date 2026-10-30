@@ -6265,12 +6265,12 @@ table.ratetable > * > tr > th {
 
 
 /******************************************************************************
- * MOBILE TOUCH SKIN (Ari Skin WoD) - Responsive Smartphone Ansicht
+ * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
 @media screen and (max-width: 960px) {
 
     /* ========================================================================
-     * 0. ALLGEMEINE RESETS & VIEWPORT
+     * 0. ALLGEMEINE RESETS & LAYOUT-BEREINIGUNG
      * ======================================================================== */
     html, body {
         width: 100% !important;
@@ -6289,7 +6289,7 @@ table.ratetable > * > tr > th {
         width: 100% !important;
     }
 
-    /* Standard-Tabellen-Layout auflösen */
+    /* 3-Spalten-Tabelle auflösen */
     #gadgettable, 
     #gadgettable > tbody, 
     #gadgettable > tbody > tr {
@@ -6302,35 +6302,35 @@ table.ratetable > * > tr > th {
     #gadgettable-padding-top,
     #gadgettable-padding-bottom,
     .logo,
-    .gadget.languages {
-        display: none !important; /* Auf Mobilgeräten zugunsten des Platzes ausblenden */
+    .gadget.languages,
+    #gadgettable-bottom {
+        display: none !important;
     }
 
     /* ========================================================================
-     * 1. OBERE LEISTE & SUB-HEAD-LEISTE (FIXIERT)
+     * 1. OBEN-LEISTE (FEST OBEN FIXIERT)
      * ======================================================================== */
     #gadgettable-top {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
         width: 100% !important;
-        z-index: 9990 !important;
-        background: #11100e url(images/page/block_bg_body.png) repeat !important;
+        z-index: 9999 !important;
+        background: #141210 url(images/page/block_bg_body.png) repeat !important;
         border-bottom: 2px solid #5a4527 !important;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.9) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9) !important;
     }
 
-    #gadgettable-top-gadgets {
-        width: 100% !important;
-    }
-
-    /* Tabelle in zweizeiliges Flexbox-Layout umwandeln */
+    #gadgettable-top-gadgets,
     #gadgettable-top-gadgets > table,
     #gadgettable-top-gadgets > table > tbody {
         display: block !important;
         width: 100% !important;
     }
 
+    /* Zeile 1: Hamburger, Weltenname, Status, Shortcuts */
     #gadgettable-top-gadgets > table > tbody > tr {
         display: flex !important;
         flex-wrap: wrap !important;
@@ -6338,76 +6338,81 @@ table.ratetable > * > tr > th {
         justify-content: space-between !important;
         padding: 4px 6px !important;
         box-sizing: border-box !important;
+        min-height: 48px !important;
     }
 
-    /* --- 1.1 & 1.2 Links: Hamburger-Icon & Weltenname --- */
+    /* 1.1 & 1.2 Hamburger-Menü & Welt-Name */
     td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
         order: 1 !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        min-height: 44px !important;
+        gap: 6px !important;
     }
 
-    /* Hamburger-Menü Icon einblenden (Klick scrollt/fokussiert auf Drawer) */
+    /* Hamburger Button (Goldener Kasten links) */
     .gadget.worlds::before {
         content: "" !important;
         display: inline-block !important;
-        width: 38px !important;
-        height: 38px !important;
+        width: 36px !important;
+        height: 36px !important;
         background: url("images/icons/Neue Icons/HamburgerMenu.png") center center no-repeat,
-                    url("images/icons/next_hero_a.gif") center center no-repeat; /* Fallback */
-        background-size: contain !important;
+                    url("images/icons/next_hero_a.gif") center center no-repeat;
+        background-size: 26px 26px !important;
+        background-color: #2b1f14 !important;
+        border: 2px groove #f0a015 !important;
+        border-radius: 4px !important;
         cursor: pointer !important;
         vertical-align: middle !important;
-        border: 1px solid #735324;
-        border-radius: 4px;
-        background-color: #221a12;
+        margin-right: 4px !important;
     }
 
     .world_list {
         font-size: 13px !important;
         font-weight: bold !important;
-        color: #f1cf7a !important;
+        color: #ffffff !important;
         display: inline-flex !important;
         align-items: center !important;
     }
+    .world_list img {
+        display: none !important; /* Altes Icon ausblenden */
+    }
 
-    /* --- 1.3 Mitte: Diamanten, Lose, Server-Uhrzeit --- */
+    /* 1.3 Mitte: Status-Pille (840 💎 1 🎟 16:50) */
     td.gadget_table_cell.merged {
         order: 2 !important;
-        display: flex !important;
+        display: inline-flex !important;
         align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        padding: 0 6px !important;
+        background: #000000 !important;
+        border: 1px solid #7a5826 !important;
+        border-radius: 4px !important;
+        padding: 3px 8px !important;
+        gap: 6px !important;
     }
 
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
-        display: inline-block !important;
-        font-size: 13px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 12px !important;
         font-weight: bold !important;
-        color: #fff !important;
+        color: #ffd700 !important;
     }
 
     .gadget.diamonds a, .gadget.tombola a {
         display: inline-flex !important;
         align-items: center !important;
-        gap: 3px !important;
-        color: #ffcf00 !important;
+        gap: 2px !important;
+        color: #ffd700 !important;
     }
 
     #clock {
         color: #ffffff !important;
         font-family: monospace !important;
-        font-size: 13px !important;
-        background: #000000;
-        padding: 2px 5px !important;
-        border-radius: 3px !important;
-        border: 1px solid #44321d !important;
+        font-size: 12px !important;
+        padding-left: 4px !important;
+        border-left: 1px solid #44321d !important;
     }
 
-    /* --- 1.4 Rechts: Quick-Icons (Forum, PM, etc.) --- */
+    /* 1.4 Rechts: 4 gerahmte Schnellzugriffs-Icons */
     td.gadget_table_cell[style*="width:220px;"],
     td.gadget_table_cell:last-child {
         order: 3 !important;
@@ -6428,23 +6433,45 @@ table.ratetable > * > tr > th {
         gap: 4px !important;
     }
 
-    .gadget.buttons .gadget_icon img {
-        width: 22px !important;
-        height: 22px !important;
-        min-width: 22px !important;
+    /* Goldener quadratischer Rahmen für die Shortcuts */
+    .gadget.buttons .gadget_icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 32px !important;
+        height: 32px !important;
+        background: #2b1f14 !important;
+        border: 2px groove #c08010 !important;
+        border-radius: 4px !important;
+        box-sizing: border-box !important;
     }
 
-    /* --- 1.5 Sub-Head-Leiste (Der Ausrufer / Ticker) --- */
+    .gadget.buttons .gadget_icon img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    /* Unwichtigere Icons auf kleinen Bildschirmen reduzieren, damit nichts umbricht */
+    .gadget_icon.icon_hero_title,
+    .gadget_icon.icon_quest,
+    .gadget_icon.icon_help {
+        display: none !important;
+    }
+
+    /* --- 1.5 SUB-HEAD-LEISTE (DER AUSRUFER / TICKER) --- */
     td.gadget_table_cell[align="center"] {
         order: 4 !important;
-        flex: 1 1 100% !important; /* volle Breite unter den oberen Icons */
+        flex: 1 1 100% !important;
         width: 100% !important;
         height: 24px !important;
         line-height: 24px !important;
         margin-top: 2px !important;
-        background: #19140e url(images/page/block_seperator.png) top repeat-x !important;
+        background: #000000 !important;
         border-top: 1px solid #3d2b15 !important;
+        border-bottom: 1px solid #3d2b15 !important;
         overflow: hidden !important;
+        padding: 0 4px !important;
+        box-sizing: border-box !important;
     }
 
     .gadget.ticker .gadget_inner,
@@ -6456,10 +6483,12 @@ table.ratetable > * > tr > th {
     .gadget.ticker .ticker_label {
         font-size: 11px !important;
         color: #ffaa00 !important;
+        font-style: italic !important;
     }
 
     .gadget.ticker .ticker_msg {
         font-size: 11px !important;
+        color: #ffffff !important;
     }
 
     /* ========================================================================
@@ -6471,11 +6500,11 @@ table.ratetable > * > tr > th {
         width: 100% !important;
         box-sizing: border-box !important;
         margin: 0 !important;
-        /* Platzhalter für obere feste Leiste (ca. 78px) und untere Leisten (ca. 105px) */
-        padding-top: 84px !important;
-        padding-bottom: 120px !important;
-        padding-left: 8px !important;
-        padding-right: 8px !important;
+        /* Verhindert, dass der Inhalt hinter den Leisten verschwindet */
+        padding-top: 86px !important;   /* Oben-Leiste + Sub-Head */
+        padding-bottom: 120px !important; /* Unten-Leiste + Sub-Leiste */
+        padding-left: 6px !important;
+        padding-right: 6px !important;
     }
 
     .gadget.main_content {
@@ -6483,58 +6512,56 @@ table.ratetable > * > tr > th {
         width: 100% !important;
     }
 
-    .main_content .gadget_body {
-        padding: 5px !important;
-    }
-
-    /* Responsives Verhalten für breite Inhalts-Tabellen */
-    table.content_table, table.ratetable, .tombola_winner table {
-        width: 100% !important;
+    /* Tabellen auf Smartphones ohne Layout-Bruch scrollbar machen */
+    table.content_table, table.ratetable {
+        max-width: 100% !important;
         display: block !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
     /* ========================================================================
-     * 3. RECHTER TEIL (HELD, DUNGEON, GRUPPE) -> SLIDE-DRAWER
+     * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
      * ======================================================================== */
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
-        width: 290px !important;
+        width: 300px !important;
         height: 100vh !important;
-        z-index: 9998 !important;
+        z-index: 10000 !important;
         background: #15110d url(images/page/block_bg_body.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
         transform: translateX(100%);
-        transition: transform 0.28s ease-in-out !important;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
-        padding: 85px 10px 90px 10px !important;
+        padding: 85px 10px 100px 10px !important;
     }
 
-    /* Sichtbare Klick-Lasche am rechten Rand */
+    /* Der goldene "HELD"-Button rechts schwebend über der Leiste (Mockup V3) */
     #gadgettable-right-td::after {
-        content: "👤 Held";
-        position: fixed;
-        top: 86px;
-        right: 290px;
-        width: 60px;
-        height: 38px;
-        line-height: 38px;
-        text-align: center;
-        background: #2b1f14;
-        color: #ffcf00;
-        font-weight: bold;
-        font-size: 13px;
-        border: 2px groove #f0a015;
-        border-right: none;
-        border-radius: 8px 0 0 8px;
-        box-shadow: -3px 3px 8px rgba(0,0,0,0.7);
-        cursor: pointer;
-        pointer-events: auto;
+        content: "HELD" !important;
+        position: fixed !important;
+        bottom: 96px !important; /* Sitzt genau über der Sub-Leiste */
+        right: 300px !important; /* Dockt exakt an der Außenkante des Drawers an */
+        width: 78px !important;
+        height: 34px !important;
+        line-height: 34px !important;
+        text-align: center !important;
+        background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
+        color: #ffffff !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-weight: bold !important;
+        font-size: 13px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #ffd700 !important;
+        border-right: none !important;
+        border-radius: 6px 0 0 6px !important;
+        box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.7) !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
     }
 
     #gadgettable-right-td:hover,
@@ -6544,14 +6571,16 @@ table.ratetable > * > tr > th {
     }
 
     /* ========================================================================
-     * 4. UNTERER TEIL - HAUPTLEISTE & AUFKLAPPBARE SUB-LEISTE
+     * 4. UNTEN-LEISTE MIT JUMPBOX (SUCHE LINKS) & 6 BUTTONS RECHTS
      * ======================================================================== */
     #gadgettable-left-td {
         position: fixed !important;
         bottom: 0 !important;
         left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
         width: 100% !important;
-        height: auto !important;
+        height: 50px !important;
         z-index: 9995 !important;
         background: transparent !important;
         padding: 0 !important;
@@ -6574,21 +6603,75 @@ table.ratetable > * > tr > th {
         overflow: visible !important;
     }
 
-    /* 6 Hauptmenüpunkte waagerecht nebeneinander */
+    /* --- 4.1 JUMPBOX / SUCHE GANZ LINKS IN DER LEISTE --- */
+    #jumpbox_center {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 76px !important;
+        height: 50px !important;
+        z-index: 9997 !important;
+        background: #14110e !important;
+        border: 2px solid #a07228 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 3px !important;
+    }
+
+    #jumpbox_center form {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    #jumpbox_center input[name="link"] {
+        width: 44px !important;
+        height: 26px !important;
+        background: #000000 !important;
+        color: #ffffff !important;
+        border: 1px solid #775522 !important;
+        font-size: 11px !important;
+        padding: 0 2px !important;
+        text-align: center !important;
+    }
+
+    #jumpbox_center input[type="submit"] {
+        width: 22px !important;
+        height: 26px !important;
+        background: #443018 !important;
+        color: #ffd700 !important;
+        border: 1px solid #a07228 !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        margin-left: 2px !important;
+    }
+
+    #jumpbox_center img {
+        display: none !important;
+    }
+
+    /* --- 4.2 DIE 6 HAUPT-BUTTONS (RECHTS NEBEN DER JUMPBOX) --- */
     .menu-vertical .menu-0-body {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-around !important;
-        align-items: stretch !important;
-        width: 100% !important;
-        height: 52px !important;
-        background: #14110e url(images/page/block_bg_body.png) repeat !important;
-        border-top: 3px ridge #c08010 !important;
-        box-shadow: 0 -4px 15px rgba(0,0,0,0.85) !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 76px !important; /* Platzhalter für Jumpbox links */
+        width: calc(100% - 76px) !important;
+        height: 50px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #14110e !important;
+        border-top: 2px solid #584122 !important;
         box-sizing: border-box !important;
     }
 
-    /* Einzelner Menüpunkt-Container */
     .menu-vertical .menu-1 {
         flex: 1 1 16.66% !important;
         max-width: 16.66% !important;
@@ -6598,38 +6681,36 @@ table.ratetable > * > tr > th {
         display: flex !important;
     }
 
-    /* Die Buttons der 6 Haupt-Kategorien (4.1) */
     .menu-vertical .menu-1 > .menu-1-caption {
         width: 100% !important;
         height: 100% !important;
         display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 2px !important;
         box-sizing: border-box !important;
+        padding: 2px !important;
         text-align: center !important;
         color: #ffffff !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 10px !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 9.5px !important;
         font-weight: bold !important;
-        text-shadow: 1px 1px 2px #000 !important;
+        letter-spacing: 0.5px !important;
+        text-shadow: 1px 1px 2px #000000 !important;
         
-        /* Grafischer Rahmen aus gadget-body-* */
-        background: #2a2016 url(images/page/gadget-body-background.png) repeat !important;
-        border: 2px outset #584126 !important;
-        border-radius: 4px !important;
+        /* Hellerer Pergament-/Bronzeton wie im Mockup */
+        background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
+        border: 1px solid #3d2b17 !important;
+        border-right: 1px solid #291d10 !important;
     }
 
     .menu-vertical .menu-1 > .menu-1-caption:active,
     .menu-vertical .menu-1.open > .menu-1-caption,
     .menu-vertical .menu-1:focus-within > .menu-1-caption {
-        background-color: #4a361e !important;
-        border-color: #f0a015 !important;
+        background: #6f583e !important;
         color: #ffd700 !important;
     }
 
-    /* Bildschriften der Desktop-Version ausblenden, stattdessen Text erzwingen */
+    /* Desktop-Bilder und Trenner verstecken */
     .menu-1-caption > img,
     .menu-1-caption > .menu-1-arrow,
     .menu-between,
@@ -6637,140 +6718,93 @@ table.ratetable > * > tr > th {
         display: none !important;
     }
 
-    /* Namen auf die 6 Icons setzen */
-    .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "Aktuelles"; }
-    .menu-vertical .menu-1:nth-child(3) > .menu-1-caption::after { content: "Held"; }
-    .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "Ausrüstung"; }
-    .menu-vertical .menu-1:nth-child(7) > .menu-1-caption::after { content: "Kämpfe"; }
-    .menu-vertical .menu-1:nth-child(9) > .menu-1-caption::after { content: "Handel"; }
-    .menu-vertical .menu-1:nth-child(12) > .menu-1-caption::after { content: "Forum"; }
+    /* Beschriftung der 6 Buttons */
+    .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELLES"; }
+    .menu-vertical .menu-1:nth-child(3) > .menu-1-caption::after { content: "HELD"; }
+    .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "AUSRÜSTUNG"; }
+    .menu-vertical .menu-1:nth-child(7) > .menu-1-caption::after { content: "KÄMPFE"; }
+    .menu-vertical .menu-1:nth-child(9) > .menu-1-caption::after { content: "HANDEL"; }
+    .menu-vertical .menu-1:nth-child(12) > .menu-1-caption::after { content: "FORUM"; }
 
-    /* Weitere seltenere Desktop-Menüpunkte (Account, Suchen) platzsparend halten */
     .menu-vertical .menu-1:nth-child(n+13) {
         display: none !important;
     }
 
-    /* ------------------------------------------------------------------------
-     * 4.2 AUFKLAPPBARE SUB-LEISTE (NAVIGATIONSLEISTE DIREKT DARÜBER)
-     * ------------------------------------------------------------------------ */
+    /* ========================================================================
+     * 5. AUFKLAPPBARE SUB-LEISTE (NAVIGATIONSLEISTE DIREKT DARÜBER)
+     * ======================================================================== */
     .menu-vertical .menu-1 > .menu-1-body {
         position: fixed !important;
-        bottom: 52px !important; /* Exakt über der Hauptleiste */
+        bottom: 50px !important; /* Exakt über der Hauptleiste */
         left: 0 !important;
         width: 100vw !important;
-        height: 48px !important;
+        height: 42px !important;
         box-sizing: border-box !important;
         padding: 4px 6px !important;
         margin: 0 !important;
         
-        /* Styling über gadget-head-* */
-        background: #1c150e url(images/page/gadget-head-background.png) repeat !important;
-        border-top: 2px groove #f0a015 !important;
-        border-bottom: 2px groove #3a2614 !important;
-        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.75) !important;
+        /* Dunkles Design mit feinem Goldrand (Mockup V3) */
+        background: #0f0d0a url(images/page/gadget-head-background.png) repeat !important;
+        border-top: 2px groove #a07228 !important;
+        border-bottom: 1px solid #000000 !important;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.85) !important;
 
-        /* Horizontales Scrollen / Raster für bis zu 6 Unterpunkte */
         display: none !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
-        gap: 6px !important;
+        gap: 5px !important;
         align-items: center !important;
     }
 
-    /* Subleiste öffnen: wenn geöffnet, angeklickt oder fokussiert */
+    /* Subleiste öffnen bei aktiver Seite oder Klick/Fokus */
     .menu-vertical .menu-1.open > .menu-1-body,
     .menu-vertical .menu-1:hover > .menu-1-body,
     .menu-vertical .menu-1:focus-within > .menu-1-body {
         display: flex !important;
     }
 
-    /* Einzelne Sub-Buttons (z.B. Eigenschaften, Fertigkeiten, Medaillen...) */
+    /* Die einzelnen Sub-Buttons (Meine Helden, Eigenschaften, etc.) */
     .menu-1-body .menu-2 {
         flex: 0 0 auto !important;
-        height: 38px !important;
+        height: 32px !important;
     }
 
     .menu-1-body .menu-2 > .menu-2-caption {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        height: 36px !important;
-        padding: 0 10px !important;
+        height: 30px !important;
+        padding: 0 8px !important;
         white-space: nowrap !important;
+        font-family: Georgia, serif !important;
         font-size: 11px !important;
         font-weight: bold !important;
         color: #ffffff !important;
-        background: #2b1d12 url(images/button.jpg) center repeat-x !important;
-        border: 2px groove #a07228 !important;
-        border-radius: 4px !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.6) !important;
+        background: #17130e !important;
+        border: 1px solid #846124 !important;
+        border-radius: 3px !important;
+        box-shadow: inset 0 0 4px rgba(0,0,0,0.8) !important;
     }
 
     .menu-1-body .menu-2 > .menu-2-caption:active {
-        background-image: url(images/button_roll.jpg) !important;
         border-color: #ffd700 !important;
         color: #ffd700 !important;
+        background: #2b1f14 !important;
     }
 
     .menu-2-separator {
         display: none !important;
     }
 
-    /* --- Jumpbox / Suchfeld im Tab "Aktuelles" --- */
-    #jumpbox_center {
-        position: fixed !important;
-        bottom: 54px !important;
-        right: 6px !important;
-        z-index: 10001 !important;
-        background: rgba(20, 16, 12, 0.9) !important;
-        padding: 3px 6px !important;
-        border: 1px solid #735324 !important;
-        border-radius: 4px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    #jumpbox_center input[name="link"] {
-        height: 26px !important;
-        width: 80px !important;
-        font-size: 12px !important;
-        background: #000 !important;
-        border: 1px solid #a07228 !important;
-        color: #fff !important;
-    }
-
-    #jumpbox_center input[type="submit"] {
-        height: 28px !important;
-        min-width: 30px !important;
-        margin-left: 4px !important;
-        background: #2b1d12 url(images/button.jpg) !important;
-        border: 1px solid #f0a015 !important;
-        color: #ffd700 !important;
-        font-weight: bold !important;
-    }
-
     /* ========================================================================
-     * 5. TOOLTIPS & TOUCH-BEDIENUNG
+     * 6. TOUCH-BUTTONS IM SPIEL (+ / - BUTTONS)
      * ======================================================================== */
-    .tooltip, table.tooltip {
-        max-width: 90vw !important;
-        background-color: #1a1612 !important;
-        color: #ffffff !important;
-        border: 2px solid #f0a015 !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.9) !important;
-        font-size: 12px !important;
-        padding: 6px !important;
-        z-index: 99999 !important;
-    }
-
-    /* Größere Klickflächen für alle Steigerungsbuttons (+/-) im Spiel */
     input.button, input.pagi_but, .button, a.button {
-        min-height: 36px !important;
-        min-width: 36px !important;
+        min-height: 34px !important;
+        min-width: 34px !important;
         font-size: 13px !important;
-        line-height: 32px !important;
+        line-height: 30px !important;
     }
 }
