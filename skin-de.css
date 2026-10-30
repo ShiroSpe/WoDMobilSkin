@@ -3136,6 +3136,8 @@ table.ratetable > * > tr > th {
 
 
 
+
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3184,6 +3186,7 @@ html, body {
     /* ========================================================================
      * 1. OBEN-LEISTE (FEST)
      * ======================================================================== */
+
     #gadgettable-top {
         position: fixed !important;
         top: 0 !important;
@@ -3194,7 +3197,7 @@ html, body {
         max-width: 100vw !important; 
         z-index: 9999 !important;
         background: #141210 url(images/page/block_bg_body.png) repeat !important;
-        border-bottom: 2px solid #5a4527 !important;  // Rahmen vom unteren Rand
+        border-bottom: 2px solid #5a4527 !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9) !important;
     }
 
@@ -3205,39 +3208,38 @@ html, body {
         width: 100% !important;
     }
 
-    /* Zeile 1: Hamburger, Weltenname, Status, Shortcuts */
-   #gadgettable-top-gadgets > table > tbody > tr {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 2px 2px !important;
-    padding-bottom: 26px !important;    /* Platz für die Ticker-Zeile darunter */
-    box-sizing: border-box !important;
-    min-height: 68px !important;        /* 44px Icons + 24px Ticker */
-    position: relative !important;      /* Bezugspunkt Ticker */
-}
-}
+    /* Zeile 1: Hamburger (Links), Status (Mitte), Shortcuts (Rechts) */
+    #gadgettable-top-gadgets > table > tbody > tr {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 2px 4px !important;
+        padding-bottom: 26px !important;    /* Platz für die Ticker-Zeile darunter */
+        box-sizing: border-box !important;
+        min-height: 68px !important;        /* 44px Icons + 24px Ticker */
+        position: relative !important;      /* Bezugspunkt Ticker */
+    }
 
-    /* 1.1 & 1.2 Hamburger-Menü & Welt-Name */
-td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
-    order: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    width: auto !important;
-    min-width: 0 !important;
-    overflow: visible !important;
-    flex-shrink: 0 !important;
-}
+    /* 1.1 Links: Hamburger-Button & Weltenname */
+    td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: auto !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        flex-shrink: 0 !important;
+    }
 
-    /* Hamburger Button - Altes Menü */
-.gadget.worlds::before {
-    content: "" !important;
-    display: block !important;
-    flex-shrink: 0 !important;
-    width: 30px !important;
-    height: 30px !important;
+    /* Der Hamburger-Kasten */
+    .gadget.worlds::before {
+        content: "" !important;
+        display: block !important;
+        flex-shrink: 0 !important;
+        width: 30px !important;
+        height: 30px !important;
         background: url("images/icons/forum_sticky.gif") center center no-repeat,
                     url("images/icons/next_hero_a.gif") center center no-repeat;
         background-size: 26px 26px !important;
@@ -3249,39 +3251,32 @@ td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
         margin-right: 4px !important;
     }
 
-.world_list {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    left: calc(100% - 64px) !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-    color: #f1cf7a !important;
-    white-space: nowrap !important;
-    display: flex !important;
-    align-items: center !important;
-    border-left: 1px solid #44321d !important;
-    padding-left: 4px !important;
-}
+    /* Der dynamische Weltenname (sitzt sauber direkt neben dem Hamburger) */
+    .world_list {
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        color: #ffffff !important;
+        white-space: nowrap !important;
+    }
 
-.world_list a {
-    display: none !important;
-}
+    .world_list a {
+        display: none !important; /* Versteckt das kleine Lupe-Icon */
+    }
 
     /* 1.3 Mitte: Status-Pille (840 💎 1 🎟 16:50) */
-td.gadget_table_cell.merged {
-    order: 2 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    background: #000000 !important;
-    border: 1px solid #7a5826 !important;
-    border-radius: 4px !important;
-    padding: 2px 4px !important;
-    gap: 4px !important;
-    flex-shrink: 0 !important;
-    position: relative !important;
-    padding-right: 68px !important;
-}
+    td.gadget_table_cell.merged {
+        order: 2 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        background: #000000 !important;
+        border: 1px solid #7a5826 !important;
+        border-radius: 4px !important;
+        padding: 2px 6px !important;
+        gap: 5px !important;
+        flex-shrink: 0 !important;
+    }
 
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
         display: inline-flex !important;
@@ -3298,34 +3293,23 @@ td.gadget_table_cell.merged {
         color: #ffd700 !important;
     }
 
-#clock {
-    color: #ffffff !important;
-    font-family: monospace !important;
-    font-size: 12px !important;
-    padding-left: 4px !important;
-    border-left: 1px solid #44321d !important;
-    display: inline-flex !important;
-    align-items: center !important;
-}
-
-/* Hängt den Servernamen mit Trenner direkt rechts an die Uhrzeit an */
-#clock::after {
-    content: "• Cartegon" !important;    /* Oder nur "Cartegon" ohne Punkt */
-    font-family: Arial, sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-    color: #f1cf7a !important;          /* Edler Gold-Ton */
-    margin-left: 5px !important;
-}
+    #clock {
+        color: #ffffff !important;
+        font-family: monospace !important;
+        font-size: 12px !important;
+        padding-left: 5px !important;
+        border-left: 1px solid #44321d !important;
     }
 
-    /* 1.4 Rechts: 4 gerahmte Schnellzugriffs-Icons */
+    /* 1.4 Rechts: Die 4 Shortcut-Icons */
     td.gadget_table_cell[style*="width:220px;"],
     td.gadget_table_cell:last-child {
         order: 3 !important;
         width: auto !important;
         display: flex !important;
         align-items: center !important;
+        justify-content: flex-end !important;
+        flex-shrink: 0 !important;
     }
 
     .gadget.buttons .gadget_inner,
@@ -3340,47 +3324,48 @@ td.gadget_table_cell.merged {
         gap: 4px !important;
     }
 
-    /* Goldener quadratischer Rahmen für die Shortcuts */
     .gadget.buttons .gadget_icon {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 30px !important;
-        height: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
         background: #2b1f14 !important;
-        border: 2px groove #c08010 !important;
-        border-radius: 4px !important;
+        border: 1px groove #c08010 !important;
+        border-radius: 3px !important;
         box-sizing: border-box !important;
+        flex-shrink: 0 !important;
     }
 
     .gadget.buttons .gadget_icon img {
-        width: 20px !important;
-        height: 20px !important;
+        width: 18px !important;
+        height: 18px !important;
     }
 
-    /* Unwichtigere Icons auf kleinen Bildschirmen reduzieren, damit nichts umbricht */
+    /* Blendet unwichtigere Icons aus, damit die Reihe nie umbricht */
+    .gadget_icon.icon_forums_all,
     .gadget_icon.icon_hero_title,
     .gadget_icon.icon_quest,
     .gadget_icon.icon_help {
         display: none !important;
     }
 
-    /* --- 1.5 SUB-HEAD-LEISTE (DER AUSRUFER / TICKER) --- */
-td.gadget_table_cell[align="center"] {
-    position: absolute !important;       /* Löst den Ticker aus der Icon-Reihe */
-    bottom: 0 !important;               /* Klebt an der Unterkante der Kopfleiste */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 24px !important;
-    line-height: 24px !important;
-    background: #000000 !important;
-    border-top: 1px solid #3d2b15 !important;
-    border-bottom: 1px solid #3d2b15 !important;
-    overflow: hidden !important;
-    padding: 0 4px !important;
-    box-sizing: border-box !important;
-}
+    /* 1.5 Sub-Head: Ticker (Der Ausrufer) fest unten in der Kopfleiste */
+    td.gadget_table_cell[align="center"] {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 24px !important;
+        line-height: 24px !important;
+        background: #000000 !important;
+        border-top: 1px solid #3d2b15 !important;
+        border-bottom: 1px solid #3d2b15 !important;
+        overflow: hidden !important;
+        padding: 0 4px !important;
+        box-sizing: border-box !important;
+    }
 
     .gadget.ticker .gadget_inner,
     .gadget.ticker .gadget_scroll {
