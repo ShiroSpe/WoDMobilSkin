@@ -3142,6 +3142,8 @@ table.ratetable > * > tr > th {
 
 
 
+
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3255,29 +3257,13 @@ html, body {
         margin-right: 4px !important;
     }
 
-/* Verankert den echten, dynamischen Servernamen direkt links in/an der Status-Pille */
-    .world_list {
-        position: absolute !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        left: 215px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        color: #f1cf7a !important;
-        white-space: nowrap !important;
-        z-index: 10001 !important;
-        pointer-events: none !important;
-    }
 
-    .world_list a {
+    .world_list {
         display: none !important;
     }
 
-    td.gadget_table_cell.merged {
-        padding-left: 65px !important;
+    .world_list a {
+        display: none !important; /* Versteckt das kleine Lupe-Icon */
     }
 
     /* 1.3 Mitte Dias, Tombola, Uhrzeit */
@@ -3321,22 +3307,25 @@ html, body {
     td.gadget_table_cell:last-child {
         order: 3 !important;
         width: auto !important;
+        max-width: none !important;
         display: flex !important;
         align-items: center !important;
         justify-content: flex-end !important;
         flex-shrink: 0 !important;
     }
 
+    .gadget.buttons,
     .gadget.buttons .gadget_inner,
-    .gadget.buttons .gadget_scroll {
-        width: auto !important;
-        overflow: visible !important;
-    }
-
+    .gadget.buttons .gadget_scroll,
     .gadget.buttons .gadget_body {
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
         display: flex !important;
         align-items: center !important;
         gap: 4px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .gadget.buttons .gadget_icon {
@@ -3356,6 +3345,7 @@ html, body {
         width: 18px !important;
         height: 18px !important;
     }
+
 
     div.gadget_icon.icon_forums_all,
     div.gadget_icon.icon_hero_title,
