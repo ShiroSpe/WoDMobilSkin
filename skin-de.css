@@ -3383,8 +3383,8 @@ html, body {
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
-        right: 50px !important;
-        width: 300px !important;
+        right: 0 !important;
+        width: 250px !important;
         height: 100vh !important;
         z-index: 10000 !important;
         background: #15110d url(images/page/dialog-background.png) repeat-y !important;
@@ -3402,7 +3402,7 @@ html, body {
         content: "HELD" !important;
         position: fixed;
         top: 70px;
-        right: 270px;
+        right: 70px;
         width: 62px;
         height: 38px;
         line-height: 38px;
@@ -3522,8 +3522,8 @@ html, body {
 /* 9 Schichten: 4 Ecken, 4 Kanten und Hintergrund-Mitte */
         background-image: 
             /* 1. Die 4 Ecken (liegen ganz oben) */
-            url("new/gadget-body-border-top-right.png"),
             url("new/gadget-body-border-top-left.png"),
+            url("new/gadget-body-border-top-right.png"),
             url("images/page/gadget-body-border-bottom-left.png"),
             url("images/page/gadget-body-border-bottom-right.png"),
             /* 2. Die 4 Kanten */
