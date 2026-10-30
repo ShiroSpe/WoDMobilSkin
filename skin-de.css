@@ -3407,7 +3407,7 @@ html, body {
     /* ========================================================================
      * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
      * ======================================================================== */
-#gadgettable-right-td {
+    #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
@@ -3417,26 +3417,19 @@ html, body {
         background: #15110d url(images/page/dialog-background.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
-        transform: translateX(100%);
+        transform: translateX(300px) !important; /* Exakt um die eigene Breite nach rechts */
         transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
-        pointer-events: none !important;
     }
 
-    #gadgettable-right-td:hover,
-    #gadgettable-right-td:focus-within,
-    #gadgettable-right-td:active {
-        transform: translateX(0) !important;
-        pointer-events: auto !important;
-    }
-
+    /* Der goldene "HELD"-Button (dockt an der linken Außenkante des Drawers an) */
     #gadgettable-right-td::after {
         content: "HELD" !important;
-        position: fixed !important;
-        bottom: 96px !important;
-        right: 0 !important;
+        position: absolute !important;       /* Nutzt das transformierte Koordinatensystem */
+        bottom: 96px !important;            /* Höhe über der Sub-Leiste */
+        left: -80px !important;             /* Ragt genau um die Buttonbreite nach links heraus */
         width: 78px !important;
         height: 34px !important;
         line-height: 34px !important;
@@ -3453,10 +3446,9 @@ html, body {
         box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.7) !important;
         cursor: pointer !important;
         pointer-events: auto !important;
-        transform: none !important;
-        z-index: 10001 !important;
     }
 
+    /* Öffnet den Drawer beim Antippen / Hover */
     #gadgettable-right-td:hover,
     #gadgettable-right-td:focus-within,
     #gadgettable-right-td:active {
@@ -3504,7 +3496,7 @@ html, body {
         overflow: visible !important;
     }
 
-    /* --- 4.2 DIE 6 HAUPT-BUTTONS (RECHTS NEBEN DER JUMPBOX) --- */
+    /* --- 4.2 DIE 6 HAUPT-BUTTONS */
     .menu-vertical .menu-0-body {
         display: flex !important;
         flex-direction: row !important;
