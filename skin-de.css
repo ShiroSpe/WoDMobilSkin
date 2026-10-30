@@ -3334,39 +3334,6 @@ td.gadget_table_cell.merged {
         display: none !important;
     }
 
-    /* --- 1.5 SUB-HEAD-LEISTE (DER AUSRUFER / TICKER) --- */
-td.gadget_table_cell[align="center"] {
-    position: absolute !important;       /* Löst den Ticker aus der Icon-Reihe */
-    bottom: 0 !important;               /* Klebt an der Unterkante der Kopfleiste */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 24px !important;
-    line-height: 24px !important;
-    background: #000000 !important;
-    border-top: 1px solid #3d2b15 !important;
-    border-bottom: 1px solid #3d2b15 !important;
-    overflow: hidden !important;
-    padding: 0 4px !important;
-    box-sizing: border-box !important;
-}
-
-    .gadget.ticker .gadget_inner,
-    .gadget.ticker .gadget_scroll {
-        height: 24px !important;
-        line-height: 24px !important;
-    }
-
-    .gadget.ticker .ticker_label {
-        font-size: 11px !important;
-        color: #ffaa00 !important;
-        font-style: italic !important;
-    }
-
-    .gadget.ticker .ticker_msg {
-        font-size: 11px !important;
-        color: #ffffff !important;
-    }
 
     /* ========================================================================
      * 2. MITTLERER TEIL (HAUPTINHALT)
