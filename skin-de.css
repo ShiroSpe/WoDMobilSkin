@@ -3211,7 +3211,7 @@ html, body {
         padding: 2px 2px !important;
         padding-bottom: 26px !important;
         box-sizing: border-box !important;
-        min-height: 68px !important;
+        min-height: 63px !important;
         position: relative !important;
     }
 
@@ -3390,22 +3390,23 @@ html, body {
         background: #15110d url(images/page/dialog-background.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
-        transform: translateX(300px) !important; /* Exakt um die eigene Breite nach rechts */
+        transform: translateX(100%) !important; /* Exakt um die eigene Breite (250px) nach rechts */
         transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
+        pointer-events: none !important;
     }
 
-    /* Der goldene "HELD"-Button (dockt an der linken Außenkante des Drawers an) */
+    /* Der goldene "HELD"-Button fest an der LINKEN Außenkante des Bildschirms */
     #gadgettable-right-td::after {
         content: "HELD" !important;
-        position: fixed;
-        top: 70px;
-        right: 270px;
-        width: 62px;
-        height: 38px;
-        line-height: 38px;
+        position: absolute !important;
+        top: 70px !important;
+        left: calc(100vw + 250px) !important;
+        width: 62px !important;
+        height: 38px !important;
+        line-height: 38px !important;
         text-align: center !important;
         background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
         color: #ffffff !important;
@@ -3415,17 +3416,18 @@ html, body {
         letter-spacing: 1px !important;
         border: 2px solid #ffd700 !important;
         border-right: none !important;
-        border-radius: 6px 0 0 6px !important;
-        box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.7) !important;
+        border-radius: 8px 0 0 8px !important; /* Nach rechts abgerundet */
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7) !important;
         cursor: pointer !important;
         pointer-events: auto !important;
     }
 
-    /* Öffnet den Drawer beim Antippen / Hover */
+    /* Öffnet den Drawer beim Antippen / Fokus und aktiviert Klicks im Menü */
     #gadgettable-right-td:hover,
     #gadgettable-right-td:focus-within,
     #gadgettable-right-td:active {
         transform: translateX(0) !important;
+        pointer-events: auto !important;
     }
 
     /* ========================================================================
@@ -3630,7 +3632,7 @@ html, body {
         padding: 4px 6px !important;
         margin: 0 !important;
         
-        background: #0f0d0a url(images/page/gadget-head-background.png) repeat !important;
+        background: #0f0d0a !important;
         border-top: 2px groove #a07228 !important;
         border-bottom: 1px solid #000000 !important;
         box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.85) !important;
