@@ -631,8 +631,8 @@ table caption {
 .hero_full .fame                          {left:12px;bottom:40px;right:10px;}
 .hero_full .ep                            {left:12px;bottom:60px;right:10px;}
 
-.hero_full .ep .image {position:absolute; left:18px;top:0px; background: url(images/icons/lang/*LANG*/ep.png) no-repeat;}
-.hero_full .fame .image {position:absolute; left:0px;top:0px; background: url(images/icons/lang/*LANG*/fame.png) no-repeat;}
+.hero_full .ep .image {position:absolute; left:18px;top:0px; background: url(images/icons/lang/de/ep.png) no-repeat;}
+.hero_full .fame .image {position:absolute; left:0px;top:0px; background: url(images/icons/lang/de/fame.png) no-repeat;}
 .hero_full .gold .image {position:absolute; left:20px;top:0px; background: url(images/icons/gold.png) no-repeat;}
 .hero_full .diamonds .image {position:absolute; left:20px;top:0px; }
 
@@ -713,12 +713,12 @@ table caption {
   height:51px;
 }
 .fame > .image {
-  background: url(images/icons/lang/*LANG*/fame.png) 0 0 no-repeat;
+  background: url(images/icons/lang/de/fame.png) 0 0 no-repeat;
   width:51px;
   height:51px;
 }
 .ep > .image {
-  background: url(images/icons/lang/*LANG*/ep.png) 0 0 no-repeat;
+  background: url(images/icons/lang/de/ep.png) 0 0 no-repeat;
   width:51px;
   height:51px;
 }
@@ -3131,6 +3131,7 @@ table.ratetable > * > tr > th {
 }
 
 
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3379,14 +3380,6 @@ table.ratetable > * > tr > th {
         width: 100% !important;
     }
 
-    /* Tabellen auf Smartphones ohne Layout-Bruch scrollbar machen */
-    table.content_table, table.ratetable {
-        max-width: 100% !important;
-        display: block !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
     /* ========================================================================
      * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
      * ======================================================================== */
@@ -3397,7 +3390,7 @@ table.ratetable > * > tr > th {
         width: 300px !important;
         height: 100vh !important;
         z-index: 10000 !important;
-        background: #15110d url(images/page/block_bg_body.png) repeat-y !important;
+        background: #15110d url(images/icons/forum_sticky.gif) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
         transform: translateX(100%);
@@ -3470,72 +3463,18 @@ table.ratetable > * > tr > th {
         overflow: visible !important;
     }
 
-    /* --- 4.1 JUMPBOX / SUCHE GANZ LINKS IN DER LEISTE --- */
-    #jumpbox_center {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 76px !important;
-        height: 50px !important;
-        z-index: 9997 !important;
-        background: #14110e !important;
-        border: 2px solid #a07228 !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 0 !important;
-        padding: 0 3px !important;
-    }
-
-    #jumpbox_center form {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-    }
-
-    #jumpbox_center input[name="link"] {
-        width: 44px !important;
-        height: 26px !important;
-        background: #000000 !important;
-        color: #ffffff !important;
-        border: 1px solid #775522 !important;
-        font-size: 11px !important;
-        padding: 0 2px !important;
-        text-align: center !important;
-    }
-
-    #jumpbox_center input[type="submit"] {
-        width: 22px !important;
-        height: 26px !important;
-        background: #443018 !important;
-        color: #ffd700 !important;
-        border: 1px solid #a07228 !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        cursor: pointer !important;
-        padding: 0 !important;
-        margin-left: 2px !important;
-    }
-
-    #jumpbox_center img {
-        display: none !important;
-    }
-
     /* --- 4.2 DIE 6 HAUPT-BUTTONS (RECHTS NEBEN DER JUMPBOX) --- */
     .menu-vertical .menu-0-body {
         display: flex !important;
         flex-direction: row !important;
         position: fixed !important;
         bottom: 0 !important;
-        left: 76px !important; /* Platzhalter für Jumpbox links */
-        width: calc(100% - 76px) !important;
+        width: 100% !important;
         height: 50px !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: #14110e !important;
-        border-top: 2px solid #584122 !important;
+        background: #14110e url(images/page/block_bg_body.png) repeat !important;
+        border-top: 3px ridge #c08010 !important;
         box-sizing: border-box !important;
     }
 
