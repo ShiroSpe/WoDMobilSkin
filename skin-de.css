@@ -3229,7 +3229,7 @@ html, body {
         display: inline-flex !important;
         align-items: center !important;
         font-family: Arial, sans-serif !important;
-        font-size: 15px !important;
+        font-size: 11px !important;
         font-weight: bold !important;
         color: #f1cf7a !important;
         white-space: nowrap !important;
@@ -3256,7 +3256,7 @@ html, body {
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
         display: inline-flex !important;
         align-items: center !important;
-        font-size: 12px !important;
+        font-size: 11px !important;
         font-weight: bold !important;
         color: #ffd700 !important;
     }
@@ -3271,7 +3271,7 @@ html, body {
     #clock {
         color: #ffffff !important;
         font-family: monospace !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
         padding-left: 5px !important;
         border-left: 1px solid #44321d !important;
     }
@@ -3377,39 +3377,43 @@ html, body {
         width: 100% !important;
     }
 
-    /* ========================================================================
-     * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
+/* ========================================================================
+     * 3. RECHTER TEIL & FIXierter "HELD"-BUTTON UNTEN RECHTS
      * ======================================================================== */
 
+    /* Der rechte Drawer (versteckt sich standardmäßig rechts außerhalb des Bildschirms) */
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
-        width: 250px !important;
+        width: 280px !important;
         height: 100vh !important;
         z-index: 10000 !important;
         background: #15110d url(images/page/dialog-background.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
-        transform: translateX(100%) !important; /* Exakt um die eigene Breite (250px) nach rechts */
+        transform: translateX(100%) !important; /* Komplett nach rechts verschoben (versteckt) */
         transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
-        pointer-events: none !important;        /* Wichtig: Verhindert, dass der versteckte Drawer Klicks abfängt */
     }
 
-    /* Der goldene "HELD"-Button fest an der LINKEN Außenkante des Bildschirms */
+    /* Wenn der Drawer geöffnet ist (durch Klick/Fokus auf den Button) */
+    #gadgettable-right-td.open,
+    #gadgettable-right-td:focus-within {
+        transform: translateX(0) !important;
+    }
+
+    /* Der HELD-Button: Fest platziert unten rechts über der Navigationsleiste */
     #gadgettable-right-td::after {
         content: "HELD" !important;
-        position: absolute !important;
-        top: 70px !important;
-        /* Bei translateX(100%) ist der Drawer 250px außerhalb. 
-           Mit right: calc(100vw + 250px) klebt die Lasche permanent an der linken Displaykante (0px): */
-        right: calc(100vw + 250px) !important;
-        width: 62px !important;
-        height: 38px !important;
-        line-height: 38px !important;
+        position: fixed !important;
+        bottom: 56px !important;              /* Sitzt exakt oberhalb der 50px-Navileiste + Rand */
+        right: 10px !important;               /* Unten rechts in der Ecke */
+        width: 75px !important;
+        height: 36px !important;
+        line-height: 36px !important;
         text-align: center !important;
         background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
         color: #ffffff !important;
@@ -3418,19 +3422,11 @@ html, body {
         font-size: 13px !important;
         letter-spacing: 1px !important;
         border: 2px solid #ffd700 !important;
-        border-left: none !important;           /* Links bündig mit Displaykante abschließen */
-        border-radius: 0 8px 8px 0 !important; /* Nach rechts abgerundet */
-        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7) !important;
+        border-radius: 6px !important;         /* Rundherum abgerundet */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8) !important;
         cursor: pointer !important;
-        pointer-events: auto !important;        /* Klicks auf die Lasche erlauben */
-    }
-
-    /* Öffnet den Drawer beim Antippen / Fokus und aktiviert Klicks im Menü */
-    #gadgettable-right-td:hover,
-    #gadgettable-right-td:focus-within,
-    #gadgettable-right-td:active {
-        transform: translateX(0) !important;
-        pointer-events: auto !important;
+        pointer-events: auto !important;      /* Klickbar machen */
+        z-index: 10002 !important;            /* Liegt über allem anderen */
     }
 
     /* ========================================================================
@@ -3585,13 +3581,13 @@ html, body {
    }
 
 /* Beschriftung der 7 Haupt-Buttons */
-    .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELLES"; }
+    .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELL"; }
     .menu-vertical .menu-1:nth-child(3) > .menu-1-caption::after { content: "HELD"; }
-    .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "AUSRÜSTUNG"; }
+    .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "ITEMS"; }
     .menu-vertical .menu-1:nth-child(7) > .menu-1-caption::after { content: "KÄMPFE"; }
     .menu-vertical .menu-1:nth-child(9) > .menu-1-caption::after { content: "HANDEL"; }
     .menu-vertical .menu-1:nth-child(12) > .menu-1-caption::after { content: "FORUM"; }
-    .menu-vertical .menu-1:nth-child(14) > .menu-1-caption::after { content: "WEITERES"; }
+    .menu-vertical .menu-1:nth-child(14) > .menu-1-caption::after { content: "WEITERE"; }
 
     /* Wenn "WEITERES" aktiv/getippt ist: Blendet auch die Submenüs von Account, Empfehlen & Beenden mit ein */
     .menu-vertical .menu-1:nth-child(14):hover ~ .menu-1 > .menu-1-body,
