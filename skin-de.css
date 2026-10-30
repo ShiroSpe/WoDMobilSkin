@@ -3140,6 +3140,8 @@ table.ratetable > * > tr > th {
 
 
 
+
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3223,7 +3225,7 @@ html, body {
         position: relative !important;      /* Bezugspunkt Ticker */
     }
 
-    /* 1.1 Links: Hamburger-Button & Weltenname */
+    /* 1.1 Links: Hamburger-Button*/
     td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
         order: 1 !important;
         display: flex !important;
@@ -3253,12 +3255,29 @@ html, body {
         margin-right: 4px !important;
     }
 
+/* Verankert den echten, dynamischen Servernamen direkt links in/an der Status-Pille */
     .world_list {
-        display: none !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        left: 215px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        color: #f1cf7a !important;
+        white-space: nowrap !important;
+        z-index: 10001 !important;
+        pointer-events: none !important;
     }
 
     .world_list a {
-        display: none !important; /* Versteckt das kleine Lupe-Icon */
+        display: none !important;
+    }
+
+    td.gadget_table_cell.merged {
+        padding-left: 65px !important;
     }
 
     /* 1.3 Mitte Dias, Tombola, Uhrzeit */
@@ -3280,19 +3299,6 @@ html, body {
         font-size: 12px !important;
         font-weight: bold !important;
         color: #ffd700 !important;
-    }
-
-    .gadget.diamonds::before {
-        content: attr(data-world-name, "Welt") !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        color: #f1cf7a !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        padding-right: 6px !important;
-        margin-right: 4px !important;
-        border-right: 1px solid #44321d !important;
     }
 
     .gadget.diamonds a, .gadget.tombola a {
@@ -3351,11 +3357,17 @@ html, body {
         height: 18px !important;
     }
 
-    .gadget_icon.icon_forums_all,
-    .gadget_icon.icon_hero_title,
-    .gadget_icon.icon_quest,
-    .gadget_icon.icon_help {
+    div.gadget_icon.icon_forums_all,
+    div.gadget_icon.icon_hero_title,
+    div.gadget_icon.icon_quest,
+    div.gadget_icon.icon_help {
         display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
 
     /* 1.5 Sub-Head: Ticker (Der Ausrufer) fest unten in der Kopfleiste */
