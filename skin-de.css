@@ -3134,6 +3134,8 @@ table.ratetable > * > tr > th {
 
 
 
+
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3229,7 +3231,7 @@ td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
     flex-shrink: 0 !important;
 }
 
-    /* Hamburger Button (Goldener Kasten links) */
+    /* Hamburger Button - Altes Menü */
 .gadget.worlds::before {
     content: "" !important;
     display: block !important;
@@ -3247,16 +3249,24 @@ td.gadget_table_cell.tableMinWidthRespectingContent:first-child {
         margin-right: 4px !important;
     }
 
-    .world_list {
-        font-size: 13px !important;
-        font-weight: bold !important;
-        color: #ffffff !important;
-        display: inline-flex !important;
-        align-items: center !important;
-    }
-    .world_list img {
-        display: none !important; /* Altes Icon ausblenden */
-    }
+.world_list {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: calc(100% - 64px) !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #f1cf7a !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    border-left: 1px solid #44321d !important;
+    padding-left: 4px !important;
+}
+
+.world_list a {
+    display: none !important;
+}
 
     /* 1.3 Mitte: Status-Pille (840 💎 1 🎟 16:50) */
 td.gadget_table_cell.merged {
@@ -3266,9 +3276,11 @@ td.gadget_table_cell.merged {
     background: #000000 !important;
     border: 1px solid #7a5826 !important;
     border-radius: 4px !important;
-    padding: 2px 4px !important;         /* Schlankeres Innen-Padding */
+    padding: 2px 4px !important;
     gap: 4px !important;
     flex-shrink: 0 !important;
+    position: relative !important;
+    padding-right: 68px !important;
 }
 
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
@@ -3286,12 +3298,25 @@ td.gadget_table_cell.merged {
         color: #ffd700 !important;
     }
 
-    #clock {
-        color: #ffffff !important;
-        font-family: monospace !important;
-        font-size: 12px !important;
-        padding-left: 4px !important;
-        border-left: 1px solid #44321d !important;
+#clock {
+    color: #ffffff !important;
+    font-family: monospace !important;
+    font-size: 12px !important;
+    padding-left: 4px !important;
+    border-left: 1px solid #44321d !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Hängt den Servernamen mit Trenner direkt rechts an die Uhrzeit an */
+#clock::after {
+    content: "• Cartegon" !important;    /* Oder nur "Cartegon" ohne Punkt */
+    font-family: Arial, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #f1cf7a !important;          /* Edler Gold-Ton */
+    margin-left: 5px !important;
+}
     }
 
     /* 1.4 Rechts: 4 gerahmte Schnellzugriffs-Icons */
