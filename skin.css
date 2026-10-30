@@ -3223,7 +3223,7 @@ table.ratetable > * > tr > th {
         display: inline-block !important;
         width: 36px !important;
         height: 36px !important;
-        background: url("images/icons/Neue Icons/HamburgerMenu.png") center center no-repeat,
+        background: url("images/icons/forum_sticky.gif") center center no-repeat,
                     url("images/icons/next_hero_a.gif") center center no-repeat;
         background-size: 26px 26px !important;
         background-color: #2b1f14 !important;
