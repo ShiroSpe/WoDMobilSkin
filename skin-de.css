@@ -3209,10 +3209,10 @@ html, body {
         align-items: center !important;
         justify-content: space-between !important;
         padding: 2px 4px !important;
-        padding-bottom: 26px !important;    /* Platz für die Ticker-Zeile darunter */
+        padding-bottom: 26px !important;
         box-sizing: border-box !important;
-        min-height: 68px !important;        /* 44px Icons + 24px Ticker */
-        position: relative !important;      /* Bezugspunkt Ticker */
+        min-height: 68px !important;
+        position: relative !important;
     }
 
     /* 1.1 Links: Hamburger-Button*/
@@ -3251,7 +3251,7 @@ html, body {
     }
 
     .world_list a {
-        display: none !important; /* Versteckt das kleine Lupe-Icon */
+        display: none !important;
     }
 
     /* 1.3 Mitte Dias, Tombola, Uhrzeit */
@@ -3389,13 +3389,12 @@ html, body {
 #gadgettable-center {
     display: block !important;
     width: 100% !important;
-    height: auto !important;             /* Hinzufügen */
-    min-height: 0 !important;            /* Hinzufügen */
+    height: auto !important;
+    min-height: 0 !important;
         box-sizing: border-box !important;
         margin: 0 !important;
-        /* Verhindert, dass der Inhalt hinter den Leisten verschwindet */
-        padding-top: 86px !important;   /* Oben-Leiste + Sub-Head */
-        padding-bottom: 120px !important; /* Unten-Leiste + Sub-Leiste */
+        padding-top: 86px !important;
+        padding-bottom: 120px !important;
         padding-left: 6px !important;
         padding-right: 6px !important;
     }
@@ -3408,7 +3407,7 @@ html, body {
     /* ========================================================================
      * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
      * ======================================================================== */
-    #gadgettable-right-td {
+#gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
@@ -3423,14 +3422,21 @@ html, body {
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
+        pointer-events: none !important;
     }
 
-    /* Der goldene "HELD"-Button rechts schwebend über der Leiste (Mockup V3) */
+    #gadgettable-right-td:hover,
+    #gadgettable-right-td:focus-within,
+    #gadgettable-right-td:active {
+        transform: translateX(0) !important;
+        pointer-events: auto !important;
+    }
+
     #gadgettable-right-td::after {
         content: "HELD" !important;
         position: fixed !important;
-        bottom: 96px !important; /* Sitzt genau über der Sub-Leiste */
-        right: 300px !important; /* Dockt exakt an der Außenkante des Drawers an */
+        bottom: 96px !important;
+        right: 0 !important;
         width: 78px !important;
         height: 34px !important;
         line-height: 34px !important;
@@ -3447,6 +3453,8 @@ html, body {
         box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.7) !important;
         cursor: pointer !important;
         pointer-events: auto !important;
+        transform: none !important;
+        z-index: 10001 !important;
     }
 
     #gadgettable-right-td:hover,
@@ -3471,7 +3479,7 @@ html, body {
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
-    pointer-events: none !important;     /* Lässt Touch/Scrollen durch den unsichtbaren Bereich durch */
+    pointer-events: none !important;
 }
 
 .menu-vertical .menu-0-body,
@@ -3537,8 +3545,6 @@ html, body {
         font-weight: bold !important;
         letter-spacing: 0.5px !important;
         text-shadow: 1px 1px 2px #000000 !important;
-        
-        /* Hellerer Pergament-/Bronzeton wie im Mockup */
         background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
         border: 1px solid #3d2b17 !important;
         border-right: 1px solid #291d10 !important;
@@ -3551,7 +3557,6 @@ html, body {
         color: #ffd700 !important;
     }
 
-    /* Desktop-Bilder und Trenner verstecken */
     .menu-1-caption > img,
     .menu-1-caption > .menu-1-arrow,
     .menu-between,
@@ -3576,7 +3581,7 @@ html, body {
      * ======================================================================== */
     .menu-vertical .menu-1 > .menu-1-body {
         position: fixed !important;
-        bottom: 50px !important; /* Exakt über der Hauptleiste */
+        bottom: 50px !important;
         left: 0 !important;
         width: 100vw !important;
         height: 42px !important;
@@ -3584,7 +3589,6 @@ html, body {
         padding: 4px 6px !important;
         margin: 0 !important;
         
-        /* Dunkles Design mit feinem Goldrand (Mockup V3) */
         background: #0f0d0a url(images/page/gadget-head-background.png) repeat !important;
         border-top: 2px groove #a07228 !important;
         border-bottom: 1px solid #000000 !important;
@@ -3653,7 +3657,6 @@ html, body {
      * REITER / TABS (Details, Boni, Langzeiteffekte etc.) REPARIEREN
      * ======================================================================== */
 
-    /* 1. Die Tab-Gesamtleiste: horizontal scrollbar & durchgehender Hintergrund */
     .tab, .sub-tabs {
         width: 100% !important;
         display: block !important;
@@ -3709,7 +3712,7 @@ html, body {
         text-shadow: 1px 1px 2px #000000 !important;
     }
 
-    /* 5. Inaktive Tabs daneben (z.B. "Boni auf Beute...", "Langzeiteffekte") */
+    /* 5. Inaktive Tabs daneben (z.B. "Boni auf", "Langzeiteffekte") */
     .tab > ul > li.not_selected > a,
     .sub-tabs > .label:not(.selected) > a {
         display: inline-flex !important;
@@ -3732,7 +3735,7 @@ html, body {
     }
 
 /* ========================================================================
-     * NORMALE BUTTONS & SCHALTFLÄCHEN (Ok, Held erstellen, Löschen, etc.)
+     * NORMALE BUTTONS & SCHALTFLÄCHEN
      * ======================================================================== */
     input.button,
     input.button_minor,
