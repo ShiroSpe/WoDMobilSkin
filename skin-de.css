@@ -3205,12 +3205,15 @@ html, body {
     /* Zeile 1: Hamburger, Weltenname, Status, Shortcuts */
 #gadgettable-top-gadgets > table > tbody > tr {
     display: flex !important;
-    flex-wrap: nowrap !important;        /* Verhindert das Umknicken in eine neue Zeile */
+    flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 2px 4px !important;
+    padding-bottom: 26px !important;    /* SCHAFFT PLATZ für die Ticker-Zeile darunter */
     box-sizing: border-box !important;
-    min-height: 44px !important;
+    min-height: 68px !important;        /* 44px Icons + 24px Ticker */
+    position: relative !important;      /* Bezugspunkt für den Ticker */
+}
 }
 
     /* 1.1 & 1.2 Hamburger-Menü & Welt-Name */
@@ -3332,20 +3335,21 @@ td.gadget_table_cell.merged {
     }
 
     /* --- 1.5 SUB-HEAD-LEISTE (DER AUSRUFER / TICKER) --- */
-    td.gadget_table_cell[align="center"] {
-        order: 4 !important;
-        flex: 1 1 100% !important;
-        width: 100% !important;
-        height: 24px !important;
-        line-height: 24px !important;
-        margin-top: 2px !important;
-        background: #000000 !important;
-        border-top: 1px solid #3d2b15 !important;
-        border-bottom: 1px solid #3d2b15 !important;
-        overflow: hidden !important;
-        padding: 0 4px !important;
-        box-sizing: border-box !important;
-    }
+td.gadget_table_cell[align="center"] {
+    position: absolute !important;       /* Löst den Ticker aus der Icon-Reihe */
+    bottom: 0 !important;               /* Klebt an der Unterkante der Kopfleiste */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    background: #000000 !important;
+    border-top: 1px solid #3d2b15 !important;
+    border-bottom: 1px solid #3d2b15 !important;
+    overflow: hidden !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+}
 
     .gadget.ticker .gadget_inner,
     .gadget.ticker .gadget_scroll {
