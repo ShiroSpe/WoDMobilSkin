@@ -3138,6 +3138,8 @@ table.ratetable > * > tr > th {
 
 
 
+
+
 /******************************************************************************
  * MOBILE TOUCH SKIN - PROJEKT MOBILE ANSICHT V3
  ******************************************************************************/
@@ -3251,21 +3253,15 @@ html, body {
         margin-right: 4px !important;
     }
 
-    /* Der dynamische Weltenname (sitzt sauber direkt neben dem Hamburger) */
     .world_list {
-        display: inline-flex !important;
-        align-items: center !important;
-        font-size: 12px !important;
-        font-weight: bold !important;
-        color: #ffffff !important;
-        white-space: nowrap !important;
+        display: none !important;
     }
 
     .world_list a {
         display: none !important; /* Versteckt das kleine Lupe-Icon */
     }
 
-    /* 1.3 Mitte: Status-Pille (840 💎 1 🎟 16:50) */
+    /* 1.3 Mitte Dias, Tombola, Uhrzeit */
     td.gadget_table_cell.merged {
         order: 2 !important;
         display: inline-flex !important;
@@ -3286,6 +3282,19 @@ html, body {
         color: #ffd700 !important;
     }
 
+    .gadget.diamonds::before {
+        content: attr(data-world-name, "Welt") !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        color: #f1cf7a !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        padding-right: 6px !important;
+        margin-right: 4px !important;
+        border-right: 1px solid #44321d !important;
+    }
+
     .gadget.diamonds a, .gadget.tombola a {
         display: inline-flex !important;
         align-items: center !important;
@@ -3301,7 +3310,7 @@ html, body {
         border-left: 1px solid #44321d !important;
     }
 
-    /* 1.4 Rechts: Die 4 Shortcut-Icons */
+    /* 1.4 Rechts Shortcuts */
     td.gadget_table_cell[style*="width:220px;"],
     td.gadget_table_cell:last-child {
         order: 3 !important;
@@ -3342,7 +3351,6 @@ html, body {
         height: 18px !important;
     }
 
-    /* Blendet unwichtigere Icons aus, damit die Reihe nie umbricht */
     .gadget_icon.icon_forums_all,
     .gadget_icon.icon_hero_title,
     .gadget_icon.icon_quest,
