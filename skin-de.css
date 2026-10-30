@@ -3211,7 +3211,7 @@ html, body {
         padding: 2px 2px !important;
         padding-bottom: 26px !important;
         box-sizing: border-box !important;
-        min-height: 63px !important;
+        min-height: 62px !important;
         position: relative !important;
     }
 
@@ -3256,7 +3256,7 @@ html, body {
     .gadget.diamonds, .gadget.tombola, .gadget.clock {
         display: inline-flex !important;
         align-items: center !important;
-        font-size: 15px !important;
+        font-size: 12px !important;
         font-weight: bold !important;
         color: #ffd700 !important;
     }
@@ -3271,7 +3271,7 @@ html, body {
     #clock {
         color: #ffffff !important;
         font-family: monospace !important;
-        font-size: 15px !important;
+        font-size: 13px !important;
         padding-left: 5px !important;
         border-left: 1px solid #44321d !important;
     }
@@ -3380,6 +3380,7 @@ html, body {
     /* ========================================================================
      * 3. RECHTER TEIL & AUFKLAPPBARER "HELD"-BUTTON
      * ======================================================================== */
+
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
@@ -3395,7 +3396,7 @@ html, body {
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
-        pointer-events: none !important;
+        pointer-events: none !important;        /* Wichtig: Verhindert, dass der versteckte Drawer Klicks abfängt */
     }
 
     /* Der goldene "HELD"-Button fest an der LINKEN Außenkante des Bildschirms */
@@ -3403,7 +3404,9 @@ html, body {
         content: "HELD" !important;
         position: absolute !important;
         top: 70px !important;
-        left: calc(100vw + 250px) !important;
+        /* Bei translateX(100%) ist der Drawer 250px außerhalb. 
+           Mit right: calc(100vw + 250px) klebt die Lasche permanent an der linken Displaykante (0px): */
+        right: calc(100vw + 250px) !important;
         width: 62px !important;
         height: 38px !important;
         line-height: 38px !important;
@@ -3415,11 +3418,11 @@ html, body {
         font-size: 13px !important;
         letter-spacing: 1px !important;
         border: 2px solid #ffd700 !important;
-        border-right: none !important;
-        border-radius: 8px 0 0 8px !important; /* Nach rechts abgerundet */
+        border-left: none !important;           /* Links bündig mit Displaykante abschließen */
+        border-radius: 0 8px 8px 0 !important; /* Nach rechts abgerundet */
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7) !important;
         cursor: pointer !important;
-        pointer-events: auto !important;
+        pointer-events: auto !important;        /* Klicks auf die Lasche erlauben */
     }
 
     /* Öffnet den Drawer beim Antippen / Fokus und aktiviert Klicks im Menü */
