@@ -3208,7 +3208,7 @@ html, body {
         flex-wrap: nowrap !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 2px 4px !important;
+        padding: 2px 2px !important;
         padding-bottom: 26px !important;
         box-sizing: border-box !important;
         min-height: 68px !important;
@@ -3246,7 +3246,7 @@ html, body {
         display: inline-flex !important;
         align-items: center !important;
         background: #000000 !important;
-        border: 1px solid #7a5826 !important;
+        border: none !important;
         border-radius: 4px !important;
         padding: 2px 6px !important;
         gap: 5px !important;
@@ -3306,8 +3306,8 @@ html, body {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 30px !important;
-        height: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
         background: #2b1f14 !important;
         border: none !important;
         border-radius: 1px !important;
@@ -3316,8 +3316,8 @@ html, body {
     }
 
     .gadget.buttons .gadget_icon img {
-        width: 30px !important;
-        height: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
     }
 
 
@@ -3383,7 +3383,7 @@ html, body {
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
-        right: 0 !important;
+        right: 50px !important;
         width: 300px !important;
         height: 100vh !important;
         z-index: 10000 !important;
@@ -3426,27 +3426,6 @@ html, body {
     #gadgettable-right-td:focus-within,
     #gadgettable-right-td:active {
         transform: translateX(0) !important;
-    }
-
-    #gadgettable-right-td::after {
-        content: "👤 Held";
-        position: fixed;
-        top: 70px;
-        right: 270px;
-        width: 62px;
-        height: 38px;
-        line-height: 38px;
-        text-align: center;
-        background: #2b1f14;
-        color: #ffcf00;
-        font-weight: bold;
-        font-size: 13px;
-        border: 2px groove #f0a015;
-        border-right: none;
-        border-radius: 8px 0 0 8px;
-        box-shadow: -2px 2px 6px rgba(0,0,0,0.7);
-        cursor: pointer;
-        pointer-events: auto;
     }
 
     /* ========================================================================
@@ -3540,32 +3519,50 @@ html, body {
         letter-spacing: 0.5px !important;
         text-shadow: 1px 1px 2px #000000 !important;
         background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
+/* 9 Schichten: 4 Ecken, 4 Kanten und Hintergrund-Mitte */
         background-image: 
+            /* 1. Die 4 Ecken (liegen ganz oben) */
+            url("images/page/gadget-head-border-top-left.png"),
+            url("images/page/gadget-head-border-top-right.png"),
             url("images/page/gadget-body-border-bottom-left.png"),
             url("images/page/gadget-body-border-bottom-right.png"),
+            /* 2. Die 4 Kanten */
+            url("images/page/gadget-head-border-top.png"),
             url("images/page/gadget-body-border-bottom.png"),
             url("images/page/gadget-body-border-left.png"),
             url("images/page/gadget-body-border-right.png"),
+            /* 3. Hintergrundfüllung (ganz unten) */
             url("images/page/gadget-body-background.png") !important;
 
         background-position: 
+            /* Ecken */
+            top left,
+            top right,
             bottom left,
             bottom right,
+            /* Kanten */
+            top left,
             bottom left,
             top left,
             top right,
+            /* Mitte */
             center center !important;
 
         background-repeat: 
+            /* Ecken (einmalig) */
             no-repeat,
             no-repeat,
+            no-repeat,
+            no-repeat,
+            /* Kanten (waagerecht / senkrecht gekachelt) */
+            repeat-x,
             repeat-x,
             repeat-y,
             repeat-y,
+            /* Mitte (vollflächig gekachelt) */
             repeat !important;
 
         border: none !important;
-    }
 
     .menu-vertical .menu-1 > .menu-1-caption:active,
     .menu-vertical .menu-1.open > .menu-1-caption,
