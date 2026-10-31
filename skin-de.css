@@ -3428,7 +3428,7 @@ body::before {
     line-height: 42px !important;
     text-align: center !important;
     box-sizing: border-box !important; 
-background: #8b7355 url(images/page/gadget-body-background.png) center / cover no-repeat !important;
+        background: #8b7355 url(new/button-background.png) repeat !important;
         background-image: 
             url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
             url("new/button-border-top-right-drawer.png"),
@@ -3438,7 +3438,7 @@ background: #8b7355 url(images/page/gadget-body-background.png) center / cover n
             url("new/button-border-bottom-drawer.png"),
             url("new/button-border-left-drawer.png"),
             url("new/button-border-right-drawer.png"),
-            url("images/button.jpg") !important;            /* Hintergrund */
+            url("new/button-background.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
@@ -3485,7 +3485,7 @@ background: #8b7355 url(images/page/gadget-body-background.png) center / cover n
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
     content: "ZU" !important;
-        background: #8b7355 url(images/button_disabled.jpg) repeat !important;
+        background: #8b7355 url(new/button-background-on.png) repeat !important;
         background-image: 
             url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
             url("new/button-border-top-right-drawer.png"),
@@ -3495,7 +3495,7 @@ background: #8b7355 url(images/page/gadget-body-background.png) center / cover n
             url("new/button-border-bottom-drawer.png"),
             url("new/button-border-left-drawer.png"),
             url("new/button-border-right-drawer.png"),
-            url("images/button_disabled.jpg") !important;            /* Hintergrund */
+            url("new/button-background-on.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
