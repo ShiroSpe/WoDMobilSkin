@@ -3430,14 +3430,14 @@ body::before {
     box-sizing: border-box !important; 
         background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
         background-image: 
-            url("new/gadget-body-border-top-left2.png"),            /* 4 Ecken */
-            url("new/gadget-body-border-top-right2.png"),
-            url("images/page/gadget-body-border-bottom-left.png"),
-            url("images/page/gadget-body-border-bottom-right.png"),
-            url("new/gadget-body-border-top2.png"),            /* 4 Kanten */
-            url("images/page/gadget-body-border-bottom.png"),
-            url("images/page/gadget-body-border-left.png"),
-            url("images/page/gadget-body-border-right.png"),
+            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
+            url("new/button-border-top-right-drawer.png"),
+            url("new/button-border-bottom-left-drawer.png"),
+            url("new/button-border-bottom-right-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
             url("images/button.jpg") !important;            /* Hintergrund */
 
         background-position: 
@@ -3487,15 +3487,15 @@ body::before {
     content: "ZU" !important;
         background: #8b7355 url(images/button_disabled.jpg) repeat !important;
         background-image: 
-            url("new/gadget-body-border-top-left2.png"),            /* 4 Ecken */
-            url("new/gadget-body-border-top-right2.png"),
-            url("images/page/gadget-body-border-bottom-left.png"),
-            url("images/page/gadget-body-border-bottom-right.png"),
-            url("new/gadget-body-border-top2.png"),            /* 4 Kanten */
-            url("images/page/gadget-body-border-bottom.png"),
-            url("images/page/gadget-body-border-left.png"),
-            url("images/page/gadget-body-border-right.png"),
-            url("images/button.jpg") !important;            /* Hintergrund */
+            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
+            url("new/button-border-top-right-drawer.png"),
+            url("new/button-border-bottom-left-drawer.png"),
+            url("new/button-border-bottom-right-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("images/button_disabled.jpg") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
