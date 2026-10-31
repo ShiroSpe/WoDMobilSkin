@@ -3390,7 +3390,7 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 185px !important;
+    width: 190px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
@@ -3417,12 +3417,12 @@ body::before {
     padding: 80px 10px 40px 10px !important;
 }
 
-/* DER SICHTBARE HELD-REITER (ragt aus dem rechten Rand ins Bild) */
+/* Rechte Seite Button */
 #gadgettable-right-td::before {
     content: "HELD" !important;
     position: absolute !important;
-    top: 75px !important;           /* Sitzt direkt unter deiner Top-Bar */
-    left: -70px !important;         /* Ragt 70px nach links ins Sichtfeld */
+    top: 75px !important;
+    left: -70px !important;
     width: 70px !important;
     height: 42px !important;
     line-height: 42px !important;
@@ -3430,45 +3430,36 @@ body::before {
     box-sizing: border-box !important; 
         background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
         background-image: 
-            /* 1. Die 4 Ecken (liegen ganz oben) */
-            url("new/gadget-body-border-top-left2.png"),
+            url("new/gadget-body-border-top-left2.png"),            /* 4 Ecken */
             url("new/gadget-body-border-top-right2.png"),
             url("images/page/gadget-body-border-bottom-left.png"),
             url("images/page/gadget-body-border-bottom-right.png"),
-            /* 2. Die 4 Kanten */
-            url("new/gadget-body-border-top2.png"),
+            url("new/gadget-body-border-top2.png"),            /* 4 Kanten */
             url("images/page/gadget-body-border-bottom.png"),
             url("images/page/gadget-body-border-left.png"),
             url("images/page/gadget-body-border-right.png"),
-            /* 3. Hintergrundfüllung (ganz unten) */
-            url("images/page/gadget-body-background.png") !important;
+            url("images/button.jpg") !important;            /* Hintergrund */
 
         background-position: 
-            /* Ecken */
-            top left,
+            top left,             /* Ecken */
             top right,
             bottom left,
             bottom right,
-            /* Kanten */
-            top left,
+            top left,            /* Kanten */
             bottom left,
             top left,
             top right,
-            /* Mitte */
-            center center !important;
+            center center !important;            /* Hintergrund */
 
         background-repeat: 
-            /* Ecken (einmalig) */
+            no-repeat,            /* Ecken */
             no-repeat,
             no-repeat,
             no-repeat,
-            no-repeat,
-            /* Kanten (waagerecht / senkrecht gekachelt) */
-            repeat-x,
+            repeat-x,            /* Kanten */
             repeat-x,
             repeat-y,
-            repeat-y,
-            /* Mitte (vollflächig gekachelt) */
+            repeat-y,            /* Hintergrund */
             repeat !important;
 
         border: none !important;
@@ -3494,8 +3485,41 @@ body::before {
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
     content: "ZU" !important;
-    background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
-    border-color: #ff9999 !important;
+        background: #8b7355 url(images/button_disabled.jpg) repeat !important;
+        background-image: 
+            url("new/gadget-body-border-top-left2.png"),            /* 4 Ecken */
+            url("new/gadget-body-border-top-right2.png"),
+            url("images/page/gadget-body-border-bottom-left.png"),
+            url("images/page/gadget-body-border-bottom-right.png"),
+            url("new/gadget-body-border-top2.png"),            /* 4 Kanten */
+            url("images/page/gadget-body-border-bottom.png"),
+            url("images/page/gadget-body-border-left.png"),
+            url("images/page/gadget-body-border-right.png"),
+            url("images/button.jpg") !important;            /* Hintergrund */
+
+        background-position: 
+            top left,             /* Ecken */
+            top right,
+            bottom left,
+            bottom right,
+            top left,            /* Kanten */
+            bottom left,
+            top left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat: 
+            no-repeat,            /* Ecken */
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
 }
 
 
@@ -3507,7 +3531,7 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 185px !important;
+    width: 190px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
