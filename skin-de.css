@@ -3390,14 +3390,13 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 180px !important;
+    width: 185px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
     overflow: visible !important;
     
-    background: #15110d url(new/block-background2.png) repeat-y !important;
-    border-left: 3px ridge #f0a015 !important;
+    background: #15110d url(images/page/block_bg_body.png)) repeat-y !important;
     box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
     
     /* Leiste nach rechts verstecken */
@@ -3428,18 +3427,56 @@ body::before {
     height: 42px !important;
     line-height: 42px !important;
     text-align: center !important;
-    box-sizing: border-box !important;
-    
-    background: linear-gradient(180deg, #c4861b 0%, #7d4d09 100%) !important;
+    box-sizing: border-box !important; 
+        background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
+        background-image: 
+            /* 1. Die 4 Ecken (liegen ganz oben) */
+            url("new/gadget-body-border-top-left2.png"),
+            url("new/gadget-body-border-top-right2.png"),
+            url("images/page/gadget-body-border-bottom-left.png"),
+            url("images/page/gadget-body-border-bottom-right.png"),
+            /* 2. Die 4 Kanten */
+            url("new/gadget-body-border-top2.png"),
+            url("images/page/gadget-body-border-bottom.png"),
+            url("images/page/gadget-body-border-left.png"),
+            url("images/page/gadget-body-border-right.png"),
+            /* 3. Hintergrundfüllung (ganz unten) */
+            url("images/page/gadget-body-background.png") !important;
+
+        background-position: 
+            /* Ecken */
+            top left,
+            top right,
+            bottom left,
+            bottom right,
+            /* Kanten */
+            top left,
+            bottom left,
+            top left,
+            top right,
+            /* Mitte */
+            center center !important;
+
+        background-repeat: 
+            /* Ecken (einmalig) */
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            /* Kanten (waagerecht / senkrecht gekachelt) */
+            repeat-x,
+            repeat-x,
+            repeat-y,
+            repeat-y,
+            /* Mitte (vollflächig gekachelt) */
+            repeat !important;
+
+        border: none !important;
     color: #ffffff !important;
     font-family: Arial, sans-serif !important;
     font-weight: bold !important;
     font-size: 11px !important;
     letter-spacing: 0.5px !important;
-    
-    border: 2px solid #ffd700 !important;
-    border-right: none !important;
-    border-radius: 8px 0 0 8px !important;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.8) !important;
     cursor: pointer !important;
     z-index: 10002 !important;
@@ -3456,21 +3493,21 @@ body::before {
 #gadgettable-right-td:hover::before,
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
-    content: "<-" !important;
+    content: "ZU" !important;
     background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
     border-color: #ff9999 !important;
 }
 
 
 /* ========================================================================
- * 4. LINKER DRAWER (MENÜ) - AUSFAHRBAR NACH RECHTS
+ * 4. LINKER Bereich Ausklappbar
  * ======================================================================== */
 
 #gadgettable-left-td {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 180px !important;
+    width: 185px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
@@ -3478,8 +3515,7 @@ body::before {
     /* ENTSCHEIDEND: 'visible' erlaubt dem Button, nach rechts herauszuragen */
     overflow: visible !important;
     
-    background: #14110e url(new/block-background2.png) repeat-y !important;
-    border-right: 3px ridge #f0a015 !important;
+    background: #14110e url(images/page/block_bg_body.png) repeat-y !important;
     box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;
     
     /* Leiste nach links verstecken */
@@ -3502,7 +3538,7 @@ body::before {
 
 /* DER SICHTBARE MENÜ-REITER (ragt aus dem linken Rand ins Bild) */
 #gadgettable-left-td::before {
-    content: "Menü" !important;
+    content: "MENÜ" !important;
     position: absolute !important;
     top: 75px !important;
     right: -70px !important;        /* Ragt 70px nach rechts ins Sichtfeld */
@@ -3538,7 +3574,7 @@ body::before {
 #gadgettable-left-td:hover::before,
 #gadgettable-left-td:focus-within::before,
 #gadgettable-left-td.open::before {
-    content: "->" !important;
+    content: "ZU" !important;
     background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
     border-color: #ff9999 !important;
 }
