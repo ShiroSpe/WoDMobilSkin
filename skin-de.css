@@ -3390,15 +3390,13 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 280px !important;
+    width: 180px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
-    
-    /* ENTSCHEIDEND: 'visible' erlaubt dem Button, aus der Leiste herauszuragen */
     overflow: visible !important;
     
-    background: #15110d url(images/page/dialog-background.png) repeat-y !important;
+    background: #15110d url(new/block-background2.png) repeat-y !important;
     border-left: 3px ridge #f0a015 !important;
     box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
     
@@ -3422,7 +3420,7 @@ body::before {
 
 /* DER SICHTBARE HELD-REITER (ragt aus dem rechten Rand ins Bild) */
 #gadgettable-right-td::before {
-    content: "🛡️ HELD" !important;
+    content: "HELD" !important;
     position: absolute !important;
     top: 75px !important;           /* Sitzt direkt unter deiner Top-Bar */
     left: -70px !important;         /* Ragt 70px nach links ins Sichtfeld */
@@ -3458,7 +3456,7 @@ body::before {
 #gadgettable-right-td:hover::before,
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
-    content: "✖ ZU" !important;
+    content: "<-" !important;
     background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
     border-color: #ff9999 !important;
 }
@@ -3472,7 +3470,7 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 280px !important;
+    width: 180px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
@@ -3480,7 +3478,7 @@ body::before {
     /* ENTSCHEIDEND: 'visible' erlaubt dem Button, nach rechts herauszuragen */
     overflow: visible !important;
     
-    background: #14110e url(images/page/dialog-background.png) repeat-y !important;
+    background: #14110e url(new/block-background2.png) repeat-y !important;
     border-right: 3px ridge #f0a015 !important;
     box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;
     
@@ -3504,7 +3502,7 @@ body::before {
 
 /* DER SICHTBARE MENÜ-REITER (ragt aus dem linken Rand ins Bild) */
 #gadgettable-left-td::before {
-    content: "☰ MENÜ" !important;
+    content: "Menü" !important;
     position: absolute !important;
     top: 75px !important;
     right: -70px !important;        /* Ragt 70px nach rechts ins Sichtfeld */
@@ -3540,7 +3538,7 @@ body::before {
 #gadgettable-left-td:hover::before,
 #gadgettable-left-td:focus-within::before,
 #gadgettable-left-td.open::before {
-    content: "✖ ZU" !important;
+    content: "->" !important;
     background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
     border-color: #ff9999 !important;
 }
@@ -3586,72 +3584,6 @@ body::before {
     width: 100% !important;
 }
 
-    /* ========================================================================
-     * 5. AUFKLAPPBARE SUB-LEISTE (NAVIGATIONSLEISTE DIREKT DARÜBER)
-     * ======================================================================== */
-    .menu-vertical .menu-1 > .menu-1-body {
-        position: fixed !important;
-        bottom: 50px !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 42px !important;
-        box-sizing: border-box !important;
-        padding: 4px 6px !important;
-        margin: 0 !important;
-        
-        background: #0f0d0a !important;
-        border-top: 2px groove #a07228 !important;
-        border-bottom: 1px solid #000000 !important;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.85) !important;
-
-        display: none !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        gap: 5px !important;
-        align-items: center !important;
-    }
-
-    /* Subleiste öffnen bei aktiver Seite oder Klick/Fokus */
-    .menu-vertical .menu-1.open > .menu-1-body,
-    .menu-vertical .menu-1:hover > .menu-1-body,
-    .menu-vertical .menu-1:focus-within > .menu-1-body {
-        display: flex !important;
-    }
-
-    /* Die einzelnen Sub-Buttons (Meine Helden, Eigenschaften, etc.) */
-    .menu-1-body .menu-2 {
-        flex: 0 0 auto !important;
-        height: 32px !important;
-    }
-
-    .menu-1-body .menu-2 > .menu-2-caption {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        height: 30px !important;
-        padding: 0 8px !important;
-        white-space: nowrap !important;
-        font-family: Georgia, serif !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        color: #ffffff !important;
-        background: #17130e !important;
-        border: 1px solid #846124 !important;
-        border-radius: 3px !important;
-        box-shadow: inset 0 0 4px rgba(0,0,0,0.8) !important;
-    }
-
-    .menu-1-body .menu-2 > .menu-2-caption:active {
-        border-color: #ffd700 !important;
-        color: #ffd700 !important;
-        background: #2b1f14 !important;
-    }
-
-    .menu-2-separator {
-        display: none !important;
-    }
 
     /* ========================================================================
      * 6. TOUCH-BUTTONS IM SPIEL (+ / - BUTTONS)
