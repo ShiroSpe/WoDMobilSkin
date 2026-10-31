@@ -3378,10 +3378,10 @@ html, body {
     }
 
 /* ========================================================================
- * 3. RECHTER TEIL: AUSFAHRBARER DRAWER (HELD)
+ * 3. RECHTER DRAWER (HELD) - AUSFAHRBAR NACH LINKS
  * ======================================================================== */
 
-/* Altes body::before entfernen */
+/* Altes Pseudoelement auf dem Body deaktivieren */
 body::before {
     display: none !important;
 }
@@ -3390,135 +3390,147 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 290px !important;
-    max-width: 85vw !important; /* Verhindert, dass auf kleinen Phones der ganze Screen blockiert ist */
+    width: 280px !important;
+    max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
+    
+    /* ENTSCHEIDEND: 'visible' erlaubt dem Button, aus der Leiste herauszuragen */
+    overflow: visible !important;
+    
     background: #15110d url(images/page/dialog-background.png) repeat-y !important;
     border-left: 3px ridge #f0a015 !important;
     box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
     
-    /* Leiste standardmäßig nach rechts aus dem Bild schieben */
+    /* Leiste nach rechts verstecken */
     transform: translateX(100%) !important;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    overflow-y: auto !important;
-    box-sizing: border-box !important;
-    padding: 70px 10px 80px 10px !important;
-    
-    /* Wichtig: Muss fokussierbar sein für Touch */
-    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important; /* Wichtig für iOS-Touch-Erkennung */
 }
 
-/* DER AUSFAHR-GRIFF (Tastfläche / Button) */
+/* Der innere Container übernimmt das Scrollen der Helden-Gadgets */
+#gadgettable-right {
+    width: 100% !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+    padding: 80px 10px 40px 10px !important;
+}
+
+/* DER SICHTBARE HELD-REITER (ragt aus dem rechten Rand ins Bild) */
 #gadgettable-right-td::before {
     content: "🛡️ HELD" !important;
     position: absolute !important;
-    top: 75px !important;            /* Sitzt knapp unter der fixierten Kopfleiste */
-    left: -80px !important;          /* Ragt nach links aus der Leiste heraus ins Bild */
-    width: 76px !important;
-    height: 40px !important;
-    line-height: 40px !important;
+    top: 75px !important;           /* Sitzt direkt unter deiner Top-Bar */
+    left: -70px !important;         /* Ragt 70px nach links ins Sichtfeld */
+    width: 70px !important;
+    height: 42px !important;
+    line-height: 42px !important;
     text-align: center !important;
-    background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
+    box-sizing: border-box !important;
+    
+    background: linear-gradient(180deg, #c4861b 0%, #7d4d09 100%) !important;
     color: #ffffff !important;
-    font-family: Georgia, serif !important;
+    font-family: Arial, sans-serif !important;
     font-weight: bold !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    
     border: 2px solid #ffd700 !important;
-    border-right: none !important;   /* Geht optisch nahtlos in die Leiste über */
+    border-right: none !important;
     border-radius: 8px 0 0 8px !important;
-    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.7) !important;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.8) !important;
     cursor: pointer !important;
+    z-index: 10002 !important;
     pointer-events: auto !important;
-    z-index: 10001 !important;
 }
 
-/* WENN DIE LEISTE GEÖFFNET WIRD (durch Antippen des Griffs oder Interaktion innen) */
+/* ZUSTAND OFFEN */
 #gadgettable-right-td:hover,
 #gadgettable-right-td:focus-within,
 #gadgettable-right-td.open {
     transform: translateX(0) !important;
 }
 
-/* Ändere die Beschriftung des Griffs im geöffneten Zustand zu einem Schließen-Symbol */
 #gadgettable-right-td:hover::before,
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
     content: "✖ ZU" !important;
-    background: linear-gradient(180deg, #8b2525 0%, #4a1010 100%) !important;
-    border-color: #ff6b6b !important;
+    background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
+    border-color: #ff9999 !important;
 }
 
-/* ========================================================================
- * 2. HAUPTINHALT ANPASSUNG (Da unten keine Leiste mehr stört!)
- * ======================================================================== */
-#gadgettable-center-td, 
-#gadgettable-center {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-    padding-top: 86px !important;
-    padding-bottom: 30px !important; /* Statt 120px jetzt viel mehr Platz! */
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-}
 
 /* ========================================================================
- * 4. LINKES MENÜ: AUSFAHRBARER DRAWER LINKS
+ * 4. LINKER DRAWER (MENÜ) - AUSFAHRBAR NACH RECHTS
  * ======================================================================== */
+
 #gadgettable-left-td {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    right: auto !important;
-    bottom: auto !important;
     width: 280px !important;
-    max-width: 85vw !important;
+    max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
+    
+    /* ENTSCHEIDEND: 'visible' erlaubt dem Button, nach rechts herauszuragen */
+    overflow: visible !important;
+    
     background: #14110e url(images/page/dialog-background.png) repeat-y !important;
     border-right: 3px ridge #f0a015 !important;
     box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;
     
-    /* Standardmäßig nach LINKS aus dem Bild geschoben */
+    /* Leiste nach links verstecken */
     transform: translateX(-100%) !important;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+}
+
+/* Der innere Container übernimmt das Scrollen für das Menü */
+#gadgettable-left {
+    width: 100% !important;
+    height: 100vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     box-sizing: border-box !important;
-    padding: 70px 10px 40px 10px !important;
-    pointer-events: auto !important;
-    outline: none !important;
+    padding: 80px 10px 40px 10px !important;
 }
 
-/* DER MENÜ-GRIFF AN DER LINKEN KANTE */
+/* DER SICHTBARE MENÜ-REITER (ragt aus dem linken Rand ins Bild) */
 #gadgettable-left-td::before {
     content: "☰ MENÜ" !important;
     position: absolute !important;
     top: 75px !important;
-    right: -80px !important;         /* Ragt nach RECHTS in das Bild hinein */
-    width: 76px !important;
-    height: 40px !important;
-    line-height: 40px !important;
+    right: -70px !important;        /* Ragt 70px nach rechts ins Sichtfeld */
+    width: 70px !important;
+    height: 42px !important;
+    line-height: 42px !important;
     text-align: center !important;
-    background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
+    box-sizing: border-box !important;
+    
+    background: linear-gradient(180deg, #c4861b 0%, #7d4d09 100%) !important;
     color: #ffffff !important;
-    font-family: Georgia, serif !important;
+    font-family: Arial, sans-serif !important;
     font-weight: bold !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    
     border: 2px solid #ffd700 !important;
-    border-left: none !important;    /* Nahtlos an die linke Leiste angedockt */
+    border-left: none !important;
     border-radius: 0 8px 8px 0 !important;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7) !important;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8) !important;
     cursor: pointer !important;
+    z-index: 10002 !important;
     pointer-events: auto !important;
-    z-index: 10001 !important;
 }
 
-/* BEIM ANKAUFEN / INTERAGIEREN: DRAWER FAHRT EIN */
+/* ZUSTAND OFFEN */
 #gadgettable-left-td:hover,
 #gadgettable-left-td:focus-within,
 #gadgettable-left-td.open {
@@ -3529,11 +3541,11 @@ body::before {
 #gadgettable-left-td:focus-within::before,
 #gadgettable-left-td.open::before {
     content: "✖ ZU" !important;
-    background: linear-gradient(180deg, #8b2525 0%, #4a1010 100%) !important;
-    border-color: #ff6b6b !important;
+    background: linear-gradient(180deg, #991b1b 0%, #550f0f 100%) !important;
+    border-color: #ff9999 !important;
 }
 
-/* Das Menü wieder als vertikale Liste darstellen (wie auf dem Desktop) */
+/* Menü-Inhalte vertikal anordnen */
 .menu-vertical .menu-0-body {
     display: flex !important;
     flex-direction: column !important;
@@ -3549,43 +3561,31 @@ body::before {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    flex: none !important;
 }
 
-/* Touch-optimierte Menü-Zeilen */
 .menu-vertical .menu-1 > .menu-1-caption {
     height: 38px !important;
     line-height: 38px !important;
-    font-size: 13px !important;
     justify-content: flex-start !important;
     padding-left: 12px !important;
-    border-radius: 4px !important;
 }
 
-/* Aufgeklappte Unterpunkte */
 .menu-vertical .menu-1 > .menu-1-body {
     position: static !important;
     width: 100% !important;
     height: auto !important;
     flex-direction: column !important;
-    background: rgba(0,0,0,0.4) !important;
+    background: rgba(0,0,0,0.5) !important;
     border: none !important;
     box-shadow: none !important;
     padding: 4px 0 4px 10px !important;
-    gap: 3px !important;
 }
 
 .menu-1-body .menu-2 {
-    height: 34px !important;
+    height: 32px !important;
     width: 100% !important;
 }
 
-.menu-1-body .menu-2 > .menu-2-caption {
-    width: 100% !important;
-    height: 32px !important;
-    justify-content: flex-start !important;
-    font-size: 12px !important;
-}
     /* ========================================================================
      * 5. AUFKLAPPBARE SUB-LEISTE (NAVIGATIONSLEISTE DIREKT DARÜBER)
      * ======================================================================== */
