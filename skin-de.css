@@ -3380,8 +3380,6 @@ html, body {
 /* ========================================================================
      * 3. RECHTER TEIL & FIXierter "HELD"-BUTTON UNTEN RECHTS
      * ======================================================================== */
-
-    /* Der rechte Drawer (versteckt sich standardmäßig rechts außerhalb des Bildschirms) */
     #gadgettable-right-td {
         position: fixed !important;
         top: 0 !important;
@@ -3392,26 +3390,29 @@ html, body {
         background: #15110d url(images/page/dialog-background.png) repeat-y !important;
         border-left: 3px ridge #f0a015 !important;
         box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
-        transform: translateX(100%) !important; /* Komplett nach rechts verschoben (versteckt) */
+        transform: translateX(100%) !important;
         transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
         padding: 85px 10px 100px 10px !important;
     }
 
-    /* Wenn der Drawer geöffnet ist (durch Klick/Fokus auf den Button) */
     #gadgettable-right-td.open,
     #gadgettable-right-td:focus-within {
         transform: translateX(0) !important;
     }
 
-    /* Der HELD-Button: Fest platziert unten rechts über der Navigationsleiste */
     #gadgettable-right-td::after {
+        display: none !important;
+    }
+
+/* Der echte HELD-Button unten rechts über der Leiste */
+    body::before {
         content: "HELD" !important;
         position: fixed !important;
-        bottom: 56px !important;              /* Sitzt exakt oberhalb der 50px-Navileiste + Rand */
-        right: 300px !important;               /* Unten rechts in der Ecke */
-        width: 75px !important;
+        bottom: 56px !important;
+        right: 12px !important;
+        width: 72px !important;
         height: 36px !important;
         line-height: 36px !important;
         text-align: center !important;
@@ -3422,11 +3423,11 @@ html, body {
         font-size: 13px !important;
         letter-spacing: 1px !important;
         border: 2px solid #ffd700 !important;
-        border-radius: 6px !important;         /* Rundherum abgerundet */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8) !important;
+        border-radius: 6px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.85) !important;
         cursor: pointer !important;
-        pointer-events: auto !important;      /* Klickbar machen */
-        z-index: 10002 !important;            /* Liegt über allem anderen */
+        z-index: 10005 !important;
+        pointer-events: auto !important;
     }
 
     /* ========================================================================
