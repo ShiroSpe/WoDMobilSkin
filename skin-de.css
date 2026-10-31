@@ -3428,11 +3428,7 @@ body::before {
     line-height: 42px !important;
     text-align: center !important;
     box-sizing: border-box !important; 
-background-color: #8b7355 !important;
-background-image: url(images/page/gadget-body-background.png) !important;
-background-repeat: no-repeat !important;
-background-position: center !important;
-background-size: cover !important; /* Hier bestimmst du das Strecken! */
+background: #8b7355 url(images/page/gadget-body-background.png) center / cover no-repeat !important;
         background-image: 
             url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
             url("new/button-border-top-right-drawer.png"),
