@@ -3454,7 +3454,7 @@ body::before {
             url("images/element-border/element-border-bottom.png"),
             url("images/element-border/element-border-left.png"),
             url("images/element-border/element-border-right-small.png"),
-            url("images/element-border/button-background.png") !important;            /* Hintergrund */
+            url("new/button-background.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
@@ -3477,6 +3477,17 @@ body::before {
             repeat-y,
             repeat-y,            /* Hintergrund */
             repeat !important;
+
+        background-size: 
+            10px 10px,            /* 1. Ecke oben links (quadratisch 1:1) */
+            10px 10px,            /* 2. Ecke oben rechts (quadratisch 1:1) */
+            10px 10px,            /* 3. Ecke unten links (quadratisch 1:1) */
+            10px 10px,            /* 4. Ecke unten rechts (quadratisch 1:1) */
+            auto 10px,            /* 5. Kante oben: Höhe strikt 20px, Breite passt sich an */
+            auto 10px,            /* 6. Kante unten: Höhe strikt 20px, Breite passt sich an */
+            10px auto,            /* 7. Kante links: Breite strikt 10px (halbe Eckendicke 45x90 Ratio), Höhe läuft durch */
+            10px auto,            /* 8. Kante rechts: Breite strikt 10px, Höhe läuft durch */
+            auto auto !important; /* 9. Hintergrund (normale Kachelung) */
 
         border: none !important;
     color: #ffffff !important;
