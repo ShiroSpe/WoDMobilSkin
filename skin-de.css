@@ -3421,7 +3421,7 @@ body::before {
 #gadgettable-right-td::before {
     content: "HELD" !important;
     position: absolute !important;
-    top: 70px !important;
+    top: 75px !important;
     left: -70px !important;
     width: 70px !important;
     height: 42px !important;
@@ -3524,7 +3524,7 @@ body::before {
 
 
 /* ========================================================================
- * 4. LINKER BEREICH - Ausklappbar für Held und Gruppeninfos
+ * 4. LINKER BEREICH - Menü
  * ======================================================================== */
 
 #gadgettable-left-td {
@@ -3536,7 +3536,7 @@ body::before {
     height: 100vh !important;
     z-index: 10000 !important;  /* Legt den Bereich über alles andere */ 
     overflow: visible !important;    
-    background: #242424 url(images/page/block_bg_body.png) repeat-y !important;      /* Hintergrund nur nach unten */
+    background: #242424 url(new/block-background-tile2.png) repeat-y !important;      /* Hintergrund nur nach unten */
     box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;    
     transform: translateX(-100%) !important;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
@@ -3552,14 +3552,14 @@ body::before {
     overflow-y: auto !important;      /* Nach unten scrollbar */
     -webkit-overflow-scrolling: touch !important;      /* Apple Smooth */
     box-sizing: border-box !important;
-    padding: 5px 5px 40px 5px !important;      /* Ändern, wenn die Innenbox wichtige Dinge verschluckt! */
+    padding: 10px 10px 40px 10px !important;      /* Ändern, wenn die Innenbox wichtige Dinge verschluckt! */
 }
 
-/* DER SICHTBARE MENÜ-REITER (ragt aus dem linken Rand ins Bild) */
+/* Menü Button */
 #gadgettable-left-td::before {
     content: "MENÜ" !important;
     position: absolute !important;
-    top: 70px !important;
+    top: 75px !important;
     right: -70px !important;        /* Ragt 70px nach rechts ins Sichtfeld */
     width: 70px !important;
     height: 42px !important;
@@ -3617,41 +3617,31 @@ body::before {
 #gadgettable-left-td.open::before {
     content: "⬅" !important;
         background: #8b7355 url(new/button-background-on.png) repeat !important;
-        background-image: 
-            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
+        background-image:           /* 4 Ecken */
             url("new/button-border-top-right-drawer.png"),
-            url("new/button-border-bottom-left-drawer.png"),
             url("new/button-border-bottom-right-drawer.png"),
             url("new/button-border-top-drawer.png"),            /* 4 Kanten */
             url("new/button-border-bottom-drawer.png"),
-            url("new/button-border-left-drawer.png"),
             url("new/button-border-right-drawer.png"),
             url("new/button-background-on.png") !important;            /* Hintergrund */
 
-        background-position: 
-            top left,             /* Ecken */
+        background-position: /* Ecken */
             top right,
-            bottom left,
             bottom right,
             top left,            /* Kanten */
             bottom left,
-            top left,
             top right,
             center center !important;            /* Hintergrund */
 
-        background-repeat: 
-            no-repeat,            /* Ecken */
-            no-repeat,
+        background-repeat:        /* Ecken */
             no-repeat,
             no-repeat,
             repeat-x,            /* Kanten */
             repeat-x,
-            repeat-y,
             repeat-y,            /* Hintergrund */
             repeat !important;
 
         border: none !important;
-}
 }
 
 /* Menü-Inhalte vertikal anordnen */
