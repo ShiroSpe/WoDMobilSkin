@@ -3378,313 +3378,338 @@ html, body {
     }
 
 /* ========================================================================
-     * 3. RECHTER TEIL & FIXierter "HELD"-BUTTON UNTEN RECHTS
-     * ======================================================================== */
-    #gadgettable-right-td {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        width: 280px !important;
-        height: 100vh !important;
-        z-index: 10000 !important;
-        background: #15110d url(images/page/dialog-background.png) repeat-y !important;
-        border-left: 3px ridge #f0a015 !important;
-        box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        overflow-y: auto !important;
-        box-sizing: border-box !important;
-        padding: 85px 10px 100px 10px !important;
-    }
+ * 3. RECHTER DRAWER (HELD) - AUSFAHRBAR NACH LINKS
+ * ======================================================================== */
 
-    #gadgettable-right-td.open,
-    #gadgettable-right-td:focus-within {
-        transform: translateX(0) !important;
-    }
+/* Altes Pseudoelement auf dem Body deaktivieren */
+body::before {
+    display: none !important;
+}
 
-    #gadgettable-right-td::after {
-        display: none !important;
-    }
-
-/* Der echte HELD-Button unten rechts über der Leiste */
-    body::before {
-        content: "HELD" !important;
-        position: fixed !important;
-        bottom: 56px !important;
-        right: 12px !important;
-        width: 72px !important;
-        height: 36px !important;
-        line-height: 36px !important;
-        text-align: center !important;
-        background: linear-gradient(180deg, #c4861b 0%, #87550f 100%) !important;
-        color: #ffffff !important;
-        font-family: Georgia, "Times New Roman", serif !important;
-        font-weight: bold !important;
-        font-size: 13px !important;
-        letter-spacing: 1px !important;
-        border: 2px solid #ffd700 !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.85) !important;
-        cursor: pointer !important;
-        z-index: 10005 !important;
-        pointer-events: auto !important;
-    }
-
-    /* ========================================================================
-     * 4. Navigationsmenü Unten
-     * ======================================================================== */
-#gadgettable-left-td {
+#gadgettable-right-td {
     position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
+    top: 0 !important;
     right: 0 !important;
-    top: auto !important;
-    width: 100% !important;
-    max-width: 100vw !important; 
-    height: 50px !important;
-    z-index: 9995 !important;
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    pointer-events: none !important;
-}
-
-.menu-vertical .menu-0-body,
-.menu-vertical .menu-1-body,
-#jumpbox_center {
-    pointer-events: auto !important;
-}
-
-    #gadgettable-left,
-    #gadgettable-left-gadgets,
-    .gadget.menu {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .gadget.menu .gadget_inner,
-    .gadget.menu .gadget_scroll,
-    .gadget.menu .gadget_body {
-        width: 100% !important;
-        padding: 0 !important;
-        overflow: visible !important;
-    }
-
-    /* --- 4.2 DIE 7 HAUPT-BUTTONS */
-    .menu-vertical .menu-0-body {
-        display: flex !important;
-        flex-direction: row !important;
-        position: fixed !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 50px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #14110e url(images/page/block_bg_body.png) repeat !important;
-        box-shadow: 0 -4px 15px rgba(0,0,0,0.85) !important;
-        box-sizing: border-box !important;
-    }
-
-
-.menu-vertical .menu-1 {
-        flex: 1 1 14.28% !important;
-        max-width: 14.28% !important;
-        position: relative !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        display: none !important;            /* Standardmäßig versteckt */
-    }
-
-    .menu-vertical .menu-1:nth-child(1),
-    .menu-vertical .menu-1:nth-child(3),
-    .menu-vertical .menu-1:nth-child(5),
-    .menu-vertical .menu-1:nth-child(7),
-    .menu-vertical .menu-1:nth-child(9),
-    .menu-vertical .menu-1:nth-child(12),
-    .menu-vertical .menu-1:nth-child(14) {
-        display: flex !important;
-    }
-
-    .menu-vertical .menu-1 > .menu-1-caption {
-        width: 100% !important;
-        height: 100% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-        padding: 2px !important;
-        text-align: center !important;
-        color: #ffffff !important;
-        font-family: Arial, Helvetica, sans-serif !important;
-        font-size: 10px !important;
-        letter-spacing: 0.5px !important;
-        text-shadow: 1px 1px 2px #000000 !important;
-        background: #8b7355 url(images/page/gadget-body-background.png) repeat !important;
-/* 9 Schichten: 4 Ecken, 4 Kanten und Hintergrund-Mitte */
+    width: 180px !important;
+    max-width: 82vw !important;
+    height: 100vh !important;
+    z-index: 10000 !important;
+    overflow: visible !important;
+    
+    background: #242424 !important;      /* Hintergrund nur nach unten */
         background-image: 
-            /* 1. Die 4 Ecken (liegen ganz oben) */
-            url("new/gadget-body-border-top-left2.png"),
-            url("new/gadget-body-border-top-right2.png"),
-            url("images/page/gadget-body-border-bottom-left.png"),
-            url("images/page/gadget-body-border-bottom-right.png"),
-            /* 2. Die 4 Kanten */
-            url("new/gadget-body-border-top2.png"),
-            url("images/page/gadget-body-border-bottom.png"),
-            url("images/page/gadget-body-border-left.png"),
-            url("images/page/gadget-body-border-right.png"),
-            /* 3. Hintergrundfüllung (ganz unten) */
-            url("images/page/gadget-body-background.png") !important;
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/block-background-tile2.png") !important;            /* Hintergrund */
 
         background-position: 
-            /* Ecken */
             top left,
             top right,
-            bottom left,
-            bottom right,
-            /* Kanten */
-            top left,
-            bottom left,
-            top left,
-            top right,
-            /* Mitte */
-            center center !important;
+            center center !important;            /* Hintergrund */
 
         background-repeat: 
-            /* Ecken (einmalig) */
-            no-repeat,
-            no-repeat,
-            no-repeat,
-            no-repeat,
-            /* Kanten (waagerecht / senkrecht gekachelt) */
-            repeat-x,
-            repeat-x,
             repeat-y,
-            repeat-y,
-            /* Mitte (vollflächig gekachelt) */
+            repeat-y,            /* Hintergrund */
             repeat !important;
 
         border: none !important;
-      }
+    box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
+    
+    /* Leiste nach rechts verstecken */
+    transform: translateX(100%) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important; /* Wichtig für iOS-Touch-Erkennung */
+}
 
-    .menu-vertical .menu-1 > .menu-1-caption:active,
-    .menu-vertical .menu-1.open > .menu-1-caption,
-    .menu-vertical .menu-1:focus-within > .menu-1-caption {
-        background: #6f583e !important;
-        color: #ffd700 !important;
-    }
+/* Der innere Container übernimmt das Scrollen der Helden-Gadgets */
+#gadgettable-right {
+    width: 100% !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+    padding: 10px 10px 40px 10px !important;
+}
 
-    .menu-1-caption > img,
-    .menu-1-caption > .menu-1-arrow,
-    .menu-between,
-    .menu-1-separator {
-        display: none !important;
-   }
+/* Rechte Seite Button */
+#gadgettable-right-td::before {
+    content: "HELD" !important;
+    position: absolute !important;
+    bottom: 140px !important;
+    left: -70px !important;
+    width: 70px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    text-align: center !important;
+    box-sizing: border-box !important; 
+        background: #8b7355 !important;
+        background-image: 
+            url("images/element-border/element-border-top-left.png"),            /* 4 Ecken */
+            url("images/element-border/element-border-top-right-small.png"),
+            url("images/element-border/element-border-bottom-left.png"),
+            url("images/element-border/element-border-bottom-right-small.png"),
+            url("images/element-border/element-border-top.png"),            /* 4 Kanten */
+            url("images/element-border/element-border-bottom.png"),
+            url("images/element-border/element-border-left.png"),
+            url("images/element-border/element-border-right-small.png"),
+            url("new/button-background.png") !important;            /* Hintergrund */
 
-/* Beschriftung der 7 Haupt-Buttons */
-    .menu-vertical .menu-1:nth-child(1) > .menu-1-caption::after { content: "AKTUELL"; }
-    .menu-vertical .menu-1:nth-child(3) > .menu-1-caption::after { content: "HELD"; }
-    .menu-vertical .menu-1:nth-child(5) > .menu-1-caption::after { content: "ITEMS"; }
-    .menu-vertical .menu-1:nth-child(7) > .menu-1-caption::after { content: "KÄMPFE"; }
-    .menu-vertical .menu-1:nth-child(9) > .menu-1-caption::after { content: "HANDEL"; }
-    .menu-vertical .menu-1:nth-child(12) > .menu-1-caption::after { content: "FORUM"; }
-    .menu-vertical .menu-1:nth-child(14) > .menu-1-caption::after { content: "WEITERE"; }
+        background-position: 
+            top left,             /* Ecken */
+            top right,
+            bottom left,
+            bottom right,
+            top left,            /* Kanten */
+            bottom left,
+            top left,
+            top right,
+            center center !important;            /* Hintergrund */
 
-    /* Wenn "WEITERES" aktiv/getippt ist: Blendet auch die Submenüs von Account, Empfehlen & Beenden mit ein */
-    .menu-vertical .menu-1:nth-child(14):hover ~ .menu-1 > .menu-1-body,
-    .menu-vertical .menu-1:nth-child(14):focus-within ~ .menu-1 > .menu-1-body,
-    .menu-vertical .menu-1:nth-child(14).open ~ .menu-1 > .menu-1-body,
-    .menu-vertical .menu-1:nth-child(14):hover ~ .menu-1:last-child,
-    .menu-vertical .menu-1:nth-child(14):focus-within ~ .menu-1:last-child {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 50px !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 42px !important;
-        background: transparent !important;
+        background-repeat: 
+            no-repeat,            /* Ecken */
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
         border: none !important;
-        box-shadow: none !important;
-        pointer-events: auto !important;
-        z-index: 10001 !important;
-    }
+    color: #ffffff !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.8) !important;
+    cursor: pointer !important;
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+}
 
-    /* Der "Beenden"-Button (Logout) als markanter roter Button in der Leiste */
-    .menu-vertical .menu-1:last-child > .menu-1-caption {
-        background: #5a1818 !important;
-        border-color: #aa3333 !important;
-        color: #ffcccc !important;
-    }
-    .menu-vertical .menu-1:last-child > .menu-1-caption::after {
-        content: "LOGOUT" !important;
-    }
+/* ZUSTAND OFFEN */
+#gadgettable-right-td:hover,
+#gadgettable-right-td:focus-within,
+#gadgettable-right-td.open {
+    transform: translateX(0) !important;
+}
 
-    /* ========================================================================
-     * 5. AUFKLAPPBARE SUB-LEISTE (NAVIGATIONSLEISTE DIREKT DARÜBER)
-     * ======================================================================== */
-    .menu-vertical .menu-1 > .menu-1-body {
-        position: fixed !important;
-        bottom: 50px !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 42px !important;
-        box-sizing: border-box !important;
-        padding: 4px 6px !important;
-        margin: 0 !important;
-        
-        background: #0f0d0a !important;
-        border-top: 2px groove #a07228 !important;
-        border-bottom: 1px solid #000000 !important;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.85) !important;
+#gadgettable-right-td:hover::before,
+#gadgettable-right-td:focus-within::before,
+#gadgettable-right-td.open::before {
+    content: "➔" !important;
+        background: #8b7355 !important;
+        background-image: 
+            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
+            url("new/button-border-bottom-left-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-left-drawer.png"),
+            url("new/button-background-on.png") !important;            /* Hintergrund */
 
-        display: none !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        gap: 5px !important;
-        align-items: center !important;
-    }
+        background-position: 
+            top left,             /* Ecken */
+            bottom left,
+            top left,            /* Kanten */
+            bottom left,
+            top left,
+            center center !important;            /* Hintergrund */
 
-    /* Subleiste öffnen bei aktiver Seite oder Klick/Fokus */
-    .menu-vertical .menu-1.open > .menu-1-body,
-    .menu-vertical .menu-1:hover > .menu-1-body,
-    .menu-vertical .menu-1:focus-within > .menu-1-body {
-        display: flex !important;
-    }
+        background-repeat: 
+            no-repeat,            /* Ecken */
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,          /* Hintergrund */
+            repeat !important;
 
-    /* Die einzelnen Sub-Buttons (Meine Helden, Eigenschaften, etc.) */
-    .menu-1-body .menu-2 {
-        flex: 0 0 auto !important;
-        height: 32px !important;
-    }
+        border: none !important;
+}
 
-    .menu-1-body .menu-2 > .menu-2-caption {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        height: 30px !important;
-        padding: 0 8px !important;
-        white-space: nowrap !important;
-        font-family: Georgia, serif !important;
-        font-size: 11px !important;
-        font-weight: bold !important;
-        color: #ffffff !important;
-        background: #17130e !important;
-        border: 1px solid #846124 !important;
-        border-radius: 3px !important;
-        box-shadow: inset 0 0 4px rgba(0,0,0,0.8) !important;
-    }
 
-    .menu-1-body .menu-2 > .menu-2-caption:active {
-        border-color: #ffd700 !important;
-        color: #ffd700 !important;
-        background: #2b1f14 !important;
-    }
+/* ========================================================================
+ * 4. LINKER BEREICH - Menü
+ * ======================================================================== */
 
-    .menu-2-separator {
-        display: none !important;
-    }
+#gadgettable-left-td {
+    position: fixed !important;
+    top: 0 !important;        /* Legt die Position im Bildschirmrahmen fest */
+    left: 0 !important;
+    width: 180px !important;
+    max-width: 82vw !important;
+    height: 100vh !important;
+    z-index: 10000 !important;  /* Legt den Bereich über alles andere */ 
+    overflow: visible !important;    
+
+    background: #242424 !important;      /* Hintergrund nur nach unten */
+        background-image: 
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/block-background-tile2.png") !important;            /* Hintergrund */
+
+        background-position: 
+            top left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat: 
+            repeat-y,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
+
+    box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;    
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;      /* Apple Smooth */
+}
+
+/* Linker Container (scrollbar) */
+#gadgettable-left {
+    width: 100% !important;
+    height: 100vh !important;
+    overflow-y: auto !important;      /* Nach unten scrollbar */
+    -webkit-overflow-scrolling: touch !important;      /* Apple Smooth */
+    box-sizing: border-box !important;
+    padding: 10px 10px 40px 10px !important;      /* Ändern, wenn die Innenbox wichtige Dinge verschluckt! */
+}
+
+/* Menü Button */
+#gadgettable-left-td::before {
+    content: "MENÜ" !important;
+    position: absolute !important;
+    top: 75px !important;
+    right: -70px !important;        /* Ragt 70px nach rechts ins Sichtfeld */
+    width: 70px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;   
+        background: #8b7355 !important;
+        background-image:           /* 4 Ecken */
+            url("new/button-border-top-right-drawer.png"),
+            url("new/button-border-bottom-right-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/button-background.png") !important;            /* Hintergrund */
+
+        background-position: /* Ecken */
+            top right,
+            bottom right,
+            top left,            /* Kanten */
+            bottom left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat:        /* Ecken */
+            no-repeat,
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
+
+    color: #ffffff !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8) !important;
+    cursor: pointer !important;
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+}
+
+/* ZUSTAND OFFEN */
+#gadgettable-left-td:hover,
+#gadgettable-left-td:focus-within,
+#gadgettable-left-td.open {
+    transform: translateX(0) !important;
+}
+
+#gadgettable-left-td:hover::before,
+#gadgettable-left-td:focus-within::before,
+#gadgettable-left-td.open::before {
+    content: "⬅" !important;
+        background: #8b7355 url(new/button-background-on.png) repeat !important;
+        background-image:           /* 4 Ecken */
+            url("new/button-border-top-right-drawer.png"),
+            url("new/button-border-bottom-right-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/button-background-on.png") !important;            /* Hintergrund */
+
+        background-position: /* Ecken */
+            top right,
+            bottom right,
+            top left,            /* Kanten */
+            bottom left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat:        /* Ecken */
+            no-repeat,
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
+}
+
+/* Menü-Inhalte vertikal anordnen */
+.menu-vertical .menu-0-body {
+    display: flex !important;
+    flex-direction: column !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    gap: 4px !important;
+}
+
+.menu-vertical .menu-1 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.menu-vertical .menu-1 > .menu-1-caption {
+    height: 38px !important;
+    line-height: 38px !important;
+    justify-content: flex-start !important;
+    padding-left: 12px !important;
+}
+
+.menu-vertical .menu-1 > .menu-1-body {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: column !important;
+    background: rgba(0,0,0,0.5) !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px 0 4px 10px !important;
+}
+
+.menu-1-body .menu-2 {
+    height: 32px !important;
+    width: 100% !important;
+}
+
 
     /* ========================================================================
      * 6. TOUCH-BUTTONS IM SPIEL (+ / - BUTTONS)
