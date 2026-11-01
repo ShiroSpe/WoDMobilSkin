@@ -3454,7 +3454,7 @@ body::before {
             url("images/element-border/element-border-bottom.png"),
             url("images/element-border/element-border-left.png"),
             url("images/element-border/element-border-right-small.png"),
-            url("images/element-border/button-background.png") !important;            /* Hintergrund */
+            url("new/button-background.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
