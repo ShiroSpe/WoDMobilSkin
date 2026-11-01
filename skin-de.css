@@ -3710,4 +3710,56 @@ body::before {
     width: 100% !important;
 }
 
+
+/* Der mobile Item-Drawer */
+#item-modal-drawer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 75vh !important;           /* 75% der Bildschirmhöhe */
+    z-index: 20000 !important;
+    background: #14110e url(images/page/dialog-background.png) repeat-y !important;
+    border-top: 3px ridge #f0a015 !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.9) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+}
+
+/* Versteckter Zustand (nach unten aus dem Bild) */
+#item-modal-drawer.hidden {
+    transform: translateY(100%) !important;
+}
+
+/* Kopfleiste des Drawers mit Schließen-Knopf */
+#item-modal-drawer .drawer-header {
+    height: 42px !important;
+    background: #000000 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 0 10px !important;
+    border-bottom: 1px solid #5a4527 !important;
+}
+
+#item-modal-drawer #close-item-drawer {
+    background: #8b2525 !important;
+    color: #ffffff !important;
+    border: 1px solid #ff6b6b !important;
+    border-radius: 4px !important;
+    padding: 4px 12px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+/* Das Fenster im Drawer, in dem das Item angezeigt wird */
+#item-modal-drawer #item-frame {
+    width: 100% !important;
+    flex: 1 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
 }
