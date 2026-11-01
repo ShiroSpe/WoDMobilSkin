@@ -3421,45 +3421,36 @@ body::before {
 #gadgettable-right-td::before {
     content: "HELD" !important;
     position: absolute !important;
-    top: 75px !important;
+    bottom: 140px !important;
     left: -70px !important;
     width: 70px !important;
     height: 42px !important;
     line-height: 42px !important;
     text-align: center !important;
     box-sizing: border-box !important; 
-        background: #8b7355 url(new/button-background.png) repeat !important;
+        background: #8b7355 !important;
         background-image: 
             url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
-            url("new/button-border-top-right-drawer.png"),
             url("new/button-border-bottom-left-drawer.png"),
-            url("new/button-border-bottom-right-drawer.png"),
             url("new/button-border-top-drawer.png"),            /* 4 Kanten */
             url("new/button-border-bottom-drawer.png"),
             url("new/button-border-left-drawer.png"),
-            url("new/button-border-right-drawer.png"),
             url("new/button-background.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
-            top right,
             bottom left,
-            bottom right,
             top left,            /* Kanten */
             bottom left,
             top left,
-            top right,
             center center !important;            /* Hintergrund */
 
         background-repeat: 
             no-repeat,            /* Ecken */
             no-repeat,
-            no-repeat,
-            no-repeat,
             repeat-x,            /* Kanten */
             repeat-x,
-            repeat-y,
-            repeat-y,            /* Hintergrund */
+            repeat-y,          /* Hintergrund */
             repeat !important;
 
         border: none !important;
@@ -3485,38 +3476,29 @@ body::before {
 #gadgettable-right-td:focus-within::before,
 #gadgettable-right-td.open::before {
     content: "➔" !important;
-        background: #8b7355 url(new/button-background-on.png) repeat !important;
+        background: #8b7355 !important;
         background-image: 
             url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
-            url("new/button-border-top-right-drawer.png"),
             url("new/button-border-bottom-left-drawer.png"),
-            url("new/button-border-bottom-right-drawer.png"),
             url("new/button-border-top-drawer.png"),            /* 4 Kanten */
             url("new/button-border-bottom-drawer.png"),
             url("new/button-border-left-drawer.png"),
-            url("new/button-border-right-drawer.png"),
             url("new/button-background-on.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
-            top right,
             bottom left,
-            bottom right,
             top left,            /* Kanten */
             bottom left,
             top left,
-            top right,
             center center !important;            /* Hintergrund */
 
         background-repeat: 
             no-repeat,            /* Ecken */
             no-repeat,
-            no-repeat,
-            no-repeat,
             repeat-x,            /* Kanten */
             repeat-x,
-            repeat-y,
-            repeat-y,            /* Hintergrund */
+            repeat-y,          /* Hintergrund */
             repeat !important;
 
         border: none !important;
@@ -3531,7 +3513,7 @@ body::before {
     position: fixed !important;
     top: 0 !important;        /* Legt die Position im Bildschirmrahmen fest */
     left: 0 !important;
-    width: 190px !important;
+    width: 180px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;  /* Legt den Bereich über alles andere */ 
@@ -3539,34 +3521,16 @@ body::before {
 
     background: #242424 !important;      /* Hintergrund nur nach unten */
         background-image: 
-            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
-            url("new/button-border-top-right-drawer.png"),
-            url("new/button-border-bottom-left-drawer.png"),
-            url("new/button-border-bottom-right-drawer.png"),
-            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
-            url("new/button-border-bottom-drawer.png"),
             url("new/button-border-left-drawer.png"),
             url("new/button-border-right-drawer.png"),
-            url("new/block-background-tile2.png.png") !important;            /* Hintergrund */
+            url("new/block-background-tile2.png") !important;            /* Hintergrund */
 
         background-position: 
-            top left,             /* Ecken */
-            top right,
-            bottom left,
-            bottom right,
-            top left,            /* Kanten */
-            bottom left,
             top left,
             top right,
             center center !important;            /* Hintergrund */
 
         background-repeat: 
-            no-repeat,            /* Ecken */
-            no-repeat,
-            no-repeat,
-            no-repeat,
-            repeat-x,            /* Kanten */
-            repeat-x,
             repeat-y,
             repeat-y,            /* Hintergrund */
             repeat !important;
