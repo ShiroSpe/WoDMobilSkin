@@ -3536,7 +3536,43 @@ body::before {
     height: 100vh !important;
     z-index: 10000 !important;  /* Legt den Bereich über alles andere */ 
     overflow: visible !important;    
-    background: #242424 url(new/block-background-tile2.png) repeat-y !important;      /* Hintergrund nur nach unten */
+
+    background: #242424 !important;      /* Hintergrund nur nach unten */
+        background-image: 
+            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
+            url("new/button-border-top-right-drawer.png"),
+            url("new/button-border-bottom-left-drawer.png"),
+            url("new/button-border-bottom-right-drawer.png"),
+            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
+            url("new/button-border-bottom-drawer.png"),
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/block-background-tile2.png.png") !important;            /* Hintergrund */
+
+        background-position: 
+            top left,             /* Ecken */
+            top right,
+            bottom left,
+            bottom right,
+            top left,            /* Kanten */
+            bottom left,
+            top left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat: 
+            no-repeat,            /* Ecken */
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            repeat-x,            /* Kanten */
+            repeat-x,
+            repeat-y,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
+
     box-shadow: 6px 0 25px rgba(0,0,0,0.9) !important;    
     transform: translateX(-100%) !important;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
@@ -3566,7 +3602,7 @@ body::before {
     line-height: 42px !important;
     text-align: center !important;
     box-sizing: border-box !important;   
-        background: #8b7355 url(new/button-background.png) repeat !important;
+        background: #8b7355 !important;
         background-image:           /* 4 Ecken */
             url("new/button-border-top-right-drawer.png"),
             url("new/button-border-bottom-right-drawer.png"),
