@@ -3390,13 +3390,29 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 190px !important;
+    width: 180px !important;
     max-width: 82vw !important;
     height: 100vh !important;
     z-index: 10000 !important;
     overflow: visible !important;
     
-    background: #242424 url(images/page/block_bg_body.png)) repeat-y !important;
+    background: #242424 !important;      /* Hintergrund nur nach unten */
+        background-image: 
+            url("new/button-border-left-drawer.png"),
+            url("new/button-border-right-drawer.png"),
+            url("new/block-background-tile2.png") !important;            /* Hintergrund */
+
+        background-position: 
+            top left,
+            top right,
+            center center !important;            /* Hintergrund */
+
+        background-repeat: 
+            repeat-y,
+            repeat-y,            /* Hintergrund */
+            repeat !important;
+
+        border: none !important;
     box-shadow: -6px 0 25px rgba(0,0,0,0.9) !important;
     
     /* Leiste nach rechts verstecken */
