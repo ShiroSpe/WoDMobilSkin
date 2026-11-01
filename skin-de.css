@@ -3430,7 +3430,7 @@ body::before {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     box-sizing: border-box !important;
-    padding: 80px 10px 40px 10px !important;
+    padding: 10px 10px 40px 10px !important;
 }
 
 /* Rechte Seite Button */
@@ -3446,27 +3446,36 @@ body::before {
     box-sizing: border-box !important; 
         background: #8b7355 !important;
         background-image: 
-            url("new/button-border-top-left-drawer.png"),            /* 4 Ecken */
-            url("new/button-border-bottom-left-drawer.png"),
-            url("new/button-border-top-drawer.png"),            /* 4 Kanten */
-            url("new/button-border-bottom-drawer.png"),
-            url("new/button-border-left-drawer.png"),
-            url("new/button-background.png") !important;            /* Hintergrund */
+            url("images/element-border/element-border-top-left.png"),            /* 4 Ecken */
+            url("images/element-border/element-border-top-right-small.png"),
+            url("images/element-border/element-border-bottom-left.png"),
+            url("images/element-border/element-border-bottom-right-small.png"),
+            url("images/element-border/element-border-top.png"),            /* 4 Kanten */
+            url("images/element-border/element-border-bottom.png"),
+            url("images/element-border/element-border-left.png"),
+            url("images/element-border/element-border-right-small.png"),
+            url("images/element-border/button-background.png") !important;            /* Hintergrund */
 
         background-position: 
             top left,             /* Ecken */
+            top right,
             bottom left,
+            bottom right,
             top left,            /* Kanten */
             bottom left,
             top left,
+            top right,
             center center !important;            /* Hintergrund */
 
         background-repeat: 
             no-repeat,            /* Ecken */
             no-repeat,
+            no-repeat,
+            no-repeat,
             repeat-x,            /* Kanten */
             repeat-x,
-            repeat-y,          /* Hintergrund */
+            repeat-y,
+            repeat-y,            /* Hintergrund */
             repeat !important;
 
         border: none !important;
