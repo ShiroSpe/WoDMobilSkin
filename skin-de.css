@@ -3867,21 +3867,52 @@ body::before {
     font-weight: 600;
 }
 
-/* Zustand-Icons (0 bis 6) nebeneinander in einer Reihe */
+/* =========================================================
+   Zustand-Icons als horizontale Schiebeleiste (Swipe-Bar)
+   ========================================================= */
+
+/* 1. Die Schiebeleiste (Container) */
 .search_details span.texttoken {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 4px !important;
+    flex-wrap: nowrap !important;          /* Kein Umbruch: Alle 7 Icons bleiben strikt in einer Reihe */
+    overflow-x: auto !important;           /* Aktiviert das horizontale Schieben/Scrollen mit dem Finger */
+    overflow-y: hidden !important;
+    gap: 8px !important;                   /* Fester Abstand zwischen den Kacheln */
+    padding: 4px 2px 8px 2px !important;   /* Platz nach unten, damit Rahmen/Scrollbalken nicht abgeschnitten werden */
+    -webkit-overflow-scrolling: touch;     /* Ermöglicht butterweiches Wischen auf iPhones (iOS Momentum Scrolling) */
+    scroll-snap-type: x mandatory;         /* Kacheln "rasten" beim Loslassen sauber ein */
 }
 
+/* 2. Die einzelnen Kacheln (0 bis 6) */
 .search_details span.texttoken label {
-    flex: 1 1 auto !important;
-    min-width: 36px !important;
-    padding: 6px 4px !important;
+    flex: 0 0 52px !important;             /* Wichtig: Kacheln dürfen NICHT schrumpfen, feste Breite 52px */
+    min-height: 44px !important;           /* Touchfreundliche Höhe */
+    scroll-snap-align: start;              /* Einrastpunkt für das Wischen */
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+}
+
+/* 3. Radio-Kreise ausblenden für echten App-Look (optional, aber dringend empfohlen) */
+.search_details span.texttoken label input[type="radio"] {
+    display: none !important;              /* Versteckt den kleinen Kreis – die ganze Kachel wird zum Button */
 }
 
 .search_details span.texttoken label img {
     vertical-align: middle;
+    pointer-events: none;
+}
+
+/* 4. Eine dezente, schmale Scrollleiste anzeigen */
+.search_details span.texttoken::-webkit-scrollbar {
+    height: 4px;                           /* Sehr flacher, unaufdringlicher Scrollbalken */
+}
+
+.search_details span.texttoken::-webkit-scrollbar-thumb {
+    background: #cbd5e1;                   /* Dezentes Grau */
+    border-radius: 4px;
 }
 
 /* 9. Kombinierte Inline-Felder (z.B. "Mit Stufe [6] tragbar") */
