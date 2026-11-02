@@ -3868,51 +3868,75 @@ body::before {
 }
 
 /* =========================================================
-   Zustand-Icons als horizontale Schiebeleiste (Swipe-Bar)
+   ZUSTAND ALS SCHIEBEREGLER (TRACKBAR-OPTIK)
    ========================================================= */
 
-/* 1. Die Schiebeleiste (Container) */
+/* 1. Container als Schiebe-Bereich definieren */
 .search_details span.texttoken {
     display: flex !important;
-    flex-wrap: nowrap !important;          /* Kein Umbruch: Alle 7 Icons bleiben strikt in einer Reihe */
-    overflow-x: auto !important;           /* Aktiviert das horizontale Schieben/Scrollen mit dem Finger */
-    overflow-y: hidden !important;
-    gap: 8px !important;                   /* Fester Abstand zwischen den Kacheln */
-    padding: 4px 2px 8px 2px !important;   /* Platz nach unten, damit Rahmen/Scrollbalken nicht abgeschnitten werden */
-    -webkit-overflow-scrolling: touch;     /* Ermöglicht butterweiches Wischen auf iPhones (iOS Momentum Scrolling) */
-    scroll-snap-type: x mandatory;         /* Kacheln "rasten" beim Loslassen sauber ein */
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    padding: 15px 10px !important;
+    margin: 8px 0 16px 0 !important;
+    background: transparent !important;
 }
 
-/* 2. Die einzelnen Kacheln (0 bis 6) */
+/* 2. Die Schiene (Führungslinie) im Hintergrund */
+.search_details span.texttoken::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 20px !important;
+    right: 20px !important;
+    top: 50% !important;
+    height: 8px !important;
+    background: #2a2a2a !important;        /* Dunkle Schiene */
+    border: 1px solid #444 !important;
+    border-radius: 4px !important;
+    z-index: 1 !important;
+    transform: translateY(-50%) !important;
+}
+
+/* 3. Die 7 Stufen auf der Schiene */
 .search_details span.texttoken label {
-    flex: 0 0 52px !important;             /* Wichtig: Kacheln dürfen NICHT schrumpfen, feste Breite 52px */
-    min-height: 44px !important;           /* Touchfreundliche Höhe */
-    scroll-snap-align: start;              /* Einrastpunkt für das Wischen */
-    box-sizing: border-box !important;
-    display: inline-flex !important;
+    position: relative !important;
+    z-index: 2 !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    border-radius: 50% !important;         /* Rund wie Regler-Punkte */
+    background: #181818 !important;        /* Dunkler Knopf-Hintergrund */
+    border: 2px solid #555 !important;
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-/* 3. Radio-Kreise ausblenden für echten App-Look (optional, aber dringend empfohlen) */
-.search_details span.texttoken label input[type="radio"] {
-    display: none !important;              /* Versteckt den kleinen Kreis – die ganze Kachel wird zum Button */
-}
-
+/* 4. Das kleine Farb-Icon im Knopf zentrieren */
 .search_details span.texttoken label img {
-    vertical-align: middle;
-    pointer-events: none;
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 2px !important;
+    pointer-events: none !important;
+    vertical-align: middle !important;
 }
 
-/* 4. Eine dezente, schmale Scrollleiste anzeigen */
-.search_details span.texttoken::-webkit-scrollbar {
-    height: 4px;                           /* Sehr flacher, unaufdringlicher Scrollbalken */
+/* Radio-Kreis komplett verstecken */
+.search_details span.texttoken label input[type="radio"] {
+    display: none !important;
 }
 
-.search_details span.texttoken::-webkit-scrollbar-thumb {
-    background: #cbd5e1;                   /* Dezentes Grau */
-    border-radius: 4px;
+/* 5. DER AKTIVE SCHIEBE-KNOPF (Hier steht der Regler!) */
+.search_details span.texttoken label:has(input[type="radio"]:checked) {
+    transform: scale(1.35) !important;                    /* Hebt sich deutlich hervor */
+    background: #ffffff !important;                      /* Weißer Reglerknopf */
+    border: 3px solid #2b78e4 !important;                /* Blauer Rand */
+    box-shadow: 0 0 14px rgba(43, 120, 228, 0.9) !important; /* Blaues Leuchten */
+    z-index: 3 !important;
 }
 
 /* 9. Kombinierte Inline-Felder (z.B. "Mit Stufe [6] tragbar") */
