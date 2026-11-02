@@ -3766,32 +3766,30 @@ body::before {
    MOBILE-FIRST OPTIMIERUNG FÜR DIE SUCHBOX
    =================================================== */
 
-/* 1. Haupt-Container an Smartphone-Breite anpassen */
+/* Haupt-Container */
 .search_details.box_container {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     padding: 12px 10px !important;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-/* 2. "Suchprofile..."-Button ganz oben mobilfreundlich gestalten */
 .search_details .box_right {
     float: none !important;
     width: 100% !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
 }
 
 .search_details .box_right input[type="submit"] {
     width: 100% !important;
-    min-height: 44px !important;
-    font-size: 16px !important;
-    font-weight: bold;
-    border-radius: 8px;
+    min-height: 30px !important;
+    font-size: 12px !important;
+    border-radius: 1px;
     cursor: pointer;
 }
 
-/* 3. Tabelle, Zeilen und Zellen in Block-Elemente umwandeln */
+/* Tabelle umwandeln */
 .search_details table,
 .search_details tbody,
 .search_details tr,
@@ -3816,7 +3814,7 @@ body::before {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* 5. Labels (Beschriftungen) */
+/* 5. Überschriften */
 .search_details td.texttoken {
     font-weight: 600;
     margin-top: 8px !important;
@@ -3825,29 +3823,17 @@ body::before {
     color: inherit;
 }
 
-/* 6. Touchfreundliche Dropdowns & Textfelder */
+/* 6. Dropdown Felder */
 .search_details select,
 .search_details input[type="text"] {
-    font-size: 16px !important; /* Verhindert Auto-Zoom auf Safari iOS */
-    min-height: 44px !important;
+    font-size: 16px !important;
+    min-height: 30px !important;
     padding: 8px 10px !important;
-    border-radius: 8px !important;
-    border: 1px solid #bbb !important;
-    background-color: #fff !important;
+    border-radius: 1px !important;
+    border: 1px F7C404 !important;
     box-sizing: border-box !important;
     width: 100% !important;
     margin: 4px 0 !important;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-/* Dropdowns erhalten ein dezentes Pfeil-Icon */
-.search_details select {
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="292.4"%20height="292.4"><path%20fill="%23666"%20d="M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z"/></svg>') !important;
-    background-repeat: no-repeat !important;
-    background-position: right 12px center !important;
-    background-size: 10px !important;
-    padding-right: 32px !important;
 }
 
 /* 7. Doppelte Dropdowns in einer Zeile (z. B. Klasse / Volk oder Trageort / Unique) */
@@ -3855,7 +3841,7 @@ body::before {
 .search_details td:has(> select + .option_) {
     display: flex !important;
     gap: 8px !important;
-    flex-direction: column !important; /* Untereinander auf sehr schmalen Screens */
+    flex-direction: row !important;
 }
 
 /* 8. Radio-Buttons zu bedienbaren Touch-Kacheln ("Pills") machen */
@@ -3863,11 +3849,11 @@ body::before {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 40px !important;
+    min-height: 30px !important;
     padding: 4px 10px !important;
     margin: 3px 2px !important;
-    border: 1px solid #ccc !important;
-    border-radius: 6px !important;
+    border: 1px F7C404 !important;
+    border-radius: 1px !important;
     background: #f7f7f7;
     cursor: pointer;
     touch-action: manipulation;
