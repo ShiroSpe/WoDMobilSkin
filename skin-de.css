@@ -3762,4 +3762,166 @@ body::before {
     background: transparent !important;
 }
 
+/* ===================================================
+   MOBILE-FIRST OPTIMIERUNG FÜR DIE SUCHBOX
+   =================================================== */
+
+/* 1. Haupt-Container an Smartphone-Breite anpassen */
+.search_details.box_container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 10px !important;
+    font-size: 14px;
+}
+
+/* 2. "Suchprofile..."-Button ganz oben mobilfreundlich gestalten */
+.search_details .box_right {
+    float: none !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+}
+
+.search_details .box_right input[type="submit"] {
+    width: 100% !important;
+    min-height: 44px !important;
+    font-size: 16px !important;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* 3. Tabelle, Zeilen und Zellen in Block-Elemente umwandeln */
+.search_details table,
+.search_details tbody,
+.search_details tr,
+.search_details td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Leere Zellen und Platzhalter-Spans ausblenden */
+.search_details td:empty,
+.search_details td span[style*="padding-right: 6em"] {
+    display: none !important;
+}
+
+/* 4. Tabellenzeilen als getrennte Formular-Abschnitte */
+.search_details tbody tr {
+    margin-bottom: 12px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* 5. Labels (Beschriftungen) */
+.search_details td.texttoken {
+    font-weight: 600;
+    margin-top: 8px !important;
+    margin-bottom: 5px !important;
+    display: block !important;
+    color: inherit;
+}
+
+/* 6. Touchfreundliche Dropdowns & Textfelder */
+.search_details select,
+.search_details input[type="text"] {
+    font-size: 16px !important; /* Verhindert Auto-Zoom auf Safari iOS */
+    min-height: 44px !important;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+    border: 1px solid #bbb !important;
+    background-color: #fff !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 4px 0 !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Dropdowns erhalten ein dezentes Pfeil-Icon */
+.search_details select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="292.4"%20height="292.4"><path%20fill="%23666"%20d="M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z"/></svg>') !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 10px !important;
+    padding-right: 32px !important;
+}
+
+/* 7. Doppelte Dropdowns in einer Zeile (z. B. Klasse / Volk oder Trageort / Unique) */
+.search_details td:has(> select + select),
+.search_details td:has(> select + .option_) {
+    display: flex !important;
+    gap: 8px !important;
+    flex-direction: column !important; /* Untereinander auf sehr schmalen Screens */
+}
+
+/* 8. Radio-Buttons zu bedienbaren Touch-Kacheln ("Pills") machen */
+.search_details label {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 40px !important;
+    padding: 4px 10px !important;
+    margin: 3px 2px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    background: #f7f7f7;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* Ausgewählten Radio-Button visuell hervorheben */
+.search_details label:has(input[type="radio"]:checked),
+.search_details label:has(input[type="checkbox"]:checked) {
+    border-color: #2b78e4 !important;
+    background-color: #e8f0fe !important;
+    font-weight: 600;
+}
+
+/* Zustand-Icons (0 bis 6) nebeneinander in einer Reihe */
+.search_details span.texttoken {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+}
+
+.search_details span.texttoken label {
+    flex: 1 1 auto !important;
+    min-width: 36px !important;
+    padding: 6px 4px !important;
+}
+
+.search_details span.texttoken label img {
+    vertical-align: middle;
+}
+
+/* 9. Kombinierte Inline-Felder (z.B. "Mit Stufe [6] tragbar") */
+.search_details td[colspan="2"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 6px !important;
+}
+
+.search_details td[colspan="2"] label {
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.search_details td[colspan="2"] input[type="text"] {
+    width: 70px !important; /* Kleine Breite für Stufen/Attribut-Werte */
+    text-align: center;
+}
+
+.search_details td[colspan="2"] select {
+    width: auto !important;
+    flex: 1 1 160px;
+}
+
 }
