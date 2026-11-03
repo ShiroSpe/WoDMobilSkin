@@ -4219,87 +4219,23 @@ table.search_short a:not(.button) {
 
 
 /* =========================================================
-   SUCHPROFIL-POPUP (MODAL) MOBIL- & KACHEL-DESIGN
+   SUCHPROFIL-POPUP (MODAL) – REPARIERT & 30x30px KACHELN
    ========================================================= */
 
-/* 1. Hauptfenster zentrieren & an Display anpassen (überschreibt 600x600px) */
-#ajax_editor_container {
-    width: 92vw !important;
-    max-width: 460px !important;
-    height: auto !important;
-    max-height: 85vh !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    margin: 0 !important;
-    background: #181818 !important;
-    border: 1px solid #F7C404 !important;    /* Goldener Rahmen */
-    border-radius: 12px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: hidden !important;
-    z-index: 999999 !important;
-    box-sizing: border-box !important;
-}
-
-/* 2. Titelzeile oben */
-#ajax_editor_title {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background: #111111 !important;
-    border-bottom: 1px solid #333333 !important;
-    padding: 12px 16px !important;
-    margin: 0 !important;
-}
-
-#ajax_editor_title h1 {
-    font-size: 17px !important;
-    font-weight: bold !important;
-    color: #F7C404 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-#ajax_editor_title img {
-    width: 22px !important;
-    height: 22px !important;
-    cursor: pointer !important;
-}
-
-/* 3. Scrollbarer Inhalt */
-#ajax_editor_content {
-    overflow-y: auto !important;
-    padding: 14px !important;
-    flex: 1 1 auto !important;
-    box-sizing: border-box !important;
-    color: #cbd5e1 !important;
-}
-
-#ajax_editor_content h2 {
-    font-size: 15px !important;
-    color: #ffffff !important;
-    margin: 0 0 10px 0 !important;
-}
-
-/* =========================================================
-   SUCHPROFIL-POPUP (MODAL) – KACHELN 30x30px & KLICKBAR
-   ========================================================= */
-
-/* 1. WoD-Schleier (Curtain/Blocker) HINTER das Fenster zwingen */
-#ajax_curtain,
-.ajax_curtain,
-#ajax_blocker,
-.ajax_blocker,
+/* 1. WoD-Schleier (Hintergrund-Abdunklung) HINTER das Fenster zwingen */
+#ajax_editor_bg,
+.ajax_shade_screen,
 div[id*="curtain"],
-div[id*="blocker"],
-div[class*="curtain"],
-div[class*="blocker"] {
-    z-index: 99998 !important;              /* Sitzt hinter dem Fenster */
+div[id*="blocker"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99998 !important;              /* Sitzt HINTER dem Fenster */
 }
 
-/* 2. Fenster unsichtbar halten, bis es aufgerufen wird */
+/* 2. Fenster unsichtbar halten, bis es geöffnet wird */
 #ajax_editor_container.hidden:not([style*="display: block"]),
 #ajax_editor_container[style*="display: none"],
 #ajax_editor_container[style*="display:none"] {
@@ -4307,7 +4243,6 @@ div[class*="blocker"] {
 }
 
 /* 3. Das Hauptfenster GANZ NACH VORNE holen & Klicks aktivieren */
-#ajax_editor,
 #ajax_editor_container {
     position: fixed !important;
     top: 50% !important;
@@ -4330,7 +4265,6 @@ div[class*="blocker"] {
     box-sizing: border-box !important;
 }
 
-/* Alle Klicks im Fenster erlauben */
 #ajax_editor_container * {
     pointer-events: auto !important;
 }
@@ -4396,7 +4330,7 @@ div[class*="blocker"] {
 #ajax_editor_content table.selector tbody {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;                    /* Abstand zwischen den 30px Kacheln */
+    gap: 6px !important;
     width: 100% !important;
     border: none !important;
     background: transparent !important;
@@ -4404,7 +4338,6 @@ div[class*="blocker"] {
     padding: 0 !important;
 }
 
-/* Die quadratische 30x30px Kachel */
 #ajax_editor_content table.selector tr {
     display: inline-flex !important;
     align-items: center !important;
@@ -4415,7 +4348,7 @@ div[class*="blocker"] {
     min-height: 30px !important;
     max-width: 30px !important;
     max-height: 30px !important;
-    flex: 0 0 30px !important;              /* Darf weder wachsen noch schrumpfen */
+    flex: 0 0 30px !important;
     padding: 0 !important;
     background: #242424 !important;
     border: 1px solid #444444 !important;
@@ -4426,10 +4359,9 @@ div[class*="blocker"] {
     transition: all 0.15s ease !important;
 }
 
-/* Ausgewählte Kachel leuchtet gelb */
 #ajax_editor_content table.selector tr:has(input[type="radio"]:checked),
 #ajax_editor_content table.selector tr.selected {
-    background: #FEEA5D !important;
+    background: #F7C404 !important;
     border-color: #F7C404 !important;
     box-shadow: 0 0 8px rgba(247, 196, 4, 0.6) !important;
 }
@@ -4440,13 +4372,11 @@ div[class*="blocker"] {
     font-weight: bold !important;
 }
 
-/* Radio-Kreis und leere Spalten ausblenden */
 #ajax_editor_content table.selector tr td:first-child,
 #ajax_editor_content table.selector tr td:last-child {
     display: none !important;
 }
 
-/* Text / Zahl in der 30x30 Kachel */
 #ajax_editor_content table.selector tr td.pointable {
     color: inherit !important;
     font-size: 13px !important;
@@ -4459,11 +4389,7 @@ div[class*="blocker"] {
     overflow: hidden !important;
 }
 
-/* =========================================================
-   8. AKTIONEN (SPEICHERN, LÖSCHEN, STANDARD)
-   ========================================================= */
-
-/* Kaputtes Warn-Icon ausblenden */
+/* 8. Aktionen (Speichern, Löschen, Standard) */
 #ajax_editor_content img[src*="warning"] {
     display: none !important;
 }
@@ -4482,11 +4408,11 @@ div[class*="blocker"] {
     align-items: center !important;
     gap: 10px !important;
     width: 100% !important;
-    min-height: 40px !important;
-    padding: 8px 12px !important;
+    min-height: 38px !important;
+    padding: 6px 12px !important;
     background: #222222 !important;
     border: 1px solid #3a3a3a !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     color: #e2e8f0 !important;
     font-size: 13px !important;
     text-decoration: none !important;
@@ -4504,16 +4430,12 @@ div[class*="blocker"] {
     flex-shrink: 0 !important;
 }
 
-/* Löschen-Button rot akzentuieren */
 #ajax_editor_content a.button_minor:has(img[src*="delete"]) {
     border-color: #5c2020 !important;
     color: #fca5a5 !important;
 }
 
-/* =========================================================
-   9. FUSSLEISTE: OK & SCHLIESSEN
-   ========================================================= */
-
+/* 9. Fußleiste: OK & Schließen */
 #ajax_editor_buttons {
     display: flex !important;
     gap: 10px !important;
@@ -4543,4 +4465,235 @@ div[class*="blocker"] {
     border: 1px solid #444444 !important;
 }
 
+
+/* ========================================================================
+   ITEM-TABELLE & SCHATZKAMMER (CONTENT_TABLE) -> MOBILE KARTEN
+   ======================================================================== */
+
+table.content_table {
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    margin-top: 10px !important;
+}
+
+table.content_table thead,
+table.content_table tbody,
+table.content_table tfoot {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Doppelte Fuß-Kopfzeile ausblenden */
+table.content_table tfoot tr.header {
+    display: none !important;
+}
+
+/* 1. SAMMEL-AKTIONEN (KOPFZEILE) OBEN ZUSAMMENFASSEN */
+table.content_table thead tr.header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    background: #181818 !important;
+    border: 1px solid #3a3a3a !important;
+    border-radius: 8px !important;
+    padding: 10px 12px !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+}
+
+/* Reine Sortier-Spalten ohne Auswahlboxen ausblenden */
+table.content_table thead tr.header th:not(:has(input)):not(:has(select)) {
+    display: none !important;
+}
+
+/* Sammel-Optionen (Ort, Übergeben an, Verkaufe, Gruppe) als Touch-Leiste */
+table.content_table thead tr.header th:has(input),
+table.content_table thead tr.header th:has(select) {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    border: none !important;
+    padding: 2px 0 !important;
+    font-size: 13px !important;
+    font-weight: normal !important;
+    color: #cbd5e1 !important;
+}
+
+table.content_table thead tr.header select {
+    min-height: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+    background: #242424 !important;
+    border: 1px solid #555 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+}
+
+table.content_table thead tr.header input[type="checkbox"] {
+    width: 22px !important;
+    height: 22px !important;
+    accent-color: #2b78e4 !important;
+    cursor: pointer !important;
+}
+
+/* 2. JEDE ZEILE WIRD ZU EINER EIGENEN ITEM-KARTE */
+table.content_table tbody tr.row0,
+table.content_table tbody tr.row1 {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #181818 !important;
+    border: 1px solid #3a3a3a !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    padding: 10px 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+table.content_table tbody tr.row1 {
+    background: #1c1c1c !important;          /* Minimal heller für Abwechslung */
+}
+
+/* Spalte 1: Item-Nummer oben rechts als Kachel-Badge */
+table.content_table tbody td:first-child {
+    position: absolute !important;
+    top: 8px !important;
+    right: 10px !important;
+    width: auto !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #F7C404 !important;
+    background: #262626 !important;
+    border: 1px solid #444 !important;
+    padding: 2px 7px !important;
+    border-radius: 10px !important;
+    z-index: 2 !important;
+}
+
+/* Spalte 2: Titelzeile des Items (Name, Icons, Sockelsteine) */
+table.content_table tbody td:nth-child(2) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0 35px 8px 0 !important;
+    margin-bottom: 8px !important;
+    border-bottom: 1px solid #2e2e2e !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+    white-space: normal !important;
+}
+
+table.content_table tbody td:nth-child(2) a {
+    font-size: 15px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+/* Alle Daten-Zellen als gleichmäßige Zeilen */
+table.content_table tbody td:not(:first-child):not(:nth-child(2)) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 5px 0 !important;
+    border: none !important;
+    width: 100% !important;
+    font-size: 13px !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. INTELLIGENTE LABELS FÜR SCHATZKAMMER & LAGER (VOR DEM WERT) */
+table.content_table tbody td:has(select[name*="EquipItem"])::before { content: "Ort / Bewegen:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(select[name*="give"])::before,
+table.content_table tbody td:has(select[name*="Give"])::before { content: "Übergeben an:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="SellItemsStore"])::before { content: "Händler (Festpreis):"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="preis_andere"])::before { content: "Marktpreis:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(a[href*="profile.php"]):not(:nth-child(2))::before { content: "Eingelagert von:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="comment"])::before { content: "Kommentar:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="SetGrpItem"])::before { content: "Gruppen-Gegenst.:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(span.item_usable)::before,
+table.content_table tbody td:has(span.item_unusable)::before,
+table.content_table tbody td:has(span.later_usable)::before { content: "Lagerdauer:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:last-child::before { content: "Gefunden:"; font-weight: 600; color: #94a3b8; }
+
+/* Nicht handelbare / leere Felder ausblenden */
+table.content_table tbody td:has(input[name*="preis_andere"]):empty,
+table.content_table tbody td:nth-child(6):not(:has(img)):not(:has(a)) {
+    display: none !important;
+}
+
+/* 4. FORMULARFELDER IN DEN KARTEN */
+table.content_table tbody select {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding: 2px 8px !important;
+    background: #242424 !important;
+    border: 1px solid #555 !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    box-sizing: border-box !important;
+}
+
+table.content_table tbody input[type="checkbox"] {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    accent-color: #2b78e4 !important;
+    cursor: pointer !important;
+    margin-left: 8px !important;
+}
+
+table.content_table tbody input[type="text"] {
+    min-height: 34px !important;
+    height: 34px !important;
+    font-size: 16px !important;             /* Kein iPhone-Zoom */
+    background: #242424 !important;
+    border: 1px solid #555 !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    padding: 0 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Kommentarzeile über volle Breite */
+table.content_table tbody td:has(input[name*="comment"]) {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+}
+
+table.content_table tbody td:has(input[name*="comment"]) input[type="text"] {
+    width: 100% !important;
+}
+
+/* 5. SEITENNAVIGATION (PAGINATOR) */
+table.content_table td.paginator_row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 12px 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+table.content_table td.paginator_row input.paginator_selected,
+table.content_table td.paginator_row input.pagi_but {
+    min-height: 36px !important;
+    min-width: 36px !important;
+    font-size: 15px !important;
+    border-radius: 6px !important;
+}
+
+table.content_table td.paginator_row input.pagi_def {
+    height: 36px !important;
+    font-size: 16px !important;
+    text-align: center;
+}
 }
