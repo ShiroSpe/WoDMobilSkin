@@ -3766,6 +3766,141 @@ body::before {
    MOBILE-FIRST OPTIMIERUNG FÜR DIE SUCHBOX
    =================================================== */
 
+/* =========================================================
+   SCHNELLSUCHE (NAME, SUCHEN, MEHR/WENIGER, HILFE)
+   ========================================================= */
+
+/* 1. Haupt-Rahmen um die gesamte Suche */
+.search_container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 10px !important;
+}
+
+/* 2. Schnellsuch-Tabelle in ein flexibles Mobile-Layout umwandeln */
+table.search_short {
+    display: block !important;
+    width: 100% !important;
+    background: #181818 !important;          /* Dunkler Kasten passend zum Rest */
+    border: 1px solid #3a3a3a !important;   /* Dezente Umrandung */
+    border-radius: 10px !important;
+    padding: 10px 12px !important;
+    box-sizing: border-box !important;
+    margin-bottom: 8px !important;
+}
+
+table.search_short tbody,
+table.search_short tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px 8px !important;
+    width: 100% !important;
+}
+
+/* =========================================================
+   3. ZEILE 1: Name-Eingabefeld & "Suchen"-Button
+   ========================================================= */
+
+/* Die erste Zelle nimmt die volle Breite ein */
+table.search_short td:first-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    color: #e2e8f0 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+/* Das Text-Eingabefeld für den Namen */
+table.search_short input[type="text"][name*="name"] {
+    flex: 1 1 auto !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 12px !important;
+    font-size: 16px !important;             /* Verhindert den iPhone-Auto-Zoom */
+    background: #242424 !important;         /* Dunkles Textfeld */
+    border: 1px solid #555 !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+}
+
+table.search_short input[type="text"][name*="name"]:focus {
+    border-color: #2b78e4 !important;
+    outline: none !important;
+    box-shadow: 0 0 8px rgba(43, 120, 228, 0.4) !important;
+}
+
+/* Der blaue "Suchen"-Button */
+table.search_short a.button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 16px !important;
+    background: #2b78e4 !important;         /* Passendes Blau zum aktiven Schieberegler */
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    cursor: pointer !important;
+}
+
+/* =========================================================
+   4. ZEILE 2: "Mehr / Weniger"-Umschalter & "Hilfe"-Link
+   ========================================================= */
+
+/* Alle weiteren Zellen (Mehr, Weniger, Hilfe) */
+table.search_short td:not(:first-child) {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* WICHTIG: Ausgeblendete Elemente (per WoD-JavaScript) respektieren */
+table.search_short td.hidden,
+table.search_short td[style*="none"] {
+    display: none !important;
+}
+
+/* Die Buttons "Mehr" und "Weniger" */
+table.search_short input.button_minor {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 0 16px !important;
+    background: #262626 !important;
+    border: 1px solid #4a4a4a !important;
+    border-radius: 6px !important;
+    color: #cbd5e1 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+}
+
+/* Der "Hilfe"-Link */
+table.search_short a:not(.button) {
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+}
+
+table.search_short a:not(.button):hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+
 /* Haupt-Container */
 .search_details.box_container {
     width: 100% !important;
@@ -3817,8 +3952,8 @@ body::before {
 /* 5. Überschriften */
 .search_details td.texttoken {
     font-weight: 600;
-    margin-top: 8px !important;
-    margin-bottom: 5px !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
     display: block !important;
     color: inherit;
 }
@@ -3827,13 +3962,13 @@ body::before {
 .search_details select,
 .search_details input[type="text"] {
     font-size: 16px !important;
-    min-height: 30px !important;
-    padding: 8px 10px !important;
+    min-height: 20px !important;
+    padding: 2px 2px !important;
     border-radius: 1px !important;
-    border: 1px solid F7C404 !important;
+    border: 1px solid #F7C404 !important;
     box-sizing: border-box !important;
     width: 100% !important;
-    margin: 4px 0 !important;
+    margin: 2px 0 !important;
 }
 
 /* 7. Doppelte Dropdowns in einer Zeile (z. B. Klasse / Volk oder Trageort / Unique) */
@@ -3991,5 +4126,22 @@ body::before {
     font-weight: bold !important;
     box-shadow: 0 0 10px rgba(43, 120, 228, 0.45) !important; /* Schicker Glow-Effekt */
 }
+
+
+/* =========================================================
+   REIHENFOLGE DER FORMULAR-ZEILEN BESTIMMEN
+   ========================================================= */
+
+/* 1. Den Tabellenkörper für flexible Reihenfolge vorbereiten */
+.search_details tbody {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 2. Standard-Platzierung für alle Zeilen (alles erst mal nach hinten) */
+.search_details tbody tr {
+    order: 99 !important;
+
+
 
 }
