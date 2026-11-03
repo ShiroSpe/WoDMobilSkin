@@ -4660,6 +4660,144 @@ table.content_table tbody input[type="text"] {
     box-sizing: border-box !important;
 }
 
+/* =========================================================
+   ITEM-KARTEN: DIE 4 GEWÜNSCHTEN GRUPPIERUNGEN
+   ========================================================= */
+
+/* Grundvoraussetzung: Karte erlaubt das Nebeneinander-Fließen */
+table.content_table tbody tr.row0,
+table.content_table tbody tr.row1 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px 0 !important;
+}
+
+/* Titelzeile (Item-Name) bleibt immer die volle Zeile (100%) */
+table.content_table tbody td:nth-child(2) {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+}
+
+/* =========================================================
+   GRUPPE 1: "Ort/Bewegen" & "Übergeben an" (je 48% Breite)
+   ========================================================= */
+
+table.content_table tbody td:has(select[name*="EquipItem"]),
+table.content_table tbody td:has(select[name*="give"]),
+table.content_table tbody td:has(select[name*="Give"]) {
+    width: 48% !important;
+    flex: 0 0 48% !important;
+    box-sizing: border-box !important;
+}
+
+table.content_table tbody td:has(select[name*="EquipItem"])::before { content: "Ort:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(select[name*="give"])::before,
+table.content_table tbody td:has(select[name*="Give"])::before { content: "Übergeben:"; font-weight: 600; color: #94a3b8; }
+
+
+/* =========================================================
+   GRUPPE 2: "Verkäufer", "Preis" & "Kaufen" (Marktplatz)
+   Alle 3 in EINER horizontalen Aktions-Zeile
+   ========================================================= */
+
+/* Verkäufer (Name + PM-Brief-Icon) */
+table.content_table tbody td:has(a[href*="profile.php"]):not(:nth-child(2)) {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+}
+table.content_table tbody td:has(a[href*="profile.php"]):not(:nth-child(2))::before {
+    content: "Von:";
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+/* Preis auf dem Markt */
+table.content_table tbody td:has(img[title="Gold"]):not(:has(select)):not(:has(input[name*="SellItemsStore"])) {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    font-weight: bold !important;
+    color: #F7C404 !important;
+    padding: 0 8px !important;
+}
+
+/* Kaufen-Button / Checkbox */
+table.content_table tbody td:has(input[name*="buy"]),
+table.content_table tbody td:has(input[name*="shop"]),
+table.content_table tbody td:has(input[name*="OK"]),
+table.content_table tbody td:has(input[name*="cancel"]) {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    justify-content: flex-end !important;
+}
+
+
+/* =========================================================
+   GRUPPE 3: VERKAUFS-BEREICH (Händler, Markt, Tiefstpreis, etc.)
+   ========================================================= */
+
+/* Die 3 Preise nebeneinander in einer Reihe (je 31% Breite) */
+table.content_table tbody td:has(input[name*="SellItemsStore"]),
+table.content_table tbody td:has(input[name*="preis_andere"]),
+table.content_table tbody td:nth-child(6):not(:has(input)):not(:has(a)) {
+    width: 31% !important;
+    flex: 0 0 31% !important;
+    box-sizing: border-box !important;
+}
+
+table.content_table tbody td:has(input[name*="SellItemsStore"])::before { content: "Händler:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="preis_andere"])::before { content: "Markt:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:nth-child(6):not(:has(input)):not(:has(a))::before { content: "Tiefst:"; font-weight: 600; color: #94a3b8; }
+
+/* Verkaufskommentar (erhält volle Breite darunter, falls vorhanden) */
+table.content_table tbody td:has(input[name*="comment"]) {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    margin-top: 4px !important;
+}
+table.content_table tbody td:has(input[name*="comment"])::before { content: "Kommentar:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(input[name*="comment"]) input[type="text"] { width: 100% !important; }
+
+
+/* =========================================================
+   GRUPPE 4: "Gruppengegenst.", "Lagerdauer" & "Gefunden/Datum"
+   Alle 3 kompakt in EINER Zeile (je 31% Breite)
+   ========================================================= */
+
+table.content_table tbody td:has(input[name*="SetGrpItem"]),
+table.content_table tbody td:has(span.item_usable),
+table.content_table tbody td:has(span.item_unusable),
+table.content_table tbody td:has(span.later_usable),
+table.content_table tbody td:last-child {
+    width: 31% !important;
+    flex: 0 0 31% !important;
+    font-size: 11px !important;
+    box-sizing: border-box !important;
+}
+
+table.content_table tbody td:has(input[name*="SetGrpItem"])::before { content: "Gruppe:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:has(span.item_usable)::before,
+table.content_table tbody td:has(span.item_unusable)::before,
+table.content_table tbody td:has(span.later_usable)::before { content: "Dauer:"; font-weight: 600; color: #94a3b8; }
+table.content_table tbody td:last-child::before { content: "Datum:"; font-weight: 600; color: #94a3b8; }
+
+/* Leere / nicht vorhandene Zellen automatisch unsichtbar machen */
+table.content_table tbody td:empty,
+table.content_table tbody td:has(input[name*="comment"]):empty {
+    display: none !important;
+}
+
+/* 2. Titel & Index bleiben immer über die volle Breite (100%) */
+table.content_table tbody td:nth-child(2) {
+    width: 100% !important;
+}
+
 /* Kommentarzeile über volle Breite */
 table.content_table tbody td:has(input[name*="comment"]) {
     flex-direction: column !important;
