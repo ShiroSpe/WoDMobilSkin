@@ -3762,30 +3762,18 @@ body::before {
     background: transparent !important;
 }
 
-/* ===================================================
-   MOBILE-FIRST OPTIMIERUNG FÜR DIE SUCHBOX
-   =================================================== */
-
 /* =========================================================
-   SCHNELLSUCHE (NAME, SUCHEN, MEHR/WENIGER, HILFE)
+   SCHNELLSUCHE & UMSCHALTER (MEHR / WENIGER / HILFE)
    ========================================================= */
 
-/* 1. Haupt-Rahmen um die gesamte Suche */
-.search_container {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-bottom: 10px !important;
-}
-
-/* 2. Schnellsuch-Tabelle in ein flexibles Mobile-Layout umwandeln */
+/* 1. Tabelle als flexibles Mobile-Layout */
 table.search_short {
     display: block !important;
     width: 100% !important;
-    background: #181818 !important;          /* Dunkler Kasten passend zum Rest */
-    border: 1px solid #3a3a3a !important;   /* Dezente Umrandung */
-    border-radius: 10px !important;
-    padding: 10px 12px !important;
+    background: #181818 !important;
+    border: 1px solid #3a3a3a !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
     box-sizing: border-box !important;
     margin-bottom: 8px !important;
 }
@@ -3796,15 +3784,11 @@ table.search_short tr {
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 10px 8px !important;
+    gap: 8px !important;
     width: 100% !important;
 }
 
-/* =========================================================
-   3. ZEILE 1: Name-Eingabefeld & "Suchen"-Button
-   ========================================================= */
-
-/* Die erste Zelle nimmt die volle Breite ein */
+/* 2. Obere Zeile: Name-Feld & Suchen-Button */
 table.search_short td:first-child {
     display: flex !important;
     align-items: center !important;
@@ -3812,31 +3796,23 @@ table.search_short td:first-child {
     width: 100% !important;
     flex: 1 1 100% !important;
     color: #e2e8f0 !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
 }
 
-/* Das Text-Eingabefeld für den Namen */
 table.search_short input[type="text"][name*="name"] {
     flex: 1 1 auto !important;
-    min-height: 30px !important;
-    height: 30px !important;
-    padding: 0 12px !important;
-    font-size: 16px !important;             /* Verhindert den iPhone-Auto-Zoom */
-    background: #111 !important;         /* Dunkles Textfeld */
+    min-height: 20px !important;
+    height: 20px !important;
+    padding: 0 10px !important;
+    font-size: 16px !important;             /* Verhindert iPhone-Zoom */
+    background: #242424 !important;
     border: 1px solid #F7C404 !important;
-    border-radius: 1px !important;
+    border-radius: 6px !important;
     color: #ffffff !important;
     box-sizing: border-box !important;
 }
 
-table.search_short input[type="text"][name*="name"]:focus {
-    border-color: #2b78e4 !important;
-    outline: none !important;
-    box-shadow: 0 0 8px rgba(43, 120, 228, 0.4) !important;
-}
-
-/* Der blaue "Suchen"-Button */
 table.search_short a.button {
     display: inline-flex !important;
     align-items: center !important;
@@ -3844,63 +3820,71 @@ table.search_short a.button {
     min-height: 20px !important;
     height: 20px !important;
     padding: 0 16px !important;
-    background: #F7C404 !important;         /* Passendes Blau zum aktiven Schieberegler */
+    background: #2b78e4 !important;
     color: #ffffff !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: bold !important;
     text-decoration: none !important;
-    border-radius: 1px !important;
-    border: none !important;
+    border-radius: 6px !important;
     box-sizing: border-box !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
     cursor: pointer !important;
 }
 
 /* =========================================================
-   4. ZEILE 2: "Mehr / Weniger"-Umschalter & "Hilfe"-Link
+   3. DYNAMISCHES UMSCHALTEN FÜR "MEHR" & "WENIGER"
    ========================================================= */
 
-/* Alle weiteren Zellen (Mehr, Weniger, Hilfe) */
-table.search_short td:not(:first-child) {
+/* A: Wenn per JavaScript oder Klasse ausgeblendet -> ZUVERLÄSSIG VERSTECKEN */
+table.search_short td[id*="_more"][style*="none"],
+table.search_short td[id*="_less"][style*="none"],
+table.search_short td.hidden:not([style*="table-cell"]):not([style*="block"]) {
+    display: none !important;
+}
+
+/* B: Wenn aktiv -> SAUBER ALS BUTTON ANZEIGEN */
+table.search_short td[id*="_more"]:not([style*="none"]):not(.hidden),
+table.search_short td[id*="_more"][style*="table-cell"],
+table.search_short td[id*="_more"][style*="block"],
+table.search_short td[id*="_less"]:not([style*="none"]):not(.hidden),
+table.search_short td[id*="_less"][style*="table-cell"],
+table.search_short td[id*="_less"][style*="block"],
+table.search_short td:last-child {
     display: inline-flex !important;
     align-items: center !important;
 }
 
-/* WICHTIG: Ausgeblendete Elemente (per WoD-JavaScript) respektieren */
-table.search_short td.hidden,
-table.search_short td[style*="none"] {
-    display: none !important;
-}
+/* =========================================================
+   4. DAS DESIGN DER BUTTONS "MEHR" & "WENIGER"
+   ========================================================= */
 
-/* Die Buttons "Mehr" und "Weniger" */
-table.search_short input.button_minor
-table.search_short input.button_major  {
-    min-height: 20px !important;
+table.search_short input.button_minor {
+    min-height: 20px !important;            /* 28px verhindert abgeschnittenen Text */
     height: 20px !important;
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     background: #262626 !important;
-    border: 1px solid #F7C404 !important;
-    border-radius: 1px !important;
+    border: 1px solid #F7C404 !important;   /* Dein Goldrand */
+    border-radius: 2px !important;
     color: #cbd5e1 !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
     cursor: pointer !important;
     box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-/* Der "Hilfe"-Link */
+/* Hilfe-Link daneben */
 table.search_short a:not(.button) {
     color: #94a3b8 !important;
     text-decoration: none !important;
     font-size: 13px !important;
-    padding: 6px 10px !important;
+    padding: 4px 8px !important;
 }
 
-table.search_short a:not(.button):hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-}
-
+/* =========================================================
+   Suchbox
+   ========================================================= */
 
 /* Haupt-Container */
 .search_details.box_container {
