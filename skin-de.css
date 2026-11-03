@@ -3823,7 +3823,7 @@ table.search_short input[type="text"][name*="name"] {
     height: 30px !important;
     padding: 0 12px !important;
     font-size: 16px !important;             /* Verhindert den iPhone-Auto-Zoom */
-    background: #242424 !important;         /* Dunkles Textfeld */
+    background: #111 !important;         /* Dunkles Textfeld */
     border: 1px solid #F7C404 !important;
     border-radius: 1px !important;
     color: #ffffff !important;
@@ -3841,15 +3841,15 @@ table.search_short a.button {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 30px !important;
-    height: 30px !important;
+    min-height: 20px !important;
+    height: 20px !important;
     padding: 0 16px !important;
-    background: #2b78e4 !important;         /* Passendes Blau zum aktiven Schieberegler */
+    background: #F7C404 !important;         /* Passendes Blau zum aktiven Schieberegler */
     color: #ffffff !important;
     font-size: 15px !important;
     font-weight: bold !important;
     text-decoration: none !important;
-    border-radius: 8px !important;
+    border-radius: 1px !important;
     border: none !important;
     box-sizing: border-box !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
@@ -3873,13 +3873,14 @@ table.search_short td[style*="none"] {
 }
 
 /* Die Buttons "Mehr" und "Weniger" */
-table.search_short input.button_minor {
-    min-height: 36px !important;
-    height: 36px !important;
+table.search_short input.button_minor
+table.search_short input.button_major  {
+    min-height: 20px !important;
+    height: 20px !important;
     padding: 0 16px !important;
     background: #262626 !important;
-    border: 1px solid #4a4a4a !important;
-    border-radius: 6px !important;
+    border: 1px solid #F7C404 !important;
+    border-radius: 1px !important;
     color: #cbd5e1 !important;
     font-size: 14px !important;
     font-weight: 500 !important;
@@ -4034,7 +4035,7 @@ table.search_short a:not(.button):hover {
 
 /* AKTIVER STATUS (Einheitlich gelb für alle Leisten) */
 .search_details label:has(input[type="radio"]:checked) {
-    background: #FEEA5D !important;
+    background: #F7C404 !important;
     color: #111111 !important;                          /* Dunkler Text für optimale Lesbarkeit auf Gelb */
     font-weight: bold !important;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4) !important;
@@ -4115,8 +4116,8 @@ table.search_short a:not(.button):hover {
 }
 
 /* Platz 4: Mit der Fertigkeit */
-.search_details td:has(+ td select[name$="_skill"]),
-.search_details td:has(select[name$="_skill"]) {
+.search_details td:has(+ td select[name*="_skill"]),
+.search_details td:has(select[name*="_skill"]) {
     order: 4 !important;
 }
 
