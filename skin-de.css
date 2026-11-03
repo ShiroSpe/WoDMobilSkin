@@ -4099,9 +4099,9 @@ table.search_short a:not(.button) {
     order: 3 !important;
 }
 
-/* Platz 4: Mit der Fertigkeit */
-.search_details td:has(+ td select[name*="_skill"]),
-.search_details td:has(select[name*="_skill"]) {
+/* Platz 4: "Fertigkeit:" (nur item_Xskill) */
+.search_details td:has(+ td select[name$="skill"]:not([name*="any"])),
+.search_details td:has(select[name$="skill"]:not([name*="any"])) {
     order: 4 !important;
 }
 
@@ -4138,9 +4138,9 @@ table.search_short a:not(.button) {
     order: 9 !important;
 }
 
-/* Platz 10: Bonus auf Fertigkeit */
-.search_details td:has(+ td [name*="any_skill"]:not([name*="class"])),
-.search_details td:has([name*="any_skill"]:not([name*="class"])) {
+/* Platz 10: "> Fertigkeit:" */
+.search_details td:has(+ td select[name$="any_skill"]),
+.search_details td:has(select[name$="any_skill"]) {
     order: 10 !important;
 }
 
@@ -4215,6 +4215,216 @@ table.search_short a:not(.button) {
 .search_details td:has([name*="hide_my_sales"]),
 .search_details td:has([name*="show_my_bids"]) {
     order: 20 !important;
+}
+
+
+/* =========================================================
+   SUCHPROFIL-POPUP (MODAL) MOBIL- & KACHEL-DESIGN
+   ========================================================= */
+
+/* 1. Hauptfenster zentrieren & an Display anpassen (überschreibt 600x600px) */
+#ajax_editor_container {
+    width: 92vw !important;
+    max-width: 460px !important;
+    height: auto !important;
+    max-height: 85vh !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    background: #181818 !important;
+    border: 1px solid #F7C404 !important;    /* Goldener Rahmen */
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Titelzeile oben */
+#ajax_editor_title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #111111 !important;
+    border-bottom: 1px solid #333333 !important;
+    padding: 12px 16px !important;
+    margin: 0 !important;
+}
+
+#ajax_editor_title h1 {
+    font-size: 17px !important;
+    font-weight: bold !important;
+    color: #F7C404 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#ajax_editor_title img {
+    width: 22px !important;
+    height: 22px !important;
+    cursor: pointer !important;
+}
+
+/* 3. Scrollbarer Inhalt */
+#ajax_editor_content {
+    overflow-y: auto !important;
+    padding: 14px !important;
+    flex: 1 1 auto !important;
+    box-sizing: border-box !important;
+    color: #cbd5e1 !important;
+}
+
+#ajax_editor_content h2 {
+    font-size: 15px !important;
+    color: #ffffff !important;
+    margin: 0 0 10px 0 !important;
+}
+
+/* =========================================================
+   4. SUCHPROFILE ALS KACHELN
+   ========================================================= */
+
+/* Die Tabelle wird zum flexiblen Kachel-Raster */
+#ajax_editor_content table.selector,
+#ajax_editor_content table.selector tbody {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    margin-bottom: 14px !important;
+    padding: 0 !important;
+}
+
+/* Jede Zeile wird zu einer Touch-Kachel */
+#ajax_editor_content table.selector tr {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px 14px !important;
+    background: #242424 !important;
+    border: 1px solid #444444 !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    flex: 1 1 calc(50% - 8px) !important;    /* 2 Kacheln nebeneinander */
+    transition: all 0.2s ease !important;
+}
+
+/* Aktive/Ausgewählte Kachel */
+#ajax_editor_content table.selector tr:has(input[type="radio"]:checked),
+#ajax_editor_content table.selector tr.selected {
+    background: #FEEA5D !important;
+    border-color: #F7C404 !important;
+    box-shadow: 0 0 10px rgba(247, 196, 4, 0.4) !important;
+}
+
+#ajax_editor_content table.selector tr:has(input[type="radio"]:checked) td,
+#ajax_editor_content table.selector tr.selected td {
+    color: #111111 !important;
+    font-weight: bold !important;
+}
+
+/* Radio-Kreis und leere Zellen in der Kachel verstecken */
+#ajax_editor_content table.selector tr td:first-child,
+#ajax_editor_content table.selector tr td:last-child:empty {
+    display: none !important;
+}
+
+#ajax_editor_content table.selector tr td.pointable {
+    color: inherit !important;
+    font-size: 14px !important;
+    padding: 0 !important;
+    border: none !important;
+    text-align: center !important;
+}
+
+/* =========================================================
+   5. DIE AKTIONEN (STANDARD, SPEICHERN, LÖSCHEN)
+   ========================================================= */
+
+/* Leere Absätze ausblenden */
+#ajax_editor_content div[id^="SearchProfileEditor"] p:empty,
+#ajax_editor_content div[id^="SearchProfileEditor"] p:has(>&nbsp;:only-child) {
+    display: none !important;
+}
+
+#ajax_editor_content div[id^="SearchProfileEditor"] p:has(a.button_minor) {
+    margin: 6px 0 !important;
+    padding: 0 !important;
+}
+
+/* Buttons als breite Touch-Balken */
+#ajax_editor_content a.button_minor {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    min-height: 40px !important;
+    padding: 8px 12px !important;
+    background: #222222 !important;
+    border: 1px solid #3a3a3a !important;
+    border-radius: 8px !important;
+    color: #e2e8f0 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+}
+
+#ajax_editor_content a.button_minor:active {
+    background: #2c2c2c !important;
+    border-color: #F7C404 !important;
+}
+
+#ajax_editor_content a.button_minor img {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Spezieller Akzent für den Löschen-Button */
+#ajax_editor_content a.button_minor:has(img[src*="delete"]) {
+    border-color: #5c2020 !important;
+    color: #fca5a5 !important;
+}
+
+/* =========================================================
+   6. FUSSLEISTE: OK- & SCHLIESSEN-BUTTON
+   ========================================================= */
+
+#ajax_editor_buttons {
+    display: flex !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+    background: #111111 !important;
+    border-top: 1px solid #333333 !important;
+    box-sizing: border-box !important;
+}
+
+#ajax_editor_buttons button {
+    flex: 1 1 50% !important;
+    min-height: 42px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+#ajax_editor_buttons button.button {
+    background: #2b78e4 !important;
+    color: #ffffff !important;
+}
+
+#ajax_editor_buttons button.button_minor {
+    background: #2a2a2a !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #444444 !important;
 }
 
 }
